@@ -19,8 +19,7 @@ able to run the same playbook against the different sets of F5 devices.
 
 | **Playbook:** | **Description:** |
 |-|-|
- |workshop_lab_part_1.yml |Ansible playbook that gathers all the F5-BIGIP
-Balanced Services (that is, virtual servers and pools) on a specific month.|
+ |workshop_lab_part_1.yml |Ansible playbook that gathers all the F5-BIGIP Balanced Services (that is, virtual servers and pools) on a specific month.|
 
 ## 2. Activities
 

@@ -1,24 +1,26 @@
 # Ansible Workshop part 1: Entry level
 
-*Jordi Bericat*
-*jordi.bericat@global.ntt*
-*NTT - Managed Services - IALAB*
-
 ## 1. Introduction
 
-This is a PoC demo lab where we use Ansible inventory files to reach the F5
+This is an elementary PoC demo lab where we will show-off the basics of ansible
+automation.
+
+Here, our main goal will be to demonstrate how we can execute a CLI command
+on several network devices in an automated way, considering that these devices
+belong to different environments. On this very example we're going to automate
+the gathering of data from F5-BIGIP devices, but they could be any
+kind of network device (either physical or virtualized), server, or whatever
+system accessible through SSH.
+
+To do so, we are going to use several Ansible inventory files to reach the F5
 devices through the SSH port. More precisely we will set three inventory files
 for multiple environments (development, staging and production), so we will be
 able to run the same playbook against the different sets of F5 devices.
 
-**Playbook:**
-
-ANSCGR001_001_AAP-STATS_F5-BIGIP_v1.yml
-
-**Description:**
-
-Ansible playbook that gathers all the F5-BIGIP Balanced Services (that is,
-virtual servers and pools) on a specific month.
+| **Playbook:** | **Description:** |
+|-|-|
+ |workshop_lab_part_1.yml |Ansible playbook that gathers all the F5-BIGIP
+Balanced Services (that is, virtual servers and pools) on a specific month.|
 
 ## 2. Activities
 

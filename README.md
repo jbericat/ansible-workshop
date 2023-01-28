@@ -1,45 +1,46 @@
-# Proyecto de automatización de dispositivos de red "F5-BIGIP" para //ABANCA
+# Ansible Workshop
 
-- **Código del desarrollo:** ANSCGR001
-- **Versión:** 0.0.1
-- **Plataforma de automatización:** AWX (EE 2.13)
+## 1. Workshop Stages - Table of contents
 
-  - [https://awx.abanca.com](https://awx.abanca.com)
+| Stage | Resource |
+|-|-|
+| Presentation Speech - The whole picture | TBD (Power Point / OneNote) |
+| Demostration Lab part 1 - Introduction to Ansible | [](doc/workshop_lab_part_1.md) |
+| Demostration Lab part 2 - Automation deployment with Ansible | [](doc/workshop_lab_part_2.md) |
+| Beyond the Workshop - Where to learn more about Ansible & AAP | TBD (Websites, Linked-in Trainings, Books, Social, Events) |
 
-## Documentación del proyecto
+## 2. Environments
 
-Toda la documentación relacionada con este proyecto se encuentra recopilada en la [Wiki]() del mismo.
+### 2.1. Common: Ansible Execution Environment (EE)
 
-## Características implementadas
+- Ansible Core 2.13.7
+- F5-BIGIP 15.1.5.1 Build 0.230.14
+- F5-Modules imperative collection for Ansible 1.16.0
+- Python 3.9.13
 
-|código de desarrollo|Descripción|Ejecución en Ansible Tower|
-|-|-|-|
-|[ANSCGR001/001 - AAP-STATS]|Estadísticas de automatización F5-BIGIP|[Lanzar automatización]()|
-|[ANSCGR001/002 - AAP-STATS]|Estadísticas de automatización vCenter/NSX-T|[Lanzar automatización]()|
+### 2.2. Development Environment
 
-Consulte la sección de control de cambios (changelog) para más información
-
-## Entorno de desarrollo
-
-- [Version Ansible Core : 2.13.7](https://docs.ansible.com/ansible/2.9/)
-- F5-Modules Collection: Ansible Built-in + [Galaxy collections 1.16.0](https://docs.ansible.com/ansible/latest/collections/f5networks/f5_modules/index.html)
-- VMWare Community
-- VMWARE NSX-T for Ansible
-- Version Ansible Tower: 4.1.2
-- Version AWX: 21.8.0
-- Version Python: 3.8.13
-- Centos 9 Stream KVM Hypervisor
+- qemu-kvm 7.1.0-3.el9 on Centos 9 Stream
 - GNS3 2.2.33.1
+- Kubernetes 1.25.3 / Minikube 1.28.0 on Ubuntu 20.04
+- Ansible AWX 21.8.0 -> [awx.dev.cgr-lab.lan](http://awx.dev.cgr-lab.lan)
 
-## Control de cambios
+### 2.3. Staging Environment
 
-[https://gitlab.abanca.io/KRHA/teamteleco/cgr/network_automation/ANSCGR001/-/releases/]()
+- qemu-kvm 2.4.0 on RHEL 8
+- EVE-ng 4.0.1-86-PRO
+- Kubernetes 1.25.3 / Minikube 1.28.0 on Ubuntu 20.04
+- Ansible AWX 21.8.0 -> [awx.staging.cgr-lab.lan](http://awx.staging.cgr-lab.lan)
 
-## Créditos
+### 2.4. Production Environment
 
-- *Jordi Bericat Ruz - CGR //ABANCA*
+- Red Hat OpenShift
+- Ansible Automation Platform (Ansible Tower) 4.1.2 -> [tower.abanca.com](tower.abanca.com)
+
+## 3. Credits
+
+- *Jordi Bericat Ruz*
 - *jordi.bericat@global.ntt*
-- *jbericat@externos.abanca.com*
-- *NTT Spain S.L.U. - Managed Services - IALAB*
+- *NTT Spain S.L. - Managed Services (CGR //ABANCA) - IALAB*
 
 ------------------------------

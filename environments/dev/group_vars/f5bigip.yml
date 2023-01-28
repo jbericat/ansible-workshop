@@ -1,0 +1,9 @@
+---
+f5_provider:
+  user: admin
+  password: CGR123ABANCA
+  server: "{{ inventory_hostname }}"
+  server_port: 443
+  validate_certs: no
+  transport: rest
+...

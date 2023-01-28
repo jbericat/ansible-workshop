@@ -1,0 +1,11 @@
+[f5bigip]
+f5bigip[01:03].staging.cgr-lab.lan
+
+[vcenter]
+vcenter[01:02].staging.cgr-lab.lan
+
+[nsxt]
+nsx[01:02].staging.cgr-lab.lan
+
+[linux_servers]
+minikube.cgr-lab.lan

@@ -1,0 +1,77 @@
+###############################################################################
+# Playbook:    ANSCGR001_001_AAP-STATS_F5-BIGIP_v2.yml
+#
+# Description: 
+#
+#           4. Run a playbook using an ansible-galaxy collection module via REST API
+#              ----------------------------------------------------------------------
+#
+#              ACTIVITY 3: Create Ansible EE
+#              ----------
+#
+#              deactivate venv
+#              ansible-builder
+#
+#              ACTIVITY 4: Run a playbook using EE's instead of venvs via CLI / TUI
+#              ----------
+#
+#              ansible-navigator on DEV & STAGING (using EE but no vault)
+#
+#
+#              ACTIVITY 5: Encypting sensitive data with ansible Vault
+#              ----------
+#
+#              Encrypt password with vault (encrypt string)
+#
+#              ACTIVITY 6: Installing AWX for DEV & STAGING environments
+#              ----------
+#
+#              install minikube
+#              install AWX
+#
+#              ACTIVITY 7: Create AWX / Tower objects using Ansible galaxy collections (CaC)
+#              ----------
+#
+#              ACTIVITY 8: Real use case - Run a Playbook Using EE's and vault on AWX / Tower
+#              ----------
+#
+#              AWX on DEV & STAGING (using EE and vault)
+#
+#
+# Author:      Jordi Bericat
+#              jordi.bericat@global.ntt
+#              NTT - Managed Services - IA LAB
+###############################################################################
+---
+- hosts: all
+  gather_facts: no
+  tasks:
+
+- name: >
+    PLAYBOOK - "ANSCGR001/001 - AAP-STATS - Version 2 (REST via Ansible
+    inventory file)
+  hosts: all
+  gather_facts: no
+  tasks:
+
+  - name: > 
+      1.1. Pinging [{{ ansible_host }}] device / server from the
+      [{{ devices_environment }}] environment
+    ansible.builtin.ping:
+
+  - name: >
+      2.1. Gathering all the balanced services created for the
+      [{{ ansible_host }}] from the [{{ devices_environment }}]
+      environment via REST
+    f5networks.f5_modules.bigip_command:
+      provider: "{{ f5_provider }}"
+      commands: list ltm virtual creation-time description | grep -A 1 '{{ date_stats }}' | grep 'Ansible' -c
+    register: results
+    delegate_to: localhost
+
+  - name: 2.2. SHOW RESULTS
+    debug:
+      msg: >
+        total balanced services created on [{{ date_stats }}] =
+        [{{ results.stdout|default(none) }}]
+...

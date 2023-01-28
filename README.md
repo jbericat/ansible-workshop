@@ -24,6 +24,7 @@
 - GNS3 2.2.33.1
 - Kubernetes 1.25.3 / Minikube 1.28.0 on Ubuntu 20.04
 - Ansible AWX 21.8.0 -> [awx.dev.cgr-lab.lan](http://awx.dev.cgr-lab.lan)
+- GitHub Enterprise -> <https://github.com/NTT-EU-ES/>
 
 ### 2.3. Staging Environment
 
@@ -31,11 +32,13 @@
 - EVE-ng 4.0.1-86-PRO
 - Kubernetes 1.25.3 / Minikube 1.28.0 on Ubuntu 20.04
 - Ansible AWX 21.8.0 -> [awx.staging.cgr-lab.lan](http://awx.staging.cgr-lab.lan)
+- GitHub Enterprise -> <https://github.com/NTT-EU-ES/>
 
 ### 2.4. Production Environment
 
 - Red Hat OpenShift
 - Ansible Automation Platform (Ansible Tower) 4.1.2 -> [tower.abanca.com](tower.abanca.com)
+- GiLab -> <https://abanca.gitlab.com>
 
 ## 3. Credits
 

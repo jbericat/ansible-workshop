@@ -1,6 +1,9 @@
 # Ansible Workshop part 1: Introduction to Ansible
 
+## Table of Contents
+
 - [Ansible Workshop part 1: Introduction to Ansible](#ansible-workshop-part-1-introduction-to-ansible)
+  - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Activities](#activities)
     - [1. Preparing the developer workstation](#1-preparing-the-developer-workstation)

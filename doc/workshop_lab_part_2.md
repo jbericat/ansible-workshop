@@ -1,6 +1,9 @@
 # Ansible Workshop part 2: Automation deployment with Ansible
 
+## Table of Contents
+
 - [Ansible Workshop part 2: Automation deployment with Ansible](#ansible-workshop-part-2-automation-deployment-with-ansible)
+  - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Activities](#activities)
     - [1. Create an Ansible EE for this use case](#1-create-an-ansible-ee-for-this-use-case)

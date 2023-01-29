@@ -4,15 +4,15 @@
     on multiple environments using Ansible inventory files)
   hosts: all
   vars_files:
-    - host_vars/
+    - "{{ inventory_dir + '/.vault/f5bigip.yml' }}"
   gather_facts: no
   tasks:
 
   - name: >
       1. Gathering all the balanced services created for the
-      [{{ inventory_hostname }}] F5-BIGIP device from the 
-      [{{ inventory_file|regex_replace(playbook_dir,'') }}] inventory via 
-      REST
+      [{{ inventory_hostname }}] F5-BIGIP device from the
+      [{{ inventory_file|regex_replace(playbook_dir,'') }}] inventory
+      via REST
     f5networks.f5_modules.bigip_command:
       provider: "{{ f5_provider }}"
       commands: > 

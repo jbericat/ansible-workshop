@@ -41,12 +41,14 @@ able to run the same playbook against the different sets of F5 devices.
 |Indent rainbow|oderwaty|Optional|
 |Material icon|Philipp Kief|Optional|
 
-### 2. Create a python venv to run Ansible locally from the CLI
+### 2. Setting-ip the Git repository
+
+### 2. Creating a python venv to run Ansible locally from the CLI
 
 Since on this PoC version we still don't integrate the so called Ansible
-Execution Environments, then we're g must first configure a python venv prior the  execution and then install the
-ansible packages, as well as the f5-bigip imperative modules collection for
-ansible.
+Execution Environments, then we're g must first configure a python venv
+**ON ALL THE ENVIRONMENTS** prior the execution and then install the ansible
+packages, as well as the f5-bigip imperative modules collection for ansible.
 
 ```bash
 python3 -m venv ansible_venv
@@ -106,13 +108,13 @@ ansible-playbook -i environments/prod workshop_lab_part_1.yml \
 
 **PROS**
 
-- We can execute the same tmsh command on different F5 devices at once
+- We reach a certain level of task automation to execute the same tmsh command on different F5 devices at once
 
 **CONS**
 
 - not fully automated (we must type the password each time), so it does not scale well
-- Environment not portable
-- Not user friendly
+- Environment not portable (we must replicate the venv on all the environment, which is painful and prone to deadlocks due to possible OS package dependencies that cannot be met and so on)
+- Not user friendly at all (not skilled CLI users would have a bad time trying to run these commands by themselves)
 
 ### 4. Run a playbook using ansible's built-in modules via SSH using a private key
 

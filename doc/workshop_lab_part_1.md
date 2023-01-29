@@ -1,6 +1,32 @@
 # Ansible Workshop part 1: Introduction to Ansible
 
-[TOC]
+- [Ansible Workshop part 1: Introduction to Ansible](#ansible-workshop-part-1-introduction-to-ansible)
+  - [Introduction](#introduction)
+  - [Activities](#activities)
+    - [1. Preparing the developer workstation](#1-preparing-the-developer-workstation)
+    - [2. Setting-ip the Git repository](#2-setting-ip-the-git-repository)
+      - [2.1. Creating the repository](#21-creating-the-repository)
+      - [2.2. Creating the deploy keys](#22-creating-the-deploy-keys)
+        - [2.2.1. Creating the RW personal SSH key](#221-creating-the-rw-personal-ssh-key)
+        - [2.2.2. Creating the RO personal deploy key](#222-creating-the-ro-personal-deploy-key)
+        - [2.3. Deploying both public keys on GitHub](#23-deploying-both-public-keys-on-github)
+      - [2.4. Adding both private keys on the pipeline environments](#24-adding-both-private-keys-on-the-pipeline-environments)
+    - [3. Creating a python venv to run Ansible locally from the CLI](#3-creating-a-python-venv-to-run-ansible-locally-from-the-cli)
+    - [4. Creating a playbook using ansible's built-in modules to run an automation via SSH using interactive authentication](#4-creating-a-playbook-using-ansibles-built-in-modules-to-run-an-automation-via-ssh-using-interactive-authentication)
+      - [4.1. Development environment](#41-development-environment)
+      - [4.2. Staging environment](#42-staging-environment)
+      - [4.3. Production environment](#43-production-environment)
+    - [4.4. Summing-up: Pros and cons of this ansible automation method](#44-summing-up-pros-and-cons-of-this-ansible-automation-method)
+      - [4.5. Documenation references](#45-documenation-references)
+    - [5. Running the playbook using ansible's built-in modules via SSH using a private key](#5-running-the-playbook-using-ansibles-built-in-modules-via-ssh-using-a-private-key)
+      - [5.1. Creating the ssh-key](#51-creating-the-ssh-key)
+      - [5.2. Deploying the public key on the remote F5-devices devices](#52-deploying-the-public-key-on-the-remote-f5-devices-devices)
+      - [5.3. Adding the private key identity on the Ansible's control node](#53-adding-the-private-key-identity-on-the-ansibles-control-node)
+      - [5.4. Running the playbook seamlessly (with no interaction)](#54-running-the-playbook-seamlessly-with-no-interaction)
+        - [5.4.1. Development environment](#541-development-environment)
+        - [5.4.2. Staging \& Production environment](#542-staging--production-environment)
+        - [5.4.3. Summing-up: Pros and cons of this ansible automation method](#543-summing-up-pros-and-cons-of-this-ansible-automation-method)
+        - [5.4.5. Documentation references](#545-documentation-references)
 
 ## Introduction
 

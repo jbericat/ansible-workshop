@@ -1,6 +1,16 @@
 # Ansible Workshop part 2: Automation deployment with Ansible
 
-[[TOC]]
+- [Ansible Workshop part 2: Automation deployment with Ansible](#ansible-workshop-part-2-automation-deployment-with-ansible)
+  - [Introduction](#introduction)
+  - [Activities](#activities)
+    - [1. Create an Ansible EE for this use case](#1-create-an-ansible-ee-for-this-use-case)
+    - [2. Deploy the EE on vscode](#2-deploy-the-ee-on-vscode)
+    - [3. Run a playbook using EE's instead of venvs via TUI](#3-run-a-playbook-using-ees-instead-of-venvs-via-tui)
+    - [4. Encrypting sensitive data with ansible Vault](#4-encrypting-sensitive-data-with-ansible-vault)
+    - [5. Installing AWX for DEV \& STAGING environments](#5-installing-awx-for-dev--staging-environments)
+    - [6. Create AWX / Tower objects using Ansible galaxy collections (CaC)](#6-create-awx--tower-objects-using-ansible-galaxy-collections-cac)
+    - [7. Conclusion (Real use case) - Run a Playbook Using EE's and vault on AWX / Tower](#7-conclusion-real-use-case---run-a-playbook-using-ees-and-vault-on-awx--tower)
+
 
 ## Introduction
 

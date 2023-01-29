@@ -43,7 +43,65 @@ able to run the same playbook against the different sets of F5 devices.
 
 ### 2. Setting-ip the Git repository
 
-### 2. Creating a python venv to run Ansible locally from the CLI
+#### 2.1. Creating the repository
+
+First we need to create the repository on the Git platform of our choice. Once
+done, we can use it's ssh uri to access the repo from all three environments
+(dev, staging & prod).
+
+| GitHub ssh uri |
+|- |
+| git@github.com:NTT-EU-ES/ialab-ansible-workshop.git |
+
+#### 2.2. Creating the deploy keys
+
+For the sake of agility accessing the repo though, we're going to create an ssh
+private/public key pair and use it as a deployment key. To be on the safe side
+though, we're going to create two different pairs; one with RW access to use on
+the development environment and a second one with only RO permissions to use on
+both the staging and production environment. This way we increase the security
+of our work and we also avoid messing-out our developments by pushing-up code
+by mistake from the wrong environment.
+
+We can create both pairs from our developer workstation:
+
+##### 2.2.1. Creating the RW deploy key
+
+```bash
+ssh-keygen -t ed25519 -C "jordi.bericat@global.ntt"
+```
+
+- **Private key:** /home/jbericat/.ssh/id_ed25519_ansible_workshop
+- **Public key:** /home/jbericat/.ssh/id_ed25519_ansible_workshop.pub
+- **password:** MySuperSecretPassword (or not!)
+
+##### 2.2.2. Creating the RO deploy key
+
+```bash
+ssh-keygen -t ed25519 -C "jordi.bericat@global.ntt"
+```
+
+##### 2.3. Deploying both public keys on GitHub
+
+TBD PASTE SCREENSHOTS USING GITHUB WEB UI
+
+#### 2.4. Adding both private keys on the pipeline environments
+
+**DEV ENVIRONMENT**
+
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519_ansible_workshop_RW
+```
+
+**STAGING & PROD ENVIRONMENTS**
+
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519_ansible_workshop_RO
+```
+
+### 3. Creating a python venv to run Ansible locally from the CLI
 
 Since on this PoC version we still don't integrate the so called Ansible
 Execution Environments, then we're g must first configure a python venv
@@ -58,20 +116,31 @@ ansible-galaxy collection install f5networks.f5_modules:=1.16.0
 sudo apt-get install sshpass
 ```
 
+Tip: Do not forget to add a .gitignore file on the repository root to tell git
+not to sync the venv on the repository.
+
 **IMPORTANT NOTICE:** Do not install the sshpass apt package on the
 staging environment yet, so we can point out the benefits of using
-Ansible EE's instead of venvs.
+Ansible EE's instead of setting-up the Ansible's control node OS
 
-### 3. Run a playbook using ansible's built-in modules via SSH using interactive authentication
+### 4. Creating a playbook using ansible's built-in modules to run an automation via SSH using interactive authentication
 
-Once the venv is configured, we will use the ansible-playbook command from the
-CLI to run the automation, just setting the different inventory files as
-arguments when running the command (-i), as well as the device's groups we'll
-connect to (-l). On this first activity though, we won't be storing any private
-key on the Ansibles control node (that is, we just type the device's ssh
-password interactively at the moment of the playbook execution).
+Now we're going to write a plabook to run the ansible automation we described
+on the introduction section:
 
-#### 3.1. Development environment
+```yaml
+TBD - PASTE PART 1 PB HERE
+```
+
+Once the venv and the playook itself are on place, we will use the
+ansible-playbook command from the CLI to run the automation, just setting the
+different inventory files as arguments when running the command (-i), as well
+as the device's groups we'll connect to (-l). On this first activity though,
+we won't be storing any private key on the Ansibles control node (that is, we
+just type the device's ssh password interactively at the moment of the playbook
+execution).
+
+#### 4.1. Development environment
 
 ```bash
 ansible-playbook -i environments/dev workshop_lab_part_1.yml \
@@ -82,7 +151,7 @@ ansible-playbook -i environments/dev workshop_lab_part_1.yml \
  --ask-pass
 ```
 
-#### 3.2. Staging environment
+#### 4.2. Staging environment
 
 ```bash
 ansible-playbook -i environments/staging workshop_lab_part_1.yml \
@@ -93,7 +162,7 @@ ansible-playbook -i environments/staging workshop_lab_part_1.yml \
  --ask-pass
 ```
 
-#### 3.3. Production environment
+#### 4.3. Production environment
 
 ```bash
 ansible-playbook -i environments/prod workshop_lab_part_1.yml \
@@ -104,7 +173,7 @@ ansible-playbook -i environments/prod workshop_lab_part_1.yml \
  --ask-pass
 ```
 
-### 3.4. Summing-up: Pros and cons of this ansible automation method
+### 4.4. Summing-up: Pros and cons of this ansible automation method
 
 **PROS**
 
@@ -116,9 +185,9 @@ ansible-playbook -i environments/prod workshop_lab_part_1.yml \
 - Environment not portable (we must replicate the venv on all the environment, which is painful and prone to deadlocks due to possible OS package dependencies that cannot be met and so on)
 - Not user friendly at all (not skilled CLI users would have a bad time trying to run these commands by themselves)
 
-### 4. Run a playbook using ansible's built-in modules via SSH using a private key
+### 5. Run a playbook using ansible's built-in modules via SSH using a private key
 
-#### 4.1. Creating the ssh-key
+#### 5.1. Creating the ssh-key
 
 ```bash
 ssh-keygen -t ed25519
@@ -128,7 +197,7 @@ ssh-keygen -t ed25519
 - **Public key:** /home/jbericat/.ssh/id_ed25519_f5bigip.pub
 - **password:** 123456
 
-#### 4.2. Deploying the public key on the remote F5-devices devices
+#### 5.2. Deploying the public key on the remote F5-devices devices
 
 ```bash
 scp /home/jbericat/.ssh/id_ed25519_f5bigip.pub admin@f5bigip01.dev.cgr-lab.lan:/home/admin/.ssh/authorized_keys
@@ -137,18 +206,18 @@ scp /home/jbericat/.ssh/id_ed25519_f5bigip.pub admin@f5bigip01.staging.cgr-lab.l
 scp /home/jbericat/.ssh/id_ed25519_f5bigip.pub admin@f5bigip03.staging.cgr-lab.lan:/home/admin/.ssh/authorized_keys
 ```
 
-#### 4.3. Adding the private key identity on the Ansible's control node
+#### 5.3. Adding the private key identity on the Ansible's control node
 
 ```bash
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519_f5bigip
 ```
 
-#### 4.4. Running the playbook seamlessly (with no interaction)
+#### 5.4. Running the playbook seamlessly (with no interaction)
 
 Now we can run the playbook without human interaction at all, which is kind off cool :)
 
-##### 4.4.1. Development environment
+##### 5.4.1. Development environment
 
 ```bash
 ansible-playbook -i environments/dev workshop_lab_part_1.yml \
@@ -159,20 +228,20 @@ ansible-playbook -i environments/dev workshop_lab_part_1.yml \
  --private-key ~/.ssh/id_ed25519_f5bigip
 ```
 
-##### 4.4.2. Staging environment
+##### 5.4.2. Staging environment
 
 ```bash
 ansible-playbook -i 
 ```
 
-##### 4.4.3. Production environment
+##### 5.4.3. Production environment
 
 We won't perform this activity on those environments since we're not
 allowed to transfer not-validated public keys to the production F5 devices for
 security reasons. Anyway, I'm sure you all got the point already from the
 previous activity, so there is no need to do it again.
 
-##### 4.4.4. Summing-up: Pros and cons of this ansible automation method
+##### 5.4.4. Summing-up: Pros and cons of this ansible automation method
 
 **PROS**
 
@@ -184,7 +253,7 @@ previous activity, so there is no need to do it again.
 - Environment not portable
 - Not user friendly
 
-##### 4.4.5. To know more
+##### 5.4.5. To know more
 
 <https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ssh_connection.html>
 <https://medium.com/openinfo/ansible-ssh-private-public-keys-and-agent-setup-19c50b69c8c>

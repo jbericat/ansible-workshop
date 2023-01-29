@@ -65,7 +65,7 @@ by mistake from the wrong environment.
 
 We can create both pairs from our developer workstation:
 
-##### 2.2.1. Creating the RW deploy key
+##### 2.2.1. Creating the RW personal SSH key
 
 ```bash
 ssh-keygen -t ed25519 -C "jordi.bericat@global.ntt"
@@ -75,7 +75,7 @@ ssh-keygen -t ed25519 -C "jordi.bericat@global.ntt"
 - **Public key:** /home/jbericat/.ssh/id_ed25519_ansible_workshop.pub
 - **password:** MySuperSecretPassword (or not!)
 
-##### 2.2.2. Creating the RO deploy key
+##### 2.2.2. Creating the RO personal deploy key
 
 ```bash
 ssh-keygen -t ed25519 -C "jordi.bericat@global.ntt"

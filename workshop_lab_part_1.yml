@@ -7,20 +7,25 @@
   tasks:
 
   - name: > 
-      1.1. Pinging [{{ ansible_host }}] device / server from the
-      [{{ devices_environment }}] environment
+      1. Testing the SSH connection to the [{{ inventory_hostname }}] 
+      F5-BIGIP device from the 
+      [{{ inventory_file|regex_replace(playbook_dir,'') }}] inventory
     ansible.builtin.ping:
 
   - name: >
-      2.1. Gathering all the balanced services created for the
-      [{{ ansible_host }}] from the [{{ devices_environment }}]
-      environment via SSH
+      2. Gathering all the balanced services created for the
+      [{{ inventory_hostname }}] F5-BIGIP device from the 
+      [{{ inventory_file|regex_replace(playbook_dir,'') }}] inventory via 
+      SSH
     ansible.builtin.shell:
-      cmd: tmsh list ltm virtual creation-time description | grep -A 1 '{{ date_stats }}' | grep '{{ automation_id }}' -c
+      cmd: >
+        tmsh list ltm virtual creation-time description |
+        grep -A 1 '{{ date_stats }}' |
+        grep '{{ automation_id }}' -c
     register: results
     ignore_errors: true
 
-  - name: 2.2. SHOW RESULTS
+  - name: 3. SHOW RESULTS
     debug:
       msg: >
         total balanced services created on [{{ date_stats }}] =

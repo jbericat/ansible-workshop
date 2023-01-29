@@ -1,6 +1,6 @@
 # Ansible Workshop part 1: Entry level
 
-## 1. Introduction
+## Introduction
 
 This is an elementary PoC demo lab where we will show-off the basics of ansible
 automation.
@@ -19,11 +19,11 @@ able to run the same playbook against the different sets of F5 devices.
 
 | **Playbook** | **Description** |
 |-|-|
-| [workshop_lab_part_1.yml](workshop_lab_part_1.yml) |Ansible playbook that gathers all the F5-BIGIP Balanced Services (that is, virtual servers and pools) on a specific month.|
+| [workshop_lab_part_1.yml](workshop_lab_part_1.yml) | Ansible playbook that gathers all the F5-BIGIP Balanced Services (that is, virtual servers and pools) on a specific month |
 
-## 2. Activities
+## Activities
 
-### 2.1. Preparing the developer workstation
+### 1. Preparing the developer workstation
 
 **OS:** Either any modern Linux distribution or WSL 2.0
 
@@ -31,20 +31,22 @@ able to run the same playbook against the different sets of F5 devices.
 
 **VSCode extensions:**
 
-- WSL
-- Python
-- Ansible
-- YAML
-- jinja
-- Indent rainbow
-- Material icon
+| **Extension Name** | **Publisher** | **Notes** |
+|-|-|-|
+|WSL|Microsoft|Mandatory|
+|Python|Microsoft|Mandatory|
+|YAML|Red Hat|Mandatory|
+|Ansible|Red Hat|Mandatory|
+|jinja|Wholroyd|Recommended|
+|Indent rainbow|oderwaty|Optional|
+|Material icon|Philipp Kief|Optional|
 
-### 2.2. Create a python venv to run Ansible locally from CLI
+### 2. Create a python venv to run Ansible locally from CLI
 
-On this PoC version we do not integrate Ansible Execution
-Environments, hence we must configure a python venv prior its
-execution and then install the ansible packages, as well as the
-f5-bigip imperative modules collection for ansible.
+Since on this PoC version we still don't integrate the so called Ansible
+Execution Environments, then we're g must first configure a python venv prior the  execution and then install the
+ansible packages, as well as the f5-bigip imperative modules collection for
+ansible.
 
 ```bash
 python3 -m venv ansible_venv
@@ -58,42 +60,80 @@ sudo apt-get install sshpass
 staging environment yet, so we can point out the benefits of using
 Ansible EE's instead of venvs.
 
-### 2.3. Run a playbook using ansible's built-in modules via SSH using interactive authentication
+### 3. Run a playbook using ansible's built-in modules via SSH using interactive authentication
 
-   Once the venv is configured, we will use the ansible-playbook
-   command from the CLI to run the automation, just setting the
-   different inventory files as arguments when running the command,
-   (-e) as well as the device's groups we'll connect to (-l). On
-   this first activity though, we won't be storing any private key
-   on the Ansibles control node (that is, we just type the device's
-   ssh password interactively at the moment of the playbook
-   execution).
+Once the venv is configured, we will use the ansible-playbook command from the
+CLI to run the automation, just setting the different inventory files as
+arguments when running the command (-i), as well as the device's groups we'll
+connect to (-l). On this first activity though, we won't be storing any private
+key on the Ansibles control node (that is, we just type the device's ssh
+password interactively at the moment of the playbook execution).
 
-   Development environment:
+#### 3.1. Development environment
 
-   ansible-playbook -i environments/dev \
-   ANSCGR001_001_AAP-STATS_F5-BIGIP_v1.yml --user=root \
-   -e 'devices_environment="dev" automation_id="ANSAB001/001" \
-   date_stats="2023-01"' -l f5bigip --ask-pass
+```bash
+ansible-playbook -i environments/dev \
+workshop_lab_part_1.yml --user=root \
+-e 'devices_environment="dev" automation_id="ANSAB001/001" \
+date_stats="2023-01"' -l f5bigip --ask-pass
+```
 
-   Staging environment:
+#### 3.2. Staging environment
 
-   ansible-playbook -i environments/dev \
-   ANSCGR001_001_AAP-STATS_F5-BIGIP_v1.yml --user=root \
-   -e 'devices_environment="dev" automation_id="ANSAB001/001" \
-   date_stats="2023-01"' -l f5bigip --ask-pass
+```bash
+ansible-playbook -i environments/staging \
+workshop_lab_part_1.yml --user=root \
+-e 'devices_environment="dev" automation_id="ANSAB001/001" \
+date_stats="2023-01"' -l f5bigip --ask-pass
+```
 
-   Production environment:
+#### 3.3. Production environment
 
-   ansible-playbook -i environments/dev \
-   ANSCGR001_001_AAP-STATS_F5-BIGIP_v1.yml --user=root \
-   -e 'devices_environment="dev" automation_id="ANSAB001/001" \
-   date_stats="2023-01"' -l f5bigip --ask-pass
+```bash
+ansible-playbook -i environments/prod \
+workshop_lab_part_1.yml --user=root \
+-e 'devices_environment="dev" automation_id="ANSAB001/001" \
+date_stats="2023-01"' -l f5bigip --ask-pass
+```
 
-3. Run a playbook using ansible's built-in modules via SSH using a private key
-   ---------------------------------------------------------------------------
+### 4. Run a playbook using ansible's built-in modules via SSH using a private key
 
-   1) ssh-keygen
-   2) instal pub key to f5 devices
-   3) eval
-   4) ssh-agent
+#### 4.1. Creating the ssh-key
+
+```bash
+ssh-keygen
+```
+
+#### 4.2. Installing the public key on the remote F5-devices devices
+
+```bash
+eval
+ssh-agent
+```
+
+#### 4.3. Installing the private key on the Ansible's control node
+
+```bash
+scp
+```
+
+#### 4.4. Running the playbook seamlessly (with no interaction)
+
+##### 4.4.1. Development environment
+
+```bash
+ansible-playbook
+```
+
+##### 4.4.2. Staging environment
+
+```bash
+ansible-playbook
+```
+
+##### 4.4.3. Production environment
+
+We won't perform these activity on the production environment since we're not
+allowed to transfer not-validated public keys to the production F5 devices for
+security reasons, but I'm sure we got the point already, so there is no need
+nontheless.

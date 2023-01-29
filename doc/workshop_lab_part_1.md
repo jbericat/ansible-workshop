@@ -41,7 +41,7 @@ able to run the same playbook against the different sets of F5 devices.
 |Indent rainbow|oderwaty|Optional|
 |Material icon|Philipp Kief|Optional|
 
-### 2. Create a python venv to run Ansible locally from CLI
+### 2. Create a python venv to run Ansible locally from the CLI
 
 Since on this PoC version we still don't integrate the so called Ansible
 Execution Environments, then we're g must first configure a python venv prior the  execution and then install the
@@ -72,68 +72,117 @@ password interactively at the moment of the playbook execution).
 #### 3.1. Development environment
 
 ```bash
-ansible-playbook -i environments/dev \
-workshop_lab_part_1.yml --user=root \
--e 'devices_environment="dev" automation_id="ANSAB001/001" \
-date_stats="2023-01"' -l f5bigip --ask-pass
+ansible-playbook -i environments/dev workshop_lab_part_1.yml \
+ --user=admin \
+ -e 'devices_environment="staging" automation_id="ANSAB001/001" \
+ date_stats="2023-01"' \
+ -l f5bigip \
+ --ask-pass
 ```
 
 #### 3.2. Staging environment
 
 ```bash
-ansible-playbook -i environments/staging \
-workshop_lab_part_1.yml --user=root \
--e 'devices_environment="dev" automation_id="ANSAB001/001" \
-date_stats="2023-01"' -l f5bigip --ask-pass
+ansible-playbook -i environments/staging workshop_lab_part_1.yml \
+ --user=admin \
+ -e 'devices_environment="staging" automation_id="ANSAB001/001" \
+ date_stats="2023-01"' \
+ -l f5bigip \
+ --ask-pass
 ```
 
 #### 3.3. Production environment
 
 ```bash
-ansible-playbook -i environments/prod \
-workshop_lab_part_1.yml --user=root \
--e 'devices_environment="dev" automation_id="ANSAB001/001" \
-date_stats="2023-01"' -l f5bigip --ask-pass
+ansible-playbook -i environments/prod workshop_lab_part_1.yml \
+ --user=admin \
+ -e 'devices_environment="dev" automation_id="ANSAB001/001" \
+ date_stats="2023-01"' \
+ -l f5bigip \
+ --ask-pass
 ```
+
+### 3.4. Summing-up: Pros and cons of this ansible automation method
+
+**PROS**
+
+- We can execute the same tmsh command on different F5 devices at once
+
+**CONS**
+
+- not fully automated (we must type the password each time), so it does not scale well
+- Environment not portable
+- Not user friendly
 
 ### 4. Run a playbook using ansible's built-in modules via SSH using a private key
 
 #### 4.1. Creating the ssh-key
 
 ```bash
-ssh-keygen
+ssh-keygen -t ed25519
 ```
 
-#### 4.2. Installing the public key on the remote F5-devices devices
+- **Private key:** /home/jbericat/.ssh/id_ed25519_f5bigip
+- **Public key:** /home/jbericat/.ssh/id_ed25519_f5bigip.pub
+- **password:** 123456
+
+#### 4.2. Deploying the public key on the remote F5-devices devices
 
 ```bash
-eval
-ssh-agent
+scp /home/jbericat/.ssh/id_ed25519_f5bigip.pub admin@f5bigip01.dev.cgr-lab.lan:/home/admin/.ssh/authorized_keys
+scp /home/jbericat/.ssh/id_ed25519_f5bigip.pub admin@f5bigip03.dev.cgr-lab.lan:/home/admin/.ssh/authorized_keys
+scp /home/jbericat/.ssh/id_ed25519_f5bigip.pub admin@f5bigip01.staging.cgr-lab.lan:/home/admin/.ssh/authorized_keys
+scp /home/jbericat/.ssh/id_ed25519_f5bigip.pub admin@f5bigip03.staging.cgr-lab.lan:/home/admin/.ssh/authorized_keys
 ```
 
-#### 4.3. Installing the private key on the Ansible's control node
+#### 4.3. Adding the private key identity on the Ansible's control node
 
 ```bash
-scp
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519_f5bigip
 ```
 
 #### 4.4. Running the playbook seamlessly (with no interaction)
 
+Now we can run the playbook without human interaction at all, which is kind off cool :)
+
 ##### 4.4.1. Development environment
 
 ```bash
-ansible-playbook
+ansible-playbook -i environments/dev workshop_lab_part_1.yml \
+ --user=admin \
+ -e 'devices_environment="dev" automation_id="ANSAB001/001" \
+ date_stats="2023-01"' \
+ -l f5bigip \
+ --private-key ~/.ssh/id_ed25519_f5bigip
 ```
 
 ##### 4.4.2. Staging environment
 
 ```bash
-ansible-playbook
+ansible-playbook -i 
 ```
 
 ##### 4.4.3. Production environment
 
-We won't perform these activity on the production environment since we're not
+We won't perform this activity on those environments since we're not
 allowed to transfer not-validated public keys to the production F5 devices for
-security reasons, but I'm sure we got the point already, so there is no need
-nontheless.
+security reasons. Anyway, I'm sure you all got the point already from the
+previous activity, so there is no need to do it again.
+
+##### 4.4.4. Summing-up: Pros and cons of this ansible automation method
+
+**PROS**
+
+- We can execute the same tmsh command on different F5 devices at once
+
+**CONS**
+
+- not fully automated (we must type the password each time), so it does not scale well
+- Environment not portable
+- Not user friendly
+
+##### 4.4.5. To know more
+
+<https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ssh_connection.html>
+<https://medium.com/openinfo/ansible-ssh-private-public-keys-and-agent-setup-19c50b69c8c>

@@ -1,6 +1,6 @@
 # Ansible Workshop part 2: Automation deployment with Ansible
 
-[TOC]
+[ToC]
 
 ## Introduction
 

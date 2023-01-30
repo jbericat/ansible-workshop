@@ -48,7 +48,8 @@ devices through the SSH port. More precisely we will set three inventory files
 for multiple environments (development, staging and production), so we will be
 able to run the same playbook against the different sets of F5 devices.
 
-![image](https://user-images.githubusercontent.com/110392930/215433534-a194c9ba-6958-4b2c-a45b-c3c158acfa33.png)
+<kbd>![image](https://user-images.githubusercontent.com/110392930/215433778-5419f190-b561-44fe-afab-6083a932f4ca.png)
+</kbd>
 
 | **Playbook** | **Description** |
 |-|-|

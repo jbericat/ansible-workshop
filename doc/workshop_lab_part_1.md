@@ -48,6 +48,8 @@ devices through the SSH port. More precisely we will set three inventory files
 for multiple environments (development, staging and production), so we will be
 able to run the same playbook against the different sets of F5 devices.
 
+![image](https://user-images.githubusercontent.com/110392930/215433534-a194c9ba-6958-4b2c-a45b-c3c158acfa33.png)
+
 | **Playbook** | **Description** |
 |-|-|
 | [workshop_lab_part_1.yml](workshop_lab_part_1.yml) | Ansible playbook that gathers all the F5-BIGIP Balanced Services (that is, virtual servers and pools) on a specific month via SSH |

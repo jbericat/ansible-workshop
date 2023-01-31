@@ -60,6 +60,7 @@ EOF
 
 # 2.2) Setting Execution Environment global definitions
 
+cd ~/ansible-builder
 cat << EOF > execution-environment.yml
 ---
 version: 1

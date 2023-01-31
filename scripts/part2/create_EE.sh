@@ -20,6 +20,7 @@ EOF
 
 # 2.2) Setting Execution Environment global definitions
 
+cd ~/ansible-builder
 cat << EOF > execution-environment.yml
 ---
 version: 1
@@ -78,7 +79,6 @@ EOF
 
 # 3.1) Creating python venv
 
-cd ~/ansible-builder
 python3 -m venv builder_venv
 source builder_venv/bin/activate
 

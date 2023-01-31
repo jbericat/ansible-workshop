@@ -1,5 +1,5 @@
 ---
-# collections:
+collections:
 #   - name: awx.awx
 #     version: 21.8.0
 #     type: galaxy
@@ -7,3 +7,4 @@
 #   - name: f5networks.f5_modules
 #     version: 1.16.0
 #     type: galaxy
+...

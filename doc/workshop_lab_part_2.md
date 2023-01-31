@@ -7,13 +7,6 @@
   - [Introduction](#introduction)
   - [Activities](#activities)
     - [1. Create an Ansible EE for further use on this lab](#1-create-an-ansible-ee-for-further-use-on-this-lab)
-      - [1.1. Install ansible \& ansible-builder](#11-install-ansible--ansible-builder)
-      - [1.2. Customize ansible-builder](#12-customize-ansible-builder)
-        - [1.2.1 Define the execution environment in *execution-environment.yml*](#121-define-the-execution-environment-in-execution-environmentyml)
-        - [1.2.2 Include Galaxy Collections in *requirements.yml*](#122-include-galaxy-collections-in-requirementsyml)
-        - [1.2.3 Including Python pip packages in *requirements.txt*](#123-including-python-pip-packages-in-requirementstxt)
-        - [1.2.4 Including OS packages in *bindep.txt*](#124-including-os-packages-in-bindeptxt)
-      - [1.3. Run ansible-builder to create the EE](#13-run-ansible-builder-to-create-the-ee)
     - [2. Deploy the EE on vscode](#2-deploy-the-ee-on-vscode)
     - [3. Run a playbook using EE's instead of python venv's via TUI (ansible-navigator)](#3-run-a-playbook-using-ees-instead-of-python-venvs-via-tui-ansible-navigator)
       - [3.1. Install ansible-navigator](#31-install-ansible-navigator)
@@ -44,18 +37,30 @@ Run a playbook using an ansible-galaxy collection module via REST API...........
 
 ### 1. Create an Ansible EE for further use on this lab
 
-#### 1.1. Install ansible & ansible-builder
-
 ```bash
-pip install ansible # CHECK-OUT IF THAT'S REQUIRED
+#!/bin/bash
+
+# 1) Installing ansible-builder
+
 pip install ansible-builder
-```
 
-#### 1.2. Customize ansible-builder
+# 2) Defining the Execution Environment
 
-##### 1.2.1 Define the execution environment in *execution-environment.yml*
+# 2.1) Creating context files structure
 
-```yaml
+rm -rf ~/ansible-builder
+mkdir ~/ansible-builder && cd ~/ansible-builder
+touch execution-environment.yml requirements.yml requirements.txt bindep.txt 
+mkdir context && cd context
+touch run.sh && chmod 774 run.sh
+cat << EOF > run.sh
+#!/bin/bash
+ansible-runner worker --private-data-dir=/runner
+EOF
+
+# 2.2) Setting Execution Environment global definitions
+
+cat << EOF > execution-environment.yml
 ---
 version: 1
 
@@ -77,11 +82,11 @@ additional_build_steps:
     - USER 1000 
     - RUN git lfs install
 ...
-```
+EOF
 
-##### 1.2.2 Include Galaxy Collections in *requirements.yml*
+# 2.3) Setting Galaxy Collections
 
-```yml
+cat << EOF > requirements.yml
 ---
 collections:
   - name: community.general
@@ -90,44 +95,38 @@ collections:
   - name: f5networks.f5_modules
     version: 1.16.0
 ...
-```
+EOF
 
-##### 1.2.3 Including Python pip packages in *requirements.txt*
+# 2.4) Setting Python pip packages
 
-```
+cat << EOF > requirements.txt
 urllib3
 ansible-lint==6.11.0
 pyvmomi==7.0.3
 pyvim==3.0.3
-```
+EOF
 
-##### 1.2.4 Including OS packages in *bindep.txt*
+# 2.5) Setting OS Dependencies
 
-```yml
+cat << EOF > bindep.txt
 python38-devel [platform:centos]
 subversion [platform:centos]
 git-lfs [platform:centos]
-```
+EOF
 
-#### 1.3. Run ansible-builder to create the EE
+# 3) Running ansible-builder to create the EE
 
-```bash
-#!/bin/bash
-# https://www.linkedin.com/pulse/creating-custom-ee-awx-phil-griffiths/
+# 3.1) Creating python venv
 
-# INSTRUCTIONS
-
-# 1A. On Windows: Start Docker Desktop, which will be available in WSL too
-# 1B. On Linux: Make sure the docker service is running
-# 2. Setup ansible-builer files: bindep.txt / execution-environment.yaml / requirements.txt / requirements.yml
-# 3. Run this script -> source build_AWX_EE.sh
-
-rm -rf ~/ansible-builder
-cp -rp ansible-builder ~/ansible-builder && cd ~/ansible-builder
+cd ~/ansible-builder
 python3 -m venv builder_venv
 source builder_venv/bin/activate
-# pip install ansible-builder==1.0.0.0a1
+
+# 3.2) Creating the EE docker container
 ansible-builder build --tag quay.io/jordi_bericat/awx-ee:2.13-workshop --context ./context --container-runtime docker
+
+# 3.3) Uploading the EE Container to the quay registry
+
 docker login quay.io
 docker push quay.io/jordi_bericat/awx-ee:2.13-workshop
 deactivate builder_venv

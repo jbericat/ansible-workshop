@@ -1,9 +1,9 @@
 ---
-collections:
-  - name: awx.awx
-    version: 21.8.0
-    type: galaxy
-# F5-BIGIP MODULES - IMPERATIVE COLLECTION FOR ANSIBLE
-  - name: f5networks.f5_modules
-    version: 1.16.0
-    type: galaxy
+# collections:
+#   - name: awx.awx
+#     version: 21.8.0
+#     type: galaxy
+# # F5-BIGIP MODULES - IMPERATIVE COLLECTION FOR ANSIBLE
+#   - name: f5networks.f5_modules
+#     version: 1.16.0
+#     type: galaxy

@@ -7,6 +7,13 @@
   - [Introduction](#introduction)
   - [Activities](#activities)
     - [1. Create an Ansible EE for this use case](#1-create-an-ansible-ee-for-this-use-case)
+      - [1.1. Install ansible \& ansible-builder](#11-install-ansible--ansible-builder)
+      - [1.2. Customize ansible-builder](#12-customize-ansible-builder)
+        - [1.2.1 Define the execution environment in *execution-environment.yml*](#121-define-the-execution-environment-in-execution-environmentyml)
+        - [1.2.2 Include Galaxy Collections in *requirements.yml*](#122-include-galaxy-collections-in-requirementsyml)
+        - [1.2.3 Including Python pip packages in *requirements.txt*](#123-including-python-pip-packages-in-requirementstxt)
+        - [1.2.4 Including OS packages in *bindep.txt*](#124-including-os-packages-in-bindeptxt)
+      - [1.3. Run ansible-builder to create the EE](#13-run-ansible-builder-to-create-the-ee)
     - [2. Deploy the EE on vscode](#2-deploy-the-ee-on-vscode)
     - [3. Run a playbook using EE's instead of python venv's via TUI (ansible-navigator)](#3-run-a-playbook-using-ees-instead-of-python-venvs-via-tui-ansible-navigator)
       - [3.1. Install ansible-navigator](#31-install-ansible-navigator)
@@ -37,9 +44,72 @@ Run a playbook using an ansible-galaxy collection module via REST API...........
 
 ### 1. Create an Ansible EE for this use case
 
-1) Deactivate venv
+#### 1.1. Install ansible & ansible-builder
 
-2) Setup and run ansible-builder
+```bash
+pip install ansible # CHECK-OUT IF THAT'S REQUIRED
+pip install ansible-builder
+```
+
+#### 1.2. Customize ansible-builder
+
+##### 1.2.1 Define the execution environment in *execution-environment.yml*
+
+```yaml
+---
+version: 1
+
+build_arg_defaults:
+  EE_BASE_IMAGE: 'quay.io/ansible/ansible-runner:latest'
+
+dependencies:
+  galaxy: requirements.yml
+  python: requirements.txt
+  system: bindep.txt
+
+additional_build_steps:
+  append:
+    - RUN alternatives --set python /usr/bin/python3
+    - COPY --from=quay.io/project-receptor/receptor:latest /usr/bin/receptor /usr/bin/receptor
+    - RUN mkdir -p /var/run/receptor
+    - ADD run.sh /run.sh
+    - CMD /run.sh
+    - USER 1000 
+    - RUN git lfs install
+...
+```
+
+##### 1.2.2 Include Galaxy Collections in *requirements.yml*
+
+```yml
+---
+collections:
+  - name: community.general
+  - name: awx.awx
+    version: 21.8.0
+  - name: f5networks.f5_modules
+    version: 1.16.0
+...
+```
+
+##### 1.2.3 Including Python pip packages in *requirements.txt*
+
+```
+urllib3
+ansible-lint==6.11.0
+pyvmomi==7.0.3
+pyvim==3.0.3
+```
+
+##### 1.2.4 Including OS packages in *bindep.txt*
+
+```yml
+python38-devel [platform:centos]
+subversion [platform:centos]
+git-lfs [platform:centos]
+```
+
+#### 1.3. Run ansible-builder to create the EE
 
 ```bash
 #!/bin/bash
@@ -54,14 +124,13 @@ Run a playbook using an ansible-galaxy collection module via REST API...........
 
 rm -rf ~/ansible-builder
 cp -rp ansible-builder ~/ansible-builder && cd ~/ansible-builder
-python3 -m venv builder
-source builder/bin/activate
-pip install ansible
-pip install ansible-builder
+python3 -m venv builder_venv
+source builder_venv/bin/activate
 # pip install ansible-builder==1.0.0.0a1
-ansible-builder build --tag quay.io/jordi_bericat/awx-ee:2.13-latest --context ./context --container-runtime docker
+ansible-builder build --tag quay.io/jordi_bericat/awx-ee:2.13-workshop --context ./context --container-runtime docker
 docker login quay.io
-docker push quay.io/jordi_bericat/awx-ee:2.13-latest
+docker push quay.io/jordi_bericat/awx-ee:2.13-workshop
+deactivate builder_venv
 ```
 
 ### 2. Deploy the EE on vscode

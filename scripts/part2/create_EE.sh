@@ -83,7 +83,7 @@ python3 -m venv builder_venv
 source builder_venv/bin/activate
 
 # 3.2) Creating the EE docker container
-ansible-builder build --tag quay.io/jordi_bericat/awx-ee:2.13-workshop --context ./context --container-runtime docker
+ansible-builder build --tag quay.io/jordi_bericat/awx-ee:2.13-workshop --context ./context --container-runtime docker --verbosity 3
 
 # 3.3) Uploading the EE Container to the quay registry
 

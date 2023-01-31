@@ -6,7 +6,7 @@
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Activities](#activities)
-    - [1. Create an Ansible EE for this use case](#1-create-an-ansible-ee-for-this-use-case)
+    - [1. Create an Ansible EE for further use on this lab](#1-create-an-ansible-ee-for-further-use-on-this-lab)
       - [1.1. Install ansible \& ansible-builder](#11-install-ansible--ansible-builder)
       - [1.2. Customize ansible-builder](#12-customize-ansible-builder)
         - [1.2.1 Define the execution environment in *execution-environment.yml*](#121-define-the-execution-environment-in-execution-environmentyml)
@@ -42,7 +42,7 @@ Run a playbook using an ansible-galaxy collection module via REST API...........
 
 ## Activities
 
-### 1. Create an Ansible EE for this use case
+### 1. Create an Ansible EE for further use on this lab
 
 #### 1.1. Install ansible & ansible-builder
 

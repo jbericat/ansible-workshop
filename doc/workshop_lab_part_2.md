@@ -268,7 +268,17 @@ run workshop_lab_part_2.yml \
 
 ### 6.1.2. Using Ansible galaxy awx.awx collection (CaC)
 
-TBD 
+One of the greatest features of the Automation Controller is that we can
+interact with the via CaC to create any of its objects, like Template jobs,
+Projects, Credentials, and so forth. To do so, we can use two different 
+Ansible modules collections available on Ansible Galaxy:
+
+- For the upstream version of the controller (that is, AWX), we use the the `awx.awx` collection
+- For the downstream version of the controller (that is, the Automation Controller), we use the the `redhat_cop.controller_configuration` collection
+
+However, in this demostration lab we won't get that far, so we'll stick to the
+GUI method. On the [6.3 section](#6.3._Documentation_references) you'll find furthe references about configuring
+the Automation Controller / AWX by means of CaC
 
 ### 6.2. Run a Playbook Using EE's and vault on AWX / Tower
 

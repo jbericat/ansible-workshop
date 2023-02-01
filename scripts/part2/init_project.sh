@@ -21,9 +21,9 @@ mkdir \
 touch \
  .gitignore \
  environments/dev/hosts \
+ environments/dev/group_vars/f5bigip.yml \
  environments/staging/hosts \
  environments/prod/hosts \
- workshop_lab_part_1.yml \
  workshop_lab_part_2.yml
 
 echo *_venv > .gitignore

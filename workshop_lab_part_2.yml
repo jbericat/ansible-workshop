@@ -8,6 +8,10 @@
   gather_facts: no
   tasks:
 
+  - name: debug
+    debug:
+      msg: "{{ cwd + vault_dir }}"
+      
   - name: >
       1. Gathering all the balanced services created for the
       [{{ inventory_hostname }}] F5-BIGIP device from the

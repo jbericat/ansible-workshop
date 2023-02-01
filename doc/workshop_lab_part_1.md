@@ -13,7 +13,7 @@
         - [2.2.1. Creating the RW personal SSH key](#221-creating-the-rw-personal-ssh-key)
         - [2.2.2. Creating the RO personal deploy key](#222-creating-the-ro-personal-deploy-key)
         - [2.3. Deploying both public keys on GitHub](#23-deploying-both-public-keys-on-github)
-      - [2.4. Adding both private keys on the pipeline environments](#24-adding-both-private-keys-on-the-pipeline-environments)
+      - [2.4. Adding both private keys on each environment](#24-adding-both-private-keys-on-each-environment)
     - [3. Creating a python venv to run Ansible locally from the CLI](#3-creating-a-python-venv-to-run-ansible-locally-from-the-cli)
     - [4. Create the project structure and populate the inventory](#4-create-the-project-structure-and-populate-the-inventory)
       - [4.1. We can use this script to create the project structure:](#41-we-can-use-this-script-to-create-the-project-structure)
@@ -126,7 +126,7 @@ ssh-keygen -t ed25519 -C "jordi.bericat@global.ntt"
 
 TBD PASTE SCREENSHOTS USING GITHUB WEB UI
 
-#### 2.4. Adding both private keys on the pipeline environments
+#### 2.4. Adding both private keys on each environment
 
 **DEV ENVIRONMENT**
 

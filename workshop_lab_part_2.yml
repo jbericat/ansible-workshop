@@ -4,14 +4,14 @@
     on multiple environments using Ansible inventory files)
   hosts: all
   vars_files:
-    - "{{ cwd + vault_dir }}"
+    - "{{ playbook_dir + vault_dir }}"
   gather_facts: no
   tasks:
 
   - name: debug
     debug:
       msg: "{{ cwd + vault_dir }}"
-      
+
   - name: >
       1. Gathering all the balanced services created for the
       [{{ inventory_hostname }}] F5-BIGIP device from the

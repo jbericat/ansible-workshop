@@ -37,8 +37,8 @@
 ### 2.4. Production Environment
 
 - Red Hat OpenShift
-- Ansible Automation Platform (Ansible Tower) 4.1.2 -> [tower.abanca.com](tower.abanca.com)
-- GiLab -> <https://abanca.gitlab.com>
+- Ansible Automation Platform (Ansible Tower)
+- GiLab
 
 ## 3. Credits
 

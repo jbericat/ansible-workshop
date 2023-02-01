@@ -4,10 +4,8 @@
 
 | Stage | Resource |
 |-|-|
-| Presentation Speech - The whole picture | TBD (Power Point / OneNote) |
 | Demostration Lab part 1 - Introduction to Ansible | [/doc/workshop_lab_part_1.md](/doc/workshop_lab_part_1.md) |
 | Demostration Lab part 2 - Automation deployment with Ansible | [/doc/workshop_lab_part_2.md](/doc/workshop_lab_part_2.md) |
-| Beyond the Workshop - Where to learn more about Ansible & AAP | TBD (Websites, Linked-in Trainings, Books, Social, Events) |
 
 ## 2. Environments
 

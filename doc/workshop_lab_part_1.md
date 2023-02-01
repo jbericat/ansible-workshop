@@ -124,7 +124,7 @@ ssh-keygen -t ed25519 -C "jordi.bericat@global.ntt"
 
 ##### 2.3. Deploying both public keys on GitHub
 
-TBD PASTE SCREENSHOTS USING GITHUB WEB UI
+![image](https://user-images.githubusercontent.com/110392930/216042070-c61e010e-0555-40f0-816a-f2e2dd48fa6f.png)
 
 #### 2.4. Adding both private keys on each environment
 

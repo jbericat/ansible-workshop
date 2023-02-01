@@ -3,8 +3,6 @@
     PLAYBOOK - "workshop_lab_part_2.yml" (F5-BIGIP Automation via REST
     on multiple environments using Ansible inventory files)
   hosts: all
-  vars_files:
-    - "{{ inventory_dir + '/.vault/f5bigip.yml' }}"
   gather_facts: no
   tasks:
 

@@ -21,7 +21,8 @@
       - [4.4. Summing-up: Pros and cons of this ansible automation method](#44-summing-up-pros-and-cons-of-this-ansible-automation-method)
       - [4.5. Documentation references](#45-documentation-references)
     - [5. Installing AWX for DEV \& STAGING environments](#5-installing-awx-for-dev--staging-environments)
-    - [6. Create AWX / Tower objects using Ansible galaxy collections (CaC)](#6-create-awx--tower-objects-using-ansible-galaxy-collections-cac)
+    - [6A. Create AWX / Tower objects using AWX GUI](#6a-create-awx--tower-objects-using-awx-gui)
+    - [6B. Create AWX / Tower objects using Ansible galaxy awx.awx collection (CaC)](#6b-create-awx--tower-objects-using-ansible-galaxy-awxawx-collection-cac)
     - [7. Conclusion (Real use case) - Run a Playbook Using EE's and vault on AWX / Tower](#7-conclusion-real-use-case---run-a-playbook-using-ees-and-vault-on-awx--tower)
 
 
@@ -193,6 +194,13 @@ https://ansible-navigator.readthedocs.io/en/latest/faq/
 ansible-vault encrypt environments/dev/.vault/f5bigip.yml
 ```
 
+We can also encrypt the password string directly so we won't have to include
+the vaulted vars file (that's useful when using different inventory files)
+
+```bash
+ansible-vault encrypt_string --show-input - 
+```
+
 #### 4.2. Store the **DEV ENVIRONMENT** vault password in an environment variable
 
 ```bash
@@ -227,9 +235,21 @@ run workshop_lab_part_2.yml \
 - install minikube
 - install AWX
 
-### 6. Create AWX / Tower objects using Ansible galaxy collections (CaC)
+### 6A. Create AWX / Tower objects using AWX GUI
+
+1. Add Execution Environment
+2. Create Project
+3. Add Vault Credential
+4. Create Inventory -> Add group vars
+5. Add Hosts
+6. Create Template Job -> Create Survey
+7. Run Playbook
+
+### 6B. Create AWX / Tower objects using Ansible galaxy awx.awx collection (CaC)
 
 TBD
+
+
 
 ### 7. Conclusion (Real use case) - Run a Playbook Using EE's and vault on AWX / Tower
 

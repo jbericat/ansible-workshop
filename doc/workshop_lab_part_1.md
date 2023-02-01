@@ -16,7 +16,7 @@
       - [2.4. Adding both private keys on each environment](#24-adding-both-private-keys-on-each-environment)
     - [3. Creating a python venv to run Ansible locally from the CLI](#3-creating-a-python-venv-to-run-ansible-locally-from-the-cli)
     - [4. Create the project structure and populate the inventory](#4-create-the-project-structure-and-populate-the-inventory)
-      - [4.1. We can use this script to create the project structure:](#41-we-can-use-this-script-to-create-the-project-structure)
+      - [4.1. Project structure](#41-project-structure)
       - [4.2. Now we populate the environments host files](#42-now-we-populate-the-environments-host-files)
     - [5. Creating a playbook using ansible's built-in modules to run an automation via SSH using interactive authentication](#5-creating-a-playbook-using-ansibles-built-in-modules-to-run-an-automation-via-ssh-using-interactive-authentication)
       - [5.1. Development environment](#51-development-environment)
@@ -163,7 +163,7 @@ not to sync the venv on the repository.
 
 ### 4. Create the project structure and populate the inventory
 
-#### 4.1. We can use this script to create the project structure:
+#### 4.1. Project structure
 
 ```bash
 #!/bin/bash
@@ -173,17 +173,8 @@ not to sync the venv on the repository.
 mkdir \
  environments/ \
  environments/dev \
- environments/dev/.vault \
- environments/dev/group_vars \
- environments/dev/host_vars \
  environments/staging \
- environments/staging/.vault \
- environments/staging/group_vars \
- environments/staging/host_vars \
  environments/prod \
- environments/prod/.vault \
- environments/prod/group_vars \
- environments/prod/host_vars \
  logs
 
 touch \

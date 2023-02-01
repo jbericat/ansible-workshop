@@ -243,7 +243,7 @@ run workshop_lab_part_2.yml \
 2. Create Project
 3. Add Vault Credential
 4. Create Inventory (DEV) -> Add group vars
-5. Add Hosts
+5. Add Hosts -> f5bigip01.dev.cgr-lab.lan / f5bigip02.dev.cgr-lab.lan / f5bigip03.dev.cgr-lab.lan
 6. Create Template Job -> Create Survey
 7. Run Playbook
 

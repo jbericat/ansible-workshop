@@ -18,9 +18,10 @@
       commands: > 
         list ltm virtual creation-time description |
         grep -A 1 '{{ date_stats }}' |
-        grep 'Ansible' -c
+        grep '{{ automation_id }}' -c
     register: results
     delegate_to: localhost
+    ignore_errors: true
 
   - name: 2. SHOW RESULTS
     debug:

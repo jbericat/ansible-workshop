@@ -277,8 +277,9 @@ Ansible modules collections available on Ansible Galaxy:
 - For the downstream version of the controller (that is, the Automation Controller), we use the the `redhat_cop.controller_configuration` collection
 
 However, in this demostration lab we won't get that far, so we'll stick to the
-GUI method. On the [6.3 section](#6.3._Documentation_references) you'll find furthe references about configuring
-the Automation Controller / AWX by means of CaC
+GUI method. On the [6.3 section](#6.3._Documentation_references) you'll find
+furthe references about configuring the Automation Controller / AWX by means of
+CaC
 
 ### 6.2. Run a Playbook Using EE's and vault on AWX / Tower
 

@@ -158,7 +158,8 @@ Ctrl+, -> Remote [WSL: Ubuntu 20.04] -> Ansible -> "ansible.executionEnvironment
 
 ```bash
 python3 -m pip install ansible-navigator --user
-echo 'export PATH=HOME/.local/bin:PATH' >> ~/.profile
+cp ~/.profile ~/.profile.bak
+echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.profile
 source ~/.profile
 ```
 #### 3.2. Create the project structure and populate the inventory

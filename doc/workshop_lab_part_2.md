@@ -21,14 +21,23 @@
       - [4.4. Summing-up: Pros and cons of this ansible automation method](#44-summing-up-pros-and-cons-of-this-ansible-automation-method)
       - [4.5. Documentation references](#45-documentation-references)
     - [5. Installing AWX for DEV \& STAGING environments](#5-installing-awx-for-dev--staging-environments)
-    - [6A. Create AWX / Tower objects using AWX GUI](#6a-create-awx--tower-objects-using-awx-gui)
-    - [6B. Create AWX / Tower objects using Ansible galaxy awx.awx collection (CaC)](#6b-create-awx--tower-objects-using-ansible-galaxy-awxawx-collection-cac)
-    - [7. Conclusion (Real use case) - Run a Playbook Using EE's and vault on AWX / Tower](#7-conclusion-real-use-case---run-a-playbook-using-ees-and-vault-on-awx--tower)
+    - [6.1. Create AWX / Tower objects](#61-create-awx--tower-objects)
+      - [6.1.1. using AWX GUI](#611-using-awx-gui)
+    - [6.1.2. Using Ansible galaxy awx.awx collection (CaC)](#612-using-ansible-galaxy-awxawx-collection-cac)
+    - [6.2. Run a Playbook Using EE's and vault on AWX / Tower](#62-run-a-playbook-using-ees-and-vault-on-awx--tower)
+    - [6.3. Documentation references](#63-documentation-references)
 
 
 ## Introduction
 
-Run a playbook using an ansible-galaxy collection module via REST API.......................
+Om this second part of the demonstration lab we'll be running a playbook using 
+an ansible-galaxy collection module via REST API. For that, instead of 
+installing the collection locally on the Ansible Control Node, we are going to 
+create an Execution Environment, where we will embed all the modules 
+dependencies. This way we can use the same EE on diferents scenarios and 
+environments. To see the benefits of using the EE, instead of running the PB 
+via CLI, we're going first to use the ansible-navigator TUI tool. Afterwards,
+we'll run the same PB on AWX, where the same EE will be deployed.
 
 | **Playbook** | **Description** |
 |-|-|
@@ -152,6 +161,8 @@ source ~/.profile
 
 #### 3.2. Running the playbook with ansible-navigator on DEV
 
+**FOR THIS ACTIVITY MAKE SURE THE F5-PASSWORD IS STORED IN PLAIN-TEXT ON THE GROUP-VARS FILE FOR THE DEV ENVIRONMENT!**
+
 ```bash
 ansible-navigator --eei quay.io/jordi_bericat/awx-ee:2.13-latest \
  run workshop_lab_part_2.yml \
@@ -180,7 +191,7 @@ ansible-navigator --eei quay.io/jordi_bericat/awx-ee:2.13-latest \
 **CONS:**
 
 - Poor security measures (the F5 devices' password is stored in plaintext on the group vars)
-- Still not very user friendly
+- Still not totally user friendly
 
 #### 3.5. Documentation references
 
@@ -224,7 +235,13 @@ run workshop_lab_part_2.yml \
 
 **PROS:**
 
+- Full automation (no need neither of specifyng SSH password on runtime nor of creating / setting SSH keys)
+- Total portability and scalability of the environment (we can use the same EE container in all envs, even in vscode for debugging and coding purposes)
+- Better security measures: the F5 devices' password is stored on an encrypted var string. We also store the vault password in a protected file on the Ansible Control Node filesystem
+
 **CONS:**
+
+- Still not totally user friendly
 
 #### 4.5. Documentation references
 
@@ -237,7 +254,9 @@ run workshop_lab_part_2.yml \
 - install minikube
 - install AWX
 
-### 6A. Create AWX / Tower objects using AWX GUI
+### 6.1. Create AWX / Tower objects
+
+#### 6.1.1. using AWX GUI
 
 1. Add Execution Environment -> quay.io/jordi_bericat/awx-ee:2.13-workshop
 2. Create Project
@@ -247,12 +266,28 @@ run workshop_lab_part_2.yml \
 6. Create Template Job -> Create Survey
 7. Run Playbook
 
-### 6B. Create AWX / Tower objects using Ansible galaxy awx.awx collection (CaC)
+### 6.1.2. Using Ansible galaxy awx.awx collection (CaC)
 
-TBD
+TBD 
 
+### 6.2. Run a Playbook Using EE's and vault on AWX / Tower
 
+Running the Template Job on AWX
 
-### 7. Conclusion (Real use case) - Run a Playbook Using EE's and vault on AWX / Tower
+**PROS:**
 
-AWX on DEV & STAGING (using EE and vault)
+- Full automation (no need neither of specifyng SSH password on runtime nor of creating / setting SSH keys)
+- Total portability and scalability of the environment (we can use the same EE container in all envs, even in vscode for debugging and coding purposes)
+- Better security measures: the F5 devices' password is stored on an encrypted var string. We also store the vault password in a protected file on the Ansible Control Node filesystem
+- Very user friendly interface
+
+**CONS:**
+
+- Method not suited for coding and debugging (for that is ansible-navigator is less time consuming, since we don't have to sync the project every time we run a playbook to see what it does)
+
+### 6.3. Documentation references
+
+- https://github.com/ansible/awx
+- https://docs.ansible.com/ansible-tower/index.html
+- https://docs.ansible.com/ansible/latest/collections/awx/awx/index.html
+- https://docs.ansible.com/ansible-tower/latest/html/towercli/index.html

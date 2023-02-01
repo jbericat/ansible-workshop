@@ -108,8 +108,8 @@ We can create both pairs from our developer workstation:
 ssh-keygen -t ed25519 -C "jordi.bericat@global.ntt"
 ```
 
-- **Private key:** /home/jbericat/.ssh/id_ed25519_ansible_workshop
-- **Public key:** /home/jbericat/.ssh/id_ed25519_ansible_workshop.pub
+- **Private key:** /home/jbericat/.ssh/id_ed25519_ansible_workshop_RW
+- **Public key:** /home/jbericat/.ssh/id_ed25519_ansible_workshop_RW.pub
 - **password:** MySuperSecretPassword (or not!)
 
 ##### 2.2.2. Creating the RO personal deploy key
@@ -117,6 +117,10 @@ ssh-keygen -t ed25519 -C "jordi.bericat@global.ntt"
 ```bash
 ssh-keygen -t ed25519 -C "jordi.bericat@global.ntt"
 ```
+
+- **Private key:** /home/jbericat/.ssh/id_ed25519_ansible_workshop_RO
+- **Public key:** /home/jbericat/.ssh/id_ed25519_ansible_workshop_RO.pub
+- **password:** MySuperSecretPassword (or not!)
 
 ##### 2.3. Deploying both public keys on GitHub
 

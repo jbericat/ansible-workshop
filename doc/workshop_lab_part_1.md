@@ -187,8 +187,7 @@ touch \
  environments/dev/hosts \
  environments/staging/hosts \
  environments/prod/hosts \
- workshop_lab_part_1.yml \
- workshop_lab_part_2.yml
+ workshop_lab_part_1.yml
 
 echo *_venv > .gitignore
 ```

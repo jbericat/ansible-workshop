@@ -13,13 +13,14 @@
       - [3.2. Create the project structure and populate the inventory](#32-create-the-project-structure-and-populate-the-inventory)
         - [3.2.1. Project structure](#321-project-structure)
         - [3.2.2. Populate the inventory](#322-populate-the-inventory)
-      - [3.3. Running the playbook with ansible-navigator on DEV](#33-running-the-playbook-with-ansible-navigator-on-dev)
-      - [3.4. Running the playbook with ansible-navigator on STAGING](#34-running-the-playbook-with-ansible-navigator-on-staging)
-      - [3.5. Summing-up: Pros and cons of this ansible automation method](#35-summing-up-pros-and-cons-of-this-ansible-automation-method)
-      - [3.6. Documentation references](#36-documentation-references)
+      - [3.3. Create the playbook](#33-create-the-playbook)
+      - [3.4. Running the playbook with ansible-navigator on DEV](#34-running-the-playbook-with-ansible-navigator-on-dev)
+      - [3.5. Running the playbook with ansible-navigator on STAGING](#35-running-the-playbook-with-ansible-navigator-on-staging)
+      - [3.6. Summing-up: Pros and cons of this ansible automation method](#36-summing-up-pros-and-cons-of-this-ansible-automation-method)
+      - [3.7. Documentation references](#37-documentation-references)
     - [4. Encrypting sensitive data with ansible Vault](#4-encrypting-sensitive-data-with-ansible-vault)
       - [4.1. Encrypt the var file with the F5 password](#41-encrypt-the-var-file-with-the-f5-password)
-      - [4.2. Store the **DEV ENVIRONMENT** vault password in an environment variable](#42-store-the-dev-environment-vault-password-in-an-environment-variable)
+      - [4.2. Store the **DEV ENVIRONMENT** vault password in protected file](#42-store-the-dev-environment-vault-password-in-protected-file)
       - [4.3. Run the playbook on the **DEV ENVIRONMENT**](#43-run-the-playbook-on-the-dev-environment)
       - [4.4. Summing-up: Pros and cons of this ansible automation method](#44-summing-up-pros-and-cons-of-this-ansible-automation-method)
       - [4.5. Documentation references](#45-documentation-references)
@@ -232,7 +233,44 @@ f5bigip[01:03].prod.cgr-lab.lan
 EOF
 ```
 
-#### 3.3. Running the playbook with ansible-navigator on DEV
+#### 3.3. Create the playbook
+
+```yaml
+---
+- name: >
+    PLAYBOOK - "workshop_lab_part_2.yml" (F5-BIGIP Automation via REST
+    on multiple environments using Ansible inventory files)
+  hosts: all
+  vars_files:
+    - "{{ playbook_dir + vault_file }}"
+  gather_facts: no
+  tasks:
+
+  - name: >
+      1. Gathering all the balanced services created for the
+      [{{ inventory_hostname }}] F5-BIGIP device from the
+      [{{ inventory_file|regex_replace(playbook_dir,'') }}] inventory
+      via REST
+    f5networks.f5_modules.bigip_command:
+      provider: "{{ f5_provider }}"
+      commands: > 
+        list ltm virtual creation-time description |
+        grep -A 1 '{{ date_stats }}' |
+        grep '{{ automation_id }}' -c
+    register: results
+    delegate_to: localhost
+    ignore_errors: true
+
+  - name: 2. SHOW RESULTS
+    debug:
+      msg: >
+        total balanced services created on [{{ date_stats }}] =
+        [{{ results.stdout|default(none) }}]
+...
+
+```
+
+#### 3.4. Running the playbook with ansible-navigator on DEV
 
 **FOR THIS ACTIVITY MAKE SURE THE F5-PASSWORD IS STORED IN PLAIN-TEXT ON THE GROUP-VARS FILE FOR THE DEV ENVIRONMENT!**
 
@@ -241,10 +279,11 @@ ansible-navigator --eei quay.io/jordi_bericat/awx-ee:2.13-latest \
  run workshop_lab_part_2.yml \
  -i environments/dev/ \
  -e 'automation_id="ANSAB001/001" date_stats="2023-01"' \
- -l f5bigip
+ -l f5bigip \
+ --lf logs/ansible-navigator.log
 ```
 
-#### 3.4. Running the playbook with ansible-navigator on STAGING
+#### 3.5. Running the playbook with ansible-navigator on STAGING
 
 ```bash
 ansible-navigator --eei quay.io/jordi_bericat/awx-ee:2.13-latest \
@@ -254,7 +293,7 @@ ansible-navigator --eei quay.io/jordi_bericat/awx-ee:2.13-latest \
  -l f5bigip
 ```
 
-#### 3.5. Summing-up: Pros and cons of this ansible automation method
+#### 3.6. Summing-up: Pros and cons of this ansible automation method
 
 **PROS:**
 
@@ -266,13 +305,15 @@ ansible-navigator --eei quay.io/jordi_bericat/awx-ee:2.13-latest \
 - Poor security measures (the F5 devices' password is stored in plaintext on the group vars)
 - Still not totally user friendly
 
-#### 3.6. Documentation references
+#### 3.7. Documentation references
 
 https://ansible-navigator.readthedocs.io/en/latest/faq/
 
 ### 4. Encrypting sensitive data with ansible Vault
 
 #### 4.1. Encrypt the var file with the F5 password
+
+We can encrypt a variable file using the ansible-vault command, like this: 
 
 ```bash
 ansible-vault encrypt environments/dev/.vault/f5bigip.yml
@@ -285,24 +326,47 @@ the vaulted vars file (that's useful when using different inventory files)
 ansible-vault encrypt_string --show-input - 
 ```
 
-#### 4.2. Store the **DEV ENVIRONMENT** vault password in an environment variable
+For this activity we'll just add the encrypted string to the 
+`group_vars/f5bigip.yml` file:
+
+```bash
+cat << EOF > environments/dev/group_vars/f5bigip.yml
+f5_provider:
+  user: "admin"
+  password: !vault |
+    $ANSIBLE_VAULT;1.1;AES256
+    66323737623639653633356434323964636130623061333730393731353533366232633163353632
+    6161356235393637313537313832343565633366656261610a303035623436383165646431363337
+    36623337313037346332336563663162656363336165376165623534326264303133326139313939
+    3733636434646339360a323463396531376533643231323561363231633233646265636336666537
+    6537
+  server: "{{ inventory_hostname }}"
+  server_port: 443
+  validate_certs: no
+  transport: rest
+EOF
+```
+
+#### 4.2. Store the **DEV ENVIRONMENT** vault password in protected file
 
 ```bash
 mkdir ~/.vault/
 touch ~/.vault/.dev_vault_password
-chmod 600 ~/.dev_vault_password
- echo 123456 > ~/.dev_vault_password
+chmod 600 ~/.vault/.dev_vault_password
+ echo 123456 > ~/.vault/.dev_vault_password
 ```
 
 #### 4.3. Run the playbook on the **DEV ENVIRONMENT**
 
+```bash
 ansible-navigator --eei quay.io/jordi_bericat/awx-ee:2.13-latest \
 run workshop_lab_part_2.yml \
 -i environments/dev/ \
 -e 'automation_id="ANSAB001/001" date_stats="2023-01"' \
 -l f5bigip \
 --lf logs/ansible-navigator.log \
---vault-password-file ~/.vault_password
+--vault-password-file ~/.vault/.dev_vault_password
+```
 
  #### 4.4. Summing-up: Pros and cons of this ansible automation method
 

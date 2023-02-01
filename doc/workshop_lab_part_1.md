@@ -15,21 +15,24 @@
         - [2.3. Deploying both public keys on GitHub](#23-deploying-both-public-keys-on-github)
       - [2.4. Adding both private keys on the pipeline environments](#24-adding-both-private-keys-on-the-pipeline-environments)
     - [3. Creating a python venv to run Ansible locally from the CLI](#3-creating-a-python-venv-to-run-ansible-locally-from-the-cli)
-    - [4. Creating a playbook using ansible's built-in modules to run an automation via SSH using interactive authentication](#4-creating-a-playbook-using-ansibles-built-in-modules-to-run-an-automation-via-ssh-using-interactive-authentication)
-      - [4.1. Development environment](#41-development-environment)
-      - [4.2. Staging environment](#42-staging-environment)
-      - [4.3. Production environment](#43-production-environment)
-    - [4.4. Summing-up: Pros and cons of this ansible automation method](#44-summing-up-pros-and-cons-of-this-ansible-automation-method)
-      - [4.5. Documenation references](#45-documenation-references)
-    - [5. Running the playbook using ansible's built-in modules via SSH using a private key](#5-running-the-playbook-using-ansibles-built-in-modules-via-ssh-using-a-private-key)
-      - [5.1. Creating the ssh-key](#51-creating-the-ssh-key)
-      - [5.2. Deploying the public key on the remote F5-devices devices](#52-deploying-the-public-key-on-the-remote-f5-devices-devices)
-      - [5.3. Adding the private key identity on the Ansible's control node](#53-adding-the-private-key-identity-on-the-ansibles-control-node)
-      - [5.4. Running the playbook seamlessly (with no interaction)](#54-running-the-playbook-seamlessly-with-no-interaction)
-        - [5.4.1. Development environment](#541-development-environment)
-        - [5.4.2. Staging \& Production environment](#542-staging--production-environment)
-        - [5.4.3. Summing-up: Pros and cons of this ansible automation method](#543-summing-up-pros-and-cons-of-this-ansible-automation-method)
-        - [5.4.5. Documentation references](#545-documentation-references)
+    - [4. Create the project structure and populate the inventory](#4-create-the-project-structure-and-populate-the-inventory)
+      - [4.1. We can use this script to create the project structure:](#41-we-can-use-this-script-to-create-the-project-structure)
+      - [4.2. Now we populate the environments host files](#42-now-we-populate-the-environments-host-files)
+    - [5. Creating a playbook using ansible's built-in modules to run an automation via SSH using interactive authentication](#5-creating-a-playbook-using-ansibles-built-in-modules-to-run-an-automation-via-ssh-using-interactive-authentication)
+      - [5.1. Development environment](#51-development-environment)
+      - [5.2. Staging environment](#52-staging-environment)
+      - [5.3. Production environment](#53-production-environment)
+    - [5.4. Summing-up: Pros and cons of this ansible automation method](#54-summing-up-pros-and-cons-of-this-ansible-automation-method)
+      - [5.5. Documenation references](#55-documenation-references)
+    - [6. Running the playbook using ansible's built-in modules via SSH using a private key](#6-running-the-playbook-using-ansibles-built-in-modules-via-ssh-using-a-private-key)
+      - [6.1. Creating the ssh-key](#61-creating-the-ssh-key)
+      - [6.2. Deploying the public key on the remote F5-devices devices](#62-deploying-the-public-key-on-the-remote-f5-devices-devices)
+      - [6.3. Adding the private key identity on the Ansible's control node](#63-adding-the-private-key-identity-on-the-ansibles-control-node)
+      - [6.4. Running the playbook seamlessly (with no interaction)](#64-running-the-playbook-seamlessly-with-no-interaction)
+        - [6.4.1. Development environment](#641-development-environment)
+        - [6.4.2. Staging \& Production environment](#642-staging--production-environment)
+        - [6.4.3. Summing-up: Pros and cons of this ansible automation method](#643-summing-up-pros-and-cons-of-this-ansible-automation-method)
+        - [6.4.4. Documentation references](#644-documentation-references)
 
 ## Introduction
 
@@ -144,9 +147,9 @@ packages. We'll also the f5-bigip imperative modules collection for ansible
 and some other OS packages, but be aware that those do not go into the venv!!
 
 ```bash
-python3 -m venv ansible_venv
-source /ansible_venv/bin/activate
-pip install ansible-core 2.13.7
+python3 -m venv ansible-lab1_venv
+source ansible-lab1_venv/bin/activate
+pip install ansible-core==2.13.7
 ansible-galaxy collection install f5networks.f5_modules:=1.16.0
 sudo apt-get install sshpass
 ```
@@ -154,13 +157,106 @@ sudo apt-get install sshpass
 Tip: Do not forget to add a .gitignore file on the repository root to tell git
 not to sync the venv on the repository.
 
-### 4. Creating a playbook using ansible's built-in modules to run an automation via SSH using interactive authentication
+### 4. Create the project structure and populate the inventory
+
+#### 4.1. We can use this script to create the project structure:
+
+```bash
+#!/bin/bash
+
+# Init project structure
+
+mkdir \
+ environments/ \
+ environments/dev \
+ environments/dev/.vault \
+ environments/dev/group_vars \
+ environments/dev/host_vars \
+ environments/staging \
+ environments/staging/.vault \
+ environments/staging/group_vars \
+ environments/staging/host_vars \
+ environments/prod \
+ environments/prod/.vault \
+ environments/prod/group_vars \
+ environments/prod/host_vars \
+ logs
+
+touch \
+ .gitignore \
+ environments/dev/hosts \
+ environments/staging/hosts \
+ environments/prod/hosts \
+ workshop_lab_part_1.yml \
+ workshop_lab_part_2.yml
+
+echo *_venv > .gitignore
+```
+
+#### 4.2. Now we populate the environments host files
+
+```bash
+#!/bin/bash
+
+# DEVELOPMENT
+cat << EOF > environments/dev/hosts
+[f5bigip]
+f5bigip[01:03].dev.cgr-lab.lan
+EOF
+
+# STAGING
+cat << EOF > environments/staging/hosts
+[f5bigip]
+f5bigip[01:03].staging.cgr-lab.lan
+EOF
+
+# PRODUCTION
+cat << EOF > environments/prod/hosts
+[f5bigip]
+f5bigip[01:03].prod.cgr-lab.lan
+EOF
+```
+
+### 5. Creating a playbook using ansible's built-in modules to run an automation via SSH using interactive authentication
 
 Now we're going to write a plabook to run the ansible automation we described
 on the introduction section:
 
 ```yaml
-TBD - PASTE PART 1 PB HERE
+---
+- name: >
+    PLAYBOOK - "workshop_lab_part_1.yml" (F5-BIGIP Automation via SSH on
+    multiple environments using Ansible inventory files)
+  hosts: all
+  gather_facts: no
+  tasks:
+
+  - name: >
+      1. Testing the SSH connection to the [{{ inventory_hostname }}]
+      F5-BIGIP device from the
+      [{{ inventory_file|regex_replace(playbook_dir,'') }}] inventory
+    ansible.builtin.ping:
+
+  - name: >
+      2. Gathering all the balanced services created for the
+      [{{ inventory_hostname }}] F5-BIGIP device from the
+      [{{ inventory_file|regex_replace(playbook_dir,'') }}] inventory via
+      SSH
+    ansible.builtin.shell:
+      cmd: >
+        tmsh list ltm virtual creation-time description |
+        grep -A 1 '{{ date_stats }}' |
+        grep '{{ automation_id }}' -c
+    register: results
+    ignore_errors: true
+
+  - name: 3. SHOW RESULTS
+    debug:
+      msg: >
+        total balanced services created on [{{ date_stats }}] =
+        [{{ results.stdout|default(none) }}]
+...
+
 ```
 
 Once the venv and the playook itself are on place, we will use the
@@ -171,7 +267,7 @@ we won't be storing any private key on the Ansibles control node (that is, we
 just type the device's ssh password interactively at the moment of the playbook
 execution).
 
-#### 4.1. Development environment
+#### 5.1. Development environment
 
 ```bash
 ansible-playbook -i environments/dev workshop_lab_part_1.yml \
@@ -181,7 +277,11 @@ ansible-playbook -i environments/dev workshop_lab_part_1.yml \
  --ask-pass
 ```
 
-#### 4.2. Staging environment
+#### 5.2. Staging environment
+
+we wont do this part of the activity, but the command to run the same PB on the
+staging inventory just needs a slight change (that is, to specify the new
+inventory with the -i option)
 
 ```bash
 ansible-playbook -i environments/staging workshop_lab_part_1.yml \
@@ -191,7 +291,11 @@ ansible-playbook -i environments/staging workshop_lab_part_1.yml \
  --ask-pass
 ```
 
-#### 4.3. Production environment
+#### 5.3. Production environment
+
+we wont do this part of the activity, but the command to run the same PB on the
+staging inventory just needs a slight change (that is, to specify the new
+inventory with the -i option)
 
 ```bash
 ansible-playbook -i environments/prod workshop_lab_part_1.yml \
@@ -201,7 +305,7 @@ ansible-playbook -i environments/prod workshop_lab_part_1.yml \
  --ask-pass
 ```
 
-### 4.4. Summing-up: Pros and cons of this ansible automation method
+### 5.4. Summing-up: Pros and cons of this ansible automation method
 
 **PROS**
 
@@ -213,43 +317,43 @@ ansible-playbook -i environments/prod workshop_lab_part_1.yml \
 - Environment not portable (we must replicate the venv on all the environment, which is painful and prone to deadlocks due to possible OS package dependencies that cannot be met and so on)
 - Not user friendly at all (not skilled CLI users would have a bad time trying to run these commands by themselves)
 
-#### 4.5. Documenation references
+#### 5.5. Documenation references
 
 <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_vars_facts.html>
 
-### 5. Running the playbook using ansible's built-in modules via SSH using a private key
+### 6. Running the playbook using ansible's built-in modules via SSH using a private key
 
-#### 5.1. Creating the ssh-key
+#### 6.1. Creating the ssh-key
 
 ```bash
 ssh-keygen -t ed25519
 ```
 
-- **Private key:** /home/jbericat/.ssh/id_ed25519_f5bigip
-- **Public key:** /home/jbericat/.ssh/id_ed25519_f5bigip.pub
+- **Private key:** /home/user/.ssh/id_ed25519_f5bigip
+- **Public key:** /home/user/.ssh/id_ed25519_f5bigip.pub
 - **password:** 123456
 
-#### 5.2. Deploying the public key on the remote F5-devices devices
+#### 6.2. Deploying the public key on the remote F5-devices devices
 
 ```bash
-scp /home/jbericat/.ssh/id_ed25519_f5bigip.pub admin@f5bigip01.dev.cgr-lab.lan:/home/admin/.ssh/authorized_keys
-scp /home/jbericat/.ssh/id_ed25519_f5bigip.pub admin@f5bigip03.dev.cgr-lab.lan:/home/admin/.ssh/authorized_keys
-scp /home/jbericat/.ssh/id_ed25519_f5bigip.pub admin@f5bigip01.staging.cgr-lab.lan:/home/admin/.ssh/authorized_keys
-scp /home/jbericat/.ssh/id_ed25519_f5bigip.pub admin@f5bigip03.staging.cgr-lab.lan:/home/admin/.ssh/authorized_keys
+scp /home/user/.ssh/id_ed25519_f5bigip.pub admin@f5bigip01.dev.cgr-lab.lan:/home/admin/.ssh/authorized_keys
+scp /home/user/.ssh/id_ed25519_f5bigip.pub admin@f5bigip03.dev.cgr-lab.lan:/home/admin/.ssh/authorized_keys
+scp /home/user/.ssh/id_ed25519_f5bigip.pub admin@f5bigip01.staging.cgr-lab.lan:/home/admin/.ssh/authorized_keys
+scp /home/user/.ssh/id_ed25519_f5bigip.pub admin@f5bigip03.staging.cgr-lab.lan:/home/admin/.ssh/authorized_keys
 ```
 
-#### 5.3. Adding the private key identity on the Ansible's control node
+#### 6.3. Adding the private key identity on the Ansible's control node
 
 ```bash
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519_f5bigip
 ```
 
-#### 5.4. Running the playbook seamlessly (with no interaction)
+#### 6.4. Running the playbook seamlessly (with no interaction)
 
 Now we can run the playbook without human interaction at all, which is kind off cool :)
 
-##### 5.4.1. Development environment
+##### 6.4.1. Development environment
 
 ```bash
 ansible-playbook -i environments/dev workshop_lab_part_1.yml \
@@ -259,14 +363,14 @@ ansible-playbook -i environments/dev workshop_lab_part_1.yml \
  --private-key ~/.ssh/id_ed25519_f5bigip
 ```
 
-##### 5.4.2. Staging & Production environment
+##### 6.4.2. Staging & Production environment
 
 We won't perform this activity on those environments since we're not allowed
 to transfer not-validated public keys to the production F5 devices due to
 security concerns. Anyway, I'm sure you all got the point already from the
 previous activity, so there is no need to do it again.
 
-##### 5.4.3. Summing-up: Pros and cons of this ansible automation method
+##### 6.4.3. Summing-up: Pros and cons of this ansible automation method
 
 **PROS**
 
@@ -277,9 +381,9 @@ previous activity, so there is no need to do it again.
 
 - Not full automation yet (we still have to enable the ssh-agent every now and then)
 - Environment still not portable / scalable
-- Not user friendly
+- Not very user friendly
 
-##### 5.4.5. Documentation references
+##### 6.4.4. Documentation references
 
 <https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ssh_connection.html>
 <https://medium.com/openinfo/ansible-ssh-private-public-keys-and-agent-setup-19c50b69c8c>

@@ -10,7 +10,7 @@
 
   - name: debug
     debug:
-      msg: "{{ cwd + vault_dir }}"
+      msg: "{{ playbook_dir + vault_dir }}"
 
   - name: >
       1. Gathering all the balanced services created for the

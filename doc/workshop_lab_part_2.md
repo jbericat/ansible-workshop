@@ -25,6 +25,19 @@
       - [4.4. Summing-up: Pros and cons of this ansible automation method](#44-summing-up-pros-and-cons-of-this-ansible-automation-method)
       - [4.5. Documentation references](#45-documentation-references)
     - [5. Installing AWX for DEV \& STAGING environments](#5-installing-awx-for-dev--staging-environments)
+- [AWX Installation on a KVM Hypervisor (NodePort Version)](#awx-installation-on-a-kvm-hypervisor-nodeport-version)
+  - [5.1. Dependencies](#51-dependencies)
+    - [5.1.1. Set-up the linux host to route traffic to the AWX Pod, so we can access the other hosts on the LAB](#511-set-up-the-linux-host-to-route-traffic-to-the-awx-pod-so-we-can-access-the-other-hosts-on-the-lab)
+    - [5.1.2. QEMU Config](#512-qemu-config)
+  - [5.2. Minikube Installation procedure](#52-minikube-installation-procedure)
+  - [5.3. Follow the steps here to install Minikube](#53-follow-the-steps-here-to-install-minikube)
+  - [5.4. AWX Installation procedure (https://asciinema.org/a/416946)](#54-awx-installation-procedure-httpsasciinemaorga416946)
+  - [5.5. AWX Installation](#55-awx-installation)
+    - [5.5.1. Deploy AWX Service (NGINX Ingress Controller Method)](#551-deploy-awx-service-nginx-ingress-controller-method)
+    - [5.5.2. Admin password administration](#552-admin-password-administration)
+      - [5.5.2.1. Get the default awx admin password](#5521-get-the-default-awx-admin-password)
+      - [5.5.2.2. Change awx admin password](#5522-change-awx-admin-password)
+      - [5.5.2.3. Add awx super-user](#5523-add-awx-super-user)
     - [6.1. Create AWX / Tower objects](#61-create-awx--tower-objects)
       - [6.1.1. using AWX GUI](#611-using-awx-gui)
     - [6.1.2. Using Ansible galaxy awx.awx collection (CaC)](#612-using-ansible-galaxy-awxawx-collection-cac)
@@ -388,8 +401,181 @@ run workshop_lab_part_2.yml \
 
 ### 5. Installing AWX for DEV & STAGING environments
 
-- install minikube
-- install AWX
+# AWX Installation on a KVM Hypervisor (NodePort Version)
+
+## 5.1. Dependencies
+
+### 5.1.1. Set-up the linux host to route traffic to the AWX Pod, so we can access the other hosts on the LAB
+
+```bash
+sudo sysctl -w net.ipv4.ip_forward=1
+
+# To make it persistent:
+
+# 1. you need to enable IP forwarding in the configuration file, usually stored at /etc/sysctl.conf:
+# 2. Find and uncomment the net.ipv4.ip_forward=1 line:
+# 3. Save the changes and exit the file.
+```
+
+### 5.1.2. QEMU Config
+
+To deploy the Minikube cluster on a KVM Hypervisor we need to use the **cpu-passthrough** arg in QEMU when creating the VM:
+
+```-machine type=pc,accel=kvm -vga virtio -usbdevice tablet -boot order=cd -cpu host```
+
+To be cool, we need a VM with at least: 4vCPU, 6Gb RAM, 200Gb (if we want to create diferent AWX instances)
+
+## 5.2. Minikube Installation procedure
+
+First we install the kubectl CLI
+
+```bash
+cd ~/Downloads
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+kubectl version --client --output=yaml
+```
+
+## 5.3. Follow the steps here to install Minikube
+
+[https://minikube.sigs.k8s.io/docs/](https://minikube.sigs.k8s.io/docs/)
+
+```bash
+sudo apt-get install -y containerd docker.io 
+sudo usermod -aG docker $USER && newgrp docker
+cd ~/Downloads
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+minikube start --cpus=6 --memory=6g --addons=ingress,dashboard,metrics-server
+kubectl get pods -A
+
+sudo touch /etc/systemd/system/minikube.service
+sudo chmod +x /etc/systemd/system/minikube.service
+sudo vim /etc/systemd/system/minikube.service
+
+------ ADD THIS TO minikube.service --------
+[Unit]
+Description=minikube
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+User=user
+RemainAfterExit=yes
+WorkingDirectory=/home/user
+ExecStart=/usr/local/bin/minikube start --cpus=6 --memory=6g addons=ingress,dashboard,metrics-server
+ExecStop=/usr/local/bin/minikube stop
+
+[Install]
+WantedBy=multi-user.target
+---------------------------------------------
+
+sudo systemctl enable minikube.service
+
+# REBOOT AND CHECK SERVICE STATUS:
+
+sudo systemctl status minikube.service
+minikube status
+minikube dashboard &
+```
+
+## 5.4. AWX Installation procedure (<https://asciinema.org/a/416946>)
+
+ select the AWX Operator version and deploy the Kubernetes cluster with the AWX instance:
+
+[https://github.com/ansible/awx-operator](https://github.com/ansible/awx-operator)
+
+```bash
+
+# INSTALL kustomize https://kubectl.docs.kubernetes.io/installation/kustomize/
+
+cd ~/Downloads
+curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
+
+# SOMETIMES THIS IMAGE CANNOT BE PULLED TO THE CONTAINER BY MINIKUBE, WE DO IT MANUALLY
+
+minikube image load "quay.io/ansible/awx-ee:latest" 
+
+vim ~/Downloads/kustomization.yaml
+
+------------ADD THIS TO ~/kustomization.yaml -----------
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  # Find the latest tag here: https://github.com/ansible/awx-operator/releases
+  - github.com/ansible/awx-operator/config/default?ref=<tag>
+
+# Set the image tags to match the git version from above
+images:
+  - name: quay.io/ansible/awx-operator
+    newTag: <tag>
+
+# Specify a custom namespace in which to install AWX
+namespace: <id-namespace>
+-------------------------------------------------------
+
+cd ~/Downloads
+./kustomize build . | kubectl apply -f -
+kubectl config set-context --current --namespace=<id-namespace>
+kubectl get pods
+```
+
+## 5.5. AWX Installation
+
+### 5.5.1. Deploy AWX Service (NGINX Ingress Controller Method)
+
+```bash
+vim awx-nginx-ingress.yml
+```
+
+```yaml
+---
+apiVersion: awx.ansible.com/v1beta1
+kind: AWX
+metadata:
+  name: awx-nginx-ingress
+spec:
+  service_type: clusterip
+  ingress_type: ingress
+  hostname: awx.staging.cgr-lab.lan
+```
+
+```bash
+kubectl apply -f awx-nginx-ingress.yml
+kubectl get awx
+kubectl get pods -l "app.kubernetes.io/managed-by=awx-operator" -w
+kubectl get svc -l "app.kubernetes.io/managed-by=awx-operator"  
+minikube service list
+kubectl get ingresses
+```
+
+### 5.5.2. Admin password administration
+
+#### 5.5.2.1. Get the default awx admin password
+
+```bash
+kubectl get secret awx-nginx-ingress-admin-password -o jsonpath="{.data.password}" | base64 --decode
+```
+
+#### 5.5.2.2. Change awx admin password
+
+```bash
+# Get pods and its containers to retrieve container name:
+
+kubectl get pods -n awx -o jsonpath='{range .items[*]}{"\n"}{.metadata.name}{"\t"}{.metadata.namespace}{"\t"}{range .spec.containers[*]}{.name}{"=>"}{.image}{","}{end}{end}'|sort|column -t
+
+minikube kubectl exec pod/awx-nginx-5456cdb7b6-b765v -- --container awx-nginx-web -it awx-manage changepassword admin
+```
+
+#### 5.5.2.3. Add awx super-user
+
+```bash
+minikube kubectl exec pod/awx-21-4-0-59446fbc85-l87hn -- --container awx-21-4-0-web -it awx-manage createsuperuser
+```
 
 ### 6.1. Create AWX / Tower objects
 

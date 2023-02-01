@@ -8,10 +8,6 @@
   gather_facts: no
   tasks:
 
-  - name: debug
-    debug:
-      msg: "{{ playbook_dir + vault_file }}"
-
   - name: >
       1. Gathering all the balanced services created for the
       [{{ inventory_hostname }}] F5-BIGIP device from the

@@ -217,6 +217,7 @@ run workshop_lab_part_2.yml \
 -i environments/dev/ \
 -e 'automation_id="ANSAB001/001" date_stats="2023-01"' \
 -l f5bigip \
+--lf logs/ansible-navigator.log \
 --vault-password-file ~/.vault_password
 
  #### 4.4. Summing-up: Pros and cons of this ansible automation method
@@ -228,6 +229,7 @@ run workshop_lab_part_2.yml \
 #### 4.5. Documentation references
 
 - https://docs.ansible.com/ansible/latest/cli/ansible-vault.html
+- https://docs.ansible.com/ansible/latest/vault_guide/index.html
 - https://ansible-navigator.readthedocs.io/en/latest/faq/#how-can-i-use-a-vault-password-with-ansible-navigator
 
 ### 5. Installing AWX for DEV & STAGING environments
@@ -237,10 +239,10 @@ run workshop_lab_part_2.yml \
 
 ### 6A. Create AWX / Tower objects using AWX GUI
 
-1. Add Execution Environment
+1. Add Execution Environment -> quay.io/jordi_bericat/awx-ee:2.13-workshop
 2. Create Project
 3. Add Vault Credential
-4. Create Inventory -> Add group vars
+4. Create Inventory (DEV) -> Add group vars
 5. Add Hosts
 6. Create Template Job -> Create Survey
 7. Run Playbook

@@ -6,7 +6,9 @@
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Activities](#activities)
-    - [1. Create an Ansible EE for further use on this lab](#1-create-an-ansible-ee-for-further-use-on-this-lab)
+    - [1. Create an Ansible Execution Environment](#1-create-an-ansible-execution-environment)
+      - [1.1. Script to create an Ansible EE for further use on this lab](#11-script-to-create-an-ansible-ee-for-further-use-on-this-lab)
+      - [1.2. To know more](#12-to-know-more)
     - [2. Deploy the EE on vscode](#2-deploy-the-ee-on-vscode)
     - [3. Run a playbook using EE's instead of python venv's via TUI (ansible-navigator)](#3-run-a-playbook-using-ees-instead-of-python-venvs-via-tui-ansible-navigator)
       - [3.1. Install ansible-navigator](#31-install-ansible-navigator)
@@ -17,32 +19,32 @@
       - [3.4. Running the playbook with ansible-navigator on DEV](#34-running-the-playbook-with-ansible-navigator-on-dev)
       - [3.5. Running the playbook with ansible-navigator on STAGING](#35-running-the-playbook-with-ansible-navigator-on-staging)
       - [3.6. Summing-up: Pros and cons of this ansible automation method](#36-summing-up-pros-and-cons-of-this-ansible-automation-method)
-      - [3.7. Documentation references](#37-documentation-references)
+      - [3.7. To know more](#37-to-know-more)
     - [4. Encrypting sensitive data with ansible Vault](#4-encrypting-sensitive-data-with-ansible-vault)
       - [4.1. Encrypt the var file with the F5 password](#41-encrypt-the-var-file-with-the-f5-password)
       - [4.2. Store the **DEV ENVIRONMENT** vault password in protected file](#42-store-the-dev-environment-vault-password-in-protected-file)
       - [4.3. Run the playbook on the **DEV ENVIRONMENT**](#43-run-the-playbook-on-the-dev-environment)
       - [4.4. Summing-up: Pros and cons of this ansible automation method](#44-summing-up-pros-and-cons-of-this-ansible-automation-method)
-      - [4.5. Documentation references](#45-documentation-references)
-    - [5. Installing AWX for DEV \& STAGING environments](#5-installing-awx-for-dev--staging-environments)
-- [AWX Installation on a KVM Hypervisor (NodePort Version)](#awx-installation-on-a-kvm-hypervisor-nodeport-version)
-  - [5.1. Dependencies](#51-dependencies)
-    - [5.1.1. Set-up the linux host to route traffic to the AWX Pod, so we can access the other hosts on the LAB](#511-set-up-the-linux-host-to-route-traffic-to-the-awx-pod-so-we-can-access-the-other-hosts-on-the-lab)
-    - [5.1.2. QEMU Config](#512-qemu-config)
-  - [5.2. Minikube Installation procedure](#52-minikube-installation-procedure)
-  - [5.3. Follow the steps here to install Minikube](#53-follow-the-steps-here-to-install-minikube)
-  - [5.4. AWX Installation procedure (https://asciinema.org/a/416946)](#54-awx-installation-procedure-httpsasciinemaorga416946)
-  - [5.5. AWX Installation](#55-awx-installation)
-    - [5.5.1. Deploy AWX Service (NGINX Ingress Controller Method)](#551-deploy-awx-service-nginx-ingress-controller-method)
-    - [5.5.2. Admin password administration](#552-admin-password-administration)
-      - [5.5.2.1. Get the default awx admin password](#5521-get-the-default-awx-admin-password)
-      - [5.5.2.2. Change awx admin password](#5522-change-awx-admin-password)
-      - [5.5.2.3. Add awx super-user](#5523-add-awx-super-user)
-    - [6.1. Create AWX / Tower objects](#61-create-awx--tower-objects)
-      - [6.1.1. using AWX GUI](#611-using-awx-gui)
-    - [6.1.2. Using Ansible galaxy awx.awx collection (CaC)](#612-using-ansible-galaxy-awxawx-collection-cac)
-    - [6.2. Run a Playbook Using EE's and vault on AWX / Tower](#62-run-a-playbook-using-ees-and-vault-on-awx--tower)
-    - [6.3. Documentation references](#63-documentation-references)
+      - [4.5. To know more](#45-to-know-more)
+    - [5. Installing AWX on a KVM Hypervisor for DEV \& STAGING environments](#5-installing-awx-on-a-kvm-hypervisor-for-dev--staging-environments)
+      - [5.1. OS preparation](#51-os-preparation)
+        - [5.1.1. Set-up the linux host to route traffic to the AWX Pod, so we can access the other hosts on the LAB](#511-set-up-the-linux-host-to-route-traffic-to-the-awx-pod-so-we-can-access-the-other-hosts-on-the-lab)
+        - [5.1.2. QEMU Config](#512-qemu-config)
+      - [5.2. Deploying Kubernetes](#52-deploying-kubernetes)
+        - [5.2.1. Installing the kubectl CLI](#521-installing-the-kubectl-cli)
+        - [5.2.2. Installing Minikube](#522-installing-minikube)
+      - [5.3. Installing AWX (https://asciinema.org/a/416946)](#53-installing-awx-httpsasciinemaorga416946)
+        - [5.3.1. Deploying AWX Operator](#531-deploying-awx-operator)
+        - [5.3.2. Deploy AWX Service (NGINX Ingress Controller Method)](#532-deploy-awx-service-nginx-ingress-controller-method)
+        - [5.3.3. Obtaining the default AWX admin password](#533-obtaining-the-default-awx-admin-password)
+        - [5.3.4 Changing the default AWX admin password](#534-changing-the-default-awx-admin-password)
+        - [5.3.5. Add awx super-user](#535-add-awx-super-user)
+      - [5.4. To know more](#54-to-know-more)
+    - [6. Managing AWX / Automation Controller](#6-managing-awx--automation-controller)
+      - [6.1. using AWX GUI](#61-using-awx-gui)
+      - [6.2. Using Ansible galaxy awx.awx collection (CaC)](#62-using-ansible-galaxy-awxawx-collection-cac)
+      - [6.3. To know more](#63-to-know-more)
+    - [7. Run a Playbook Using EE's and vault on AWX / Tower](#7-run-a-playbook-using-ees-and-vault-on-awx--tower)
 
 
 ## Introduction
@@ -50,19 +52,24 @@
 Om this second part of the demonstration lab we'll be running a playbook using 
 an ansible-galaxy collection module via REST API. For that, instead of 
 installing the collection locally on the Ansible Control Node, we are going to 
-create an Execution Environment, where we will embed all the modules 
-dependencies. This way we can use the same EE on diferents scenarios and 
-environments. To see the benefits of using the EE, instead of running the PB 
-via CLI, we're going first to use the ansible-navigator TUI tool. Afterwards,
-we'll run the same PB on AWX, where the same EE will be deployed.
+create an Execution Environment, where we will embed the ansible-core binaries
+(1) the Ansible module collections (2), any python pip dependencies (3) needed
+by our Ansible modules, as well as other OS packages (4) needed to run Ansible.
+This way we can use the same EE on diferent scenarios and environments. 
+To see the benefits of using the EE, instead of running the PB via CLI (as we
+did on the previous lab), now we're going first to use the ansible-navigator
+TUI tool. Afterwards, we'll run the same PB on AWX, where the same EE will be
+deployed.
 
-| **Playbook** | **Description** |
-|-|-|
+| **Playbook**                                       | **Description**                                                                                                                    |
+| -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | [workshop_lab_part_2.yml](workshop_lab_part_2.yml) | Ansible playbook that gathers all the F5-BIGIP Balanced Services (that is, virtual servers and pools) on a specific month via REST |
 
 ## Activities
 
-### 1. Create an Ansible EE for further use on this lab
+### 1. Create an Ansible Execution Environment
+
+#### 1.1. Script to create an Ansible EE for further use on this lab
 
 ```bash
 #!/bin/bash
@@ -105,13 +112,12 @@ dependencies:
 
 additional_build_steps:
   append:
-    - RUN alternatives --set python /usr/bin/python3
-    - RUN /usr/bin/python3 -m pip install --upgrade pip
+    - RUN alternatives --set python /usr/bin/python3.9
     - COPY --from=quay.io/project-receptor/receptor:latest /usr/bin/receptor /usr/bin/receptor
     - RUN mkdir -p /var/run/receptor
     - ADD run.sh /run.sh
     - CMD /run.sh
-    - USER 1000 
+    - USER 1000
     - RUN git lfs install
 ...
 EOF
@@ -125,7 +131,7 @@ collections:
   - name: awx.awx
     version: 21.8.0
   - name: f5networks.f5_modules
-    version: 1.16.0
+    version: 1.22.0
 ...
 EOF
 
@@ -138,12 +144,14 @@ awxkit==21.8.0
 ansible-lint==6.12.1
 pyvmomi==7.0.3
 pyvim==3.0.3
+dnspython==2.2.1
+jmespath==1.0.1
 EOF
 
 # 2.5) Setting OS Dependencies
 
 cat << EOF > bindep.txt
-python39-devel [platform:centos]
+python38-devel [platform:centos]
 subversion [platform:centos]
 git-lfs [platform:centos]
 EOF
@@ -153,7 +161,9 @@ EOF
 cat << EOF > ansible.cfg
 [defaults]
 stdout_callback = debug
-interpreter_python = /usr/bin/python3.9
+interpreter_python = auto
+interpreter_python_fallback = ['python3.9', 'python3.8'] 
+
 EOF
 
 # 3) Running ansible-builder to create the EE
@@ -164,28 +174,33 @@ python3 -m venv builder_venv
 source builder_venv/bin/activate
 
 # 3.2) Creating the EE docker container
+
 ansible-builder build \
-  --tag quay.io/jordi_bericat/awx-ee:2.13-workshop \
+  --tag quay.io/jordi_bericat/ansible-ee:2.13-latest \
   --context ./context \
   --container-runtime docker \
-  --prune-images \
   -v 3
 
 # 3.3) Uploading the EE Container to the quay registry
 
 docker login quay.io
-docker push quay.io/jordi_bericat/awx-ee:2.13-workshop
+docker push quay.io/jordi_bericat/ansible-ee:2.13-latest
 deactivate builder_venv
 ```
 
-Lectura recomendada:
+#### 1.2. To know more
 
-https://www.ansible.com/blog/the-anatomy-of-automation-execution-environments
+- https://www.ansible.com/blog/whats-new-in-ansible-automation-platform-2-automation-execution-environments
+- https://www.ansible.com/blog/the-anatomy-of-automation-execution-environments
+- https://www.ansible.com/blog/introduction-to-ansible-builder
+- https://docs.ansible.com/automation-controller/latest/html/userguide/ee_reference.html#ref-ee-definition
+- https://ansible-builder.readthedocs.io/en/stable/index.html
+- https://ansible-runner.readthedocs.io/en/stable/execution_environments/
 
 ### 2. Deploy the EE on vscode
 
 ```
-Ctrl+, -> Remote [WSL: Ubuntu 20.04] -> Ansible -> "ansible.executionEnvironment.image": "quay.io/jordi_bericat/awx-ee:2.13-latest"
+Ctrl+, -> Remote [WSL: Ubuntu 20.04] -> Ansible -> "ansible.executionEnvironment.image": "quay.io/jordi_bericat/ansible-ee:2.13-latest"
 ```
 
 ### 3. Run a playbook using EE's instead of python venv's via TUI (ansible-navigator)
@@ -251,7 +266,7 @@ f5_provider:
   password: "CGR123ABANCA"
   server: "{{ inventory_hostname }}"
   server_port: 443
-  validate_certs: no
+  validate_certs: false
   transport: rest
 EOF
 
@@ -278,17 +293,17 @@ EOF
   hosts: all
   vars_files:
     - "{{ playbook_dir + vault_file }}"
-  gather_facts: no
+  gather_facts: false
   tasks:
 
   - name: >
       1. Gathering all the balanced services created for the
       [{{ inventory_hostname }}] F5-BIGIP device from the
-      [{{ inventory_file|regex_replace(playbook_dir,'') }}] inventory
+      [{{ inventory_file | regex_replace(playbook_dir, '') }}] inventory
       via REST
     f5networks.f5_modules.bigip_command:
       provider: "{{ f5_provider }}"
-      commands: > 
+      commands: >
         list ltm virtual creation-time description |
         grep -A 1 '{{ date_stats }}' |
         grep '{{ automation_id }}' -c
@@ -297,35 +312,40 @@ EOF
     ignore_errors: true
 
   - name: 2. SHOW RESULTS
-    debug:
+    ansible.builtin.debug:
       msg: >
         total balanced services created on [{{ date_stats }}] =
-        [{{ results.stdout|default(none) }}]
+        [{{ results.stdout | default(none) }}]
 ...
 
 ```
 
 #### 3.4. Running the playbook with ansible-navigator on DEV
 
-**FOR THIS ACTIVITY MAKE SURE THE F5-PASSWORD IS STORED IN PLAIN-TEXT ON THE GROUP-VARS FILE FOR THE DEV ENVIRONMENT!**
+**ON THIS ACTIVITY, THE F5-PASSWORD IS STORED IN PLAIN-TEXT ON THE GROUP-VARS FILE FOR THE DEV ENVIRONMENT**
 
 ```bash
-ansible-navigator --eei quay.io/jordi_bericat/awx-ee:2.13-latest \
- run workshop_lab_part_2.yml \
- -i environments/dev/ \
- -e 'automation_id="ANSAB001/001" date_stats="2023-01"' \
- -l f5bigip \
- --lf logs/ansible-navigator.log
+ansible-navigator \
+    run workshop_lab_part_2.yml \
+    --eei quay.io/jordi_bericat/ansible-ee:2.13-latest \
+    --inventory environments/dev/ \
+    --limit f5bigip \
+    --extra-vars 'automation_id="ANSAB001/001" date_stats="2023-01"' \
+    --lf logs/ansible-navigator.log \
+    --pas logs/{playbook_name}-artifact-{time_stamp}.json
 ```
 
 #### 3.5. Running the playbook with ansible-navigator on STAGING
 
 ```bash
-ansible-navigator --eei quay.io/jordi_bericat/awx-ee:2.13-latest \
- run workshop_lab_part_2.yml \
- -i environments/staging/ \
- -e 'automation_id="ANSAB001/001" date_stats="2023-01"' \
- -l f5bigip
+ansible-navigator \
+    run workshop_lab_part_2.yml \
+    --eei quay.io/jordi_bericat/ansible-ee:2.13-latest \
+    --inventory environments/staging/ \
+    --limit f5bigip \
+    --extra-vars 'automation_id="ANSAB001/001" date_stats="2023-01"' \
+    --lf logs/ansible-navigator.log \
+    --pas logs/{playbook_name}-artifact-{time_stamp}.json
 ```
 
 #### 3.6. Summing-up: Pros and cons of this ansible automation method
@@ -340,9 +360,10 @@ ansible-navigator --eei quay.io/jordi_bericat/awx-ee:2.13-latest \
 - Poor security measures (the F5 devices' password is stored in plaintext on the group vars)
 - Still not totally user friendly
 
-#### 3.7. Documentation references
+#### 3.7. To know more
 
-https://ansible-navigator.readthedocs.io/en/latest/faq/
+- https://ansible-navigator.readthedocs.io/en/latest/faq/
+- https://www.techbeatly.com/ansible-navigator-cheat-sheet/
 
 ### 4. Encrypting sensitive data with ansible Vault
 
@@ -354,12 +375,16 @@ We can encrypt a variable file using the ansible-vault command, like this:
 ansible-vault encrypt environments/dev/.vault/f5bigip.yml
 ```
 
-We can also encrypt the password string directly so we won't have to include
-the vaulted vars file (that's useful when using different inventory files)
+Or, we can also encrypt the password string directly so we won't have to
+include the vaulted vars file (that's useful when using different inventory
+files)
 
 ```bash
 ansible-vault encrypt_string --show-input - 
 ```
+
+**tip:** When encrypting a string, use `CTRL+D` twice to end the stdout input
+instead of the `intro` key
 
 For this activity we'll just add the encrypted string to the 
 `group_vars/f5bigip.yml` file:
@@ -391,16 +416,21 @@ chmod 600 ~/.vault/.dev_vault_password
  echo 123456 > ~/.vault/.dev_vault_password
 ```
 
+**tip:** Add a space before the `echo` command to avoid storing the password on
+the `~/.bash_history` file
+
 #### 4.3. Run the playbook on the **DEV ENVIRONMENT**
 
 ```bash
-ansible-navigator --eei quay.io/jordi_bericat/awx-ee:2.13-latest \
-run workshop_lab_part_2.yml \
--i environments/dev/ \
--e 'automation_id="ANSAB001/001" date_stats="2023-01"' \
--l f5bigip \
---lf logs/ansible-navigator.log \
---vault-password-file ~/.vault/.dev_vault_password
+ansible-navigator \
+    run workshop_lab_part_2.yml \
+    --eei quay.io/jordi_bericat/ansible-ee:2.13-latest \
+    --inventory environments/dev/ \
+    --limit f5bigip \
+    --extra-vars 'automation_id="ANSAB001/001" date_stats="2023-01"' \
+    --vault-password-file ~/.vault/.dev_vault_password \
+    --lf logs/ansible-navigator.log \
+    --pas logs/{playbook_name}-artifact-{time_stamp}.json
 ```
 
  #### 4.4. Summing-up: Pros and cons of this ansible automation method
@@ -415,19 +445,17 @@ run workshop_lab_part_2.yml \
 
 - Still not totally user friendly
 
-#### 4.5. Documentation references
+#### 4.5. To know more
 
 - https://docs.ansible.com/ansible/latest/cli/ansible-vault.html
 - https://docs.ansible.com/ansible/latest/vault_guide/index.html
 - https://ansible-navigator.readthedocs.io/en/latest/faq/#how-can-i-use-a-vault-password-with-ansible-navigator
 
-### 5. Installing AWX for DEV & STAGING environments
+### 5. Installing AWX on a KVM Hypervisor for DEV & STAGING environments
 
-# AWX Installation on a KVM Hypervisor (NodePort Version)
+#### 5.1. OS preparation
 
-## 5.1. Dependencies
-
-### 5.1.1. Set-up the linux host to route traffic to the AWX Pod, so we can access the other hosts on the LAB
+##### 5.1.1. Set-up the linux host to route traffic to the AWX Pod, so we can access the other hosts on the LAB
 
 ```bash
 sudo sysctl -w net.ipv4.ip_forward=1
@@ -439,7 +467,7 @@ sudo sysctl -w net.ipv4.ip_forward=1
 # 3. Save the changes and exit the file.
 ```
 
-### 5.1.2. QEMU Config
+##### 5.1.2. QEMU Config
 
 To deploy the Minikube cluster on a KVM Hypervisor we need to use the **cpu-passthrough** arg in QEMU when creating the VM:
 
@@ -447,9 +475,9 @@ To deploy the Minikube cluster on a KVM Hypervisor we need to use the **cpu-pass
 
 To be cool, we need a VM with at least: 4vCPU, 6Gb RAM, 200Gb (if we want to create diferent AWX instances)
 
-## 5.2. Minikube Installation procedure
+#### 5.2. Deploying Kubernetes
 
-First we install the kubectl CLI
+##### 5.2.1. Installing the kubectl CLI
 
 ```bash
 cd ~/Downloads
@@ -460,7 +488,7 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 kubectl version --client --output=yaml
 ```
 
-## 5.3. Follow the steps here to install Minikube
+##### 5.2.2. Installing Minikube
 
 [https://minikube.sigs.k8s.io/docs/](https://minikube.sigs.k8s.io/docs/)
 
@@ -504,9 +532,9 @@ minikube status
 minikube dashboard &
 ```
 
-## 5.4. AWX Installation procedure (<https://asciinema.org/a/416946>)
+#### 5.3. Installing AWX (<https://asciinema.org/a/416946>)
 
- select the AWX Operator version and deploy the Kubernetes cluster with the AWX instance:
+##### 5.3.1. Deploying AWX Operator
 
 [https://github.com/ansible/awx-operator](https://github.com/ansible/awx-operator)
 
@@ -546,9 +574,7 @@ kubectl config set-context --current --namespace=<id-namespace>
 kubectl get pods
 ```
 
-## 5.5. AWX Installation
-
-### 5.5.1. Deploy AWX Service (NGINX Ingress Controller Method)
+##### 5.3.2. Deploy AWX Service (NGINX Ingress Controller Method)
 
 ```bash
 vim awx-nginx-ingress.yml
@@ -575,15 +601,13 @@ minikube service list
 kubectl get ingresses
 ```
 
-### 5.5.2. Admin password administration
-
-#### 5.5.2.1. Get the default awx admin password
+##### 5.3.3. Obtaining the default AWX admin password
 
 ```bash
 kubectl get secret awx-nginx-ingress-admin-password -o jsonpath="{.data.password}" | base64 --decode
 ```
 
-#### 5.5.2.2. Change awx admin password
+##### 5.3.4 Changing the default AWX admin password
 
 ```bash
 # Get pods and its containers to retrieve container name:
@@ -593,15 +617,21 @@ kubectl get pods -n awx -o jsonpath='{range .items[*]}{"\n"}{.metadata.name}{"\t
 minikube kubectl exec pod/awx-nginx-5456cdb7b6-b765v -- --container awx-nginx-web -it awx-manage changepassword admin
 ```
 
-#### 5.5.2.3. Add awx super-user
+##### 5.3.5. Add awx super-user
 
 ```bash
 minikube kubectl exec pod/awx-21-4-0-59446fbc85-l87hn -- --container awx-21-4-0-web -it awx-manage createsuperuser
 ```
 
-### 6.1. Create AWX / Tower objects
+#### 5.4. To know more
 
-#### 6.1.1. using AWX GUI
+- https://minikube.sigs.k8s.io/docs/
+- https://github.com/ansible/awx
+- https://asciinema.org/a/416946
+
+### 6. Managing AWX / Automation Controller
+
+#### 6.1. using AWX GUI
 
 1. Add Execution Environment -> quay.io/jordi_bericat/awx-ee:2.13-workshop
 2. Create Project
@@ -611,7 +641,7 @@ minikube kubectl exec pod/awx-21-4-0-59446fbc85-l87hn -- --container awx-21-4-0-
 6. Create Template Job -> Create Survey
 7. Run Playbook
 
-### 6.1.2. Using Ansible galaxy awx.awx collection (CaC)
+#### 6.2. Using Ansible galaxy awx.awx collection (CaC)
 
 One of the greatest features of the Automation Controller is that we can
 interact with the via CaC to create any of its objects, like Template jobs,
@@ -622,13 +652,20 @@ Ansible modules collections available on Ansible Galaxy:
 - For the downstream version of the controller (that is, the Automation Controller), we use the the `redhat_cop.controller_configuration` collection
 
 However, in this demostration lab we won't get that far, so we'll stick to the
-GUI method. On the [6.3 section](#6.3._Documentation_references) you'll find
-furthe references about configuring the Automation Controller / AWX by means of
-CaC
+GUI method. On the next section you'll find further references about
+configuring the Automation Controller / AWX by means of CaC
 
-### 6.2. Run a Playbook Using EE's and vault on AWX / Tower
+#### 6.3. To know more
 
-Running the Template Job on AWX
+- https://docs.ansible.com/ansible-tower/index.html
+- https://docs.ansible.com/ansible/latest/collections/awx/awx/index.html
+- https://docs.ansible.com/ansible-tower/latest/html/towercli/index.html
+
+### 7. Run a Playbook Using EE's and vault on AWX / Tower
+
+At this point, we are going to run the very same PB we ran using the
+ansible-navigator method, but this time we're going the use the fancy / UX
+friendly GUI that AWX / Automation Controller provides. Enjoy!
 
 **PROS:**
 
@@ -641,9 +678,6 @@ Running the Template Job on AWX
 
 - Method not suited for coding and debugging (for that is ansible-navigator is less time consuming, since we don't have to sync the project every time we run a playbook to see what it does)
 
-### 6.3. Documentation references
 
-- https://github.com/ansible/awx
-- https://docs.ansible.com/ansible-tower/index.html
-- https://docs.ansible.com/ansible/latest/collections/awx/awx/index.html
-- https://docs.ansible.com/ansible-tower/latest/html/towercli/index.html
+
+

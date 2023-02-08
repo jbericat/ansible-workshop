@@ -7,6 +7,8 @@
   - [Introduction](#introduction)
   - [Activities](#activities)
     - [1. Preparing the developer workstation](#1-preparing-the-developer-workstation)
+      - [1.1. Software packages](#11-software-packages)
+      - [1.2 To know more](#12-to-know-more)
     - [2. Setting-up the Git repository](#2-setting-up-the-git-repository)
       - [2.1. Creating the repository](#21-creating-the-repository)
       - [2.2. Creating the deploy keys](#22-creating-the-deploy-keys)
@@ -68,6 +70,8 @@ the same playbook against the different sets of F5 devices.
 
 ### 1. Preparing the developer workstation
 
+#### 1.1. Software packages
+
 **OS:** Either any modern Linux distribution or WSL 2.0
 
 **IDE:** VScode 1.74.3
@@ -83,6 +87,12 @@ the same playbook against the different sets of F5 devices.
 | jinja              | Wholroyd      | Recommended |
 | Indent rainbow     | oderwaty      | Optional    |
 | Material icon      | Philipp Kief  | Optional    |
+
+#### 1.2 To know more
+
+- https://marketplace.visualstudio.com/items?itemName=redhat.ansible
+- https://www.ansible.com/resources/webinars-training/using-the-new-vs-code-extension-for-ansible
+- https://github.com/ansible/vscode-ansible
 
 ### 2. Setting-up the Git repository
 

@@ -14,21 +14,21 @@
         - [2.2.2. Creating the RO personal deploy key](#222-creating-the-ro-personal-deploy-key)
       - [2.3. Deploying both public keys on GitHub](#23-deploying-both-public-keys-on-github)
       - [2.4. Adding both private keys on each environment](#24-adding-both-private-keys-on-each-environment)
-    - [2.5. To know more](#25-to-know-more)
-  - [3. Create a python virtual environment](#3-create-a-python-virtual-environment)
-    - [3.1 Creating a python venv to run Ansible locally from the CLI](#31-creating-a-python-venv-to-run-ansible-locally-from-the-cli)
-    - [3.2. To know more](#32-to-know-more)
+      - [2.5. To know more](#25-to-know-more)
+    - [3. Create a python virtual environment](#3-create-a-python-virtual-environment)
+      - [3.1 Creating a python venv to run Ansible locally from the CLI](#31-creating-a-python-venv-to-run-ansible-locally-from-the-cli)
+      - [3.2. To know more](#32-to-know-more)
     - [4. Create the project structure and populate the inventory](#4-create-the-project-structure-and-populate-the-inventory)
       - [4.1. Project structure](#41-project-structure)
       - [4.2. Populating the environments' inventory host files](#42-populating-the-environments-inventory-host-files)
-    - [4.3. To know more](#43-to-know-more)
+      - [4.3. To know more](#43-to-know-more)
     - [5. Creating a playbook using ansible's built-in modules to run an automation via SSH using interactive authentication](#5-creating-a-playbook-using-ansibles-built-in-modules-to-run-an-automation-via-ssh-using-interactive-authentication)
       - [5.1. Creating the playbook file](#51-creating-the-playbook-file)
-    - [5.2. Running the playbook](#52-running-the-playbook)
-      - [5.2.1 Development environment](#521-development-environment)
-      - [5.2.2. Staging environment](#522-staging-environment)
-      - [5.2.3. Production environment](#523-production-environment)
-    - [5.3. Summing-up: Pros and cons of this ansible automation method](#53-summing-up-pros-and-cons-of-this-ansible-automation-method)
+      - [5.2. Running the playbook](#52-running-the-playbook)
+        - [5.2.1 Development environment](#521-development-environment)
+        - [5.2.2. Staging environment](#522-staging-environment)
+        - [5.2.3. Production environment](#523-production-environment)
+      - [5.3. Summing-up: Pros and cons of this ansible automation method](#53-summing-up-pros-and-cons-of-this-ansible-automation-method)
       - [5.4. To know more](#54-to-know-more)
     - [6. Running the playbook using ansible's built-in modules via SSH using a private key](#6-running-the-playbook-using-ansibles-built-in-modules-via-ssh-using-a-private-key)
       - [6.1. Creating the ssh-key](#61-creating-the-ssh-key)
@@ -37,8 +37,8 @@
       - [6.4. Running the playbook seamlessly (with no interaction)](#64-running-the-playbook-seamlessly-with-no-interaction)
         - [6.4.1. Development environment](#641-development-environment)
         - [6.4.2. Staging \& Production environment](#642-staging--production-environment)
-        - [6.4.3. Summing-up: Pros and cons of this ansible automation method](#643-summing-up-pros-and-cons-of-this-ansible-automation-method)
-        - [6.4.4. To know more](#644-to-know-more)
+      - [6.5. Summing-up: Pros and cons of this ansible automation method](#65-summing-up-pros-and-cons-of-this-ansible-automation-method)
+      - [6.6. To know more](#66-to-know-more)
 
 ## Introduction
 
@@ -148,7 +148,7 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519_ansible_workshop_RO
 ```
 
-### 2.5. To know more
+#### 2.5. To know more
 
 - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 - https://linuxize.com/post/gitignore-ignoring-files-in-git/
@@ -156,9 +156,9 @@ ssh-add ~/.ssh/id_ed25519_ansible_workshop_RO
 - https://stackoverflow.com/questions/13541615/how-to-remove-files-that-are-listed-in-the-gitignore-but-still-on-the-repositor
 
 
-## 3. Create a python virtual environment
+### 3. Create a python virtual environment
 
-### 3.1 Creating a python venv to run Ansible locally from the CLI
+#### 3.1 Creating a python venv to run Ansible locally from the CLI
 
 Since on this PoC version we still don't integrate the so called Ansible
 Execution Environments, then we must first configure a python venv
@@ -178,7 +178,7 @@ sudo apt-get install sshpass
 Tip: Do not forget to add a .gitignore file on the repository root to tell git
 not to sync the venv on the repository.
 
-### 3.2. To know more
+#### 3.2. To know more
 
 - https://www.redhat.com/sysadmin/python-venv-ansible
 
@@ -232,7 +232,7 @@ f5bigip[01:03].prod.cgr-lab.lan
 EOF
 ```
 
-### 4.3. To know more
+#### 4.3. To know more
 
 - https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html
 - https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html#host-variables
@@ -283,7 +283,7 @@ on the introduction section:
 
 ```
 
-### 5.2. Running the playbook
+#### 5.2. Running the playbook
 
 Once the venv and the playook itself are on place, we will use the
 `ansible-playbook` command from the CLI to run the automation, just setting the
@@ -297,7 +297,7 @@ the moment of the PB execution (using the `--user` option to tell ansible which
 user we want to use to perform the SSH connection, along with the `--ask-pass`
 option). 
 
-#### 5.2.1 Development environment
+##### 5.2.1 Development environment
 
 ```bash
 ansible-playbook workshop_lab_part_1.yml \
@@ -308,7 +308,7 @@ ansible-playbook workshop_lab_part_1.yml \
     --ask-pass
 ```
 
-#### 5.2.2. Staging environment
+##### 5.2.2. Staging environment
 
 we wont do this part of the activity, but the command to run the same PB on the
 staging inventory just needs a slight change (that is, to specify the new
@@ -323,7 +323,7 @@ ansible-playbook workshop_lab_part_1.yml \
     --ask-pass
 ```
 
-#### 5.2.3. Production environment
+##### 5.2.3. Production environment
 
 we neither wont do this part of the activity, but the command to run the same
 PB on the staging inventory just needs a slight change (that is, to specify the
@@ -338,7 +338,7 @@ ansible-playbook workshop_lab_part_1.yml \
     --ask-pass
 ```
 
-### 5.3. Summing-up: Pros and cons of this ansible automation method
+#### 5.3. Summing-up: Pros and cons of this ansible automation method
 
 **PROS**
 
@@ -414,7 +414,7 @@ to transfer not-validated public keys to the production F5 devices due to
 security concerns. Anyway, I'm sure you all got the point already from the
 previous activity, so there is no need to do it again.
 
-##### 6.4.3. Summing-up: Pros and cons of this ansible automation method
+#### 6.5. Summing-up: Pros and cons of this ansible automation method
 
 **PROS**
 
@@ -427,7 +427,7 @@ previous activity, so there is no need to do it again.
 - Environment still not portable / scalable
 - Not very user friendly
 
-##### 6.4.4. To know more
+#### 6.6. To know more
 
 - https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ssh_connection.html
 - https://medium.com/openinfo/ansible-ssh-private-public-keys-and-agent-setup-19c50b69c8c

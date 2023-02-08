@@ -7,7 +7,7 @@
   - [Introduction](#introduction)
   - [Activities](#activities)
     - [1. Preparing the developer workstation](#1-preparing-the-developer-workstation)
-    - [2. Setting-ip the Git repository](#2-setting-ip-the-git-repository)
+    - [2. Setting-up the Git repository](#2-setting-up-the-git-repository)
       - [2.1. Creating the repository](#21-creating-the-repository)
       - [2.2. Creating the deploy keys](#22-creating-the-deploy-keys)
         - [2.2.1. Creating the RW personal SSH key](#221-creating-the-rw-personal-ssh-key)
@@ -84,7 +84,7 @@ the same playbook against the different sets of F5 devices.
 | Indent rainbow     | oderwaty      | Optional    |
 | Material icon      | Philipp Kief  | Optional    |
 
-### 2. Setting-ip the Git repository
+### 2. Setting-up the Git repository
 
 #### 2.1. Creating the repository
 
@@ -151,6 +151,10 @@ ssh-add ~/.ssh/id_ed25519_ansible_workshop_RO
 ### 2.5. To know more
 
 - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+- https://linuxize.com/post/gitignore-ignoring-files-in-git/
+- https://github.com/github/gitignore
+- https://stackoverflow.com/questions/13541615/how-to-remove-files-that-are-listed-in-the-gitignore-but-still-on-the-repositor
+
 
 ## 3. Create a python virtual environment
 
@@ -177,7 +181,6 @@ not to sync the venv on the repository.
 ### 3.2. To know more
 
 - https://www.redhat.com/sysadmin/python-venv-ansible
-- https://github.com/github/gitignore
 
 ### 4. Create the project structure and populate the inventory
 
@@ -350,12 +353,15 @@ ansible-playbook workshop_lab_part_1.yml \
 #### 5.4. To know more
 
 - https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html
+- https://ansible-lint.readthedocs.io/
 - https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html
 - https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html
 - https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_vars_facts.html
+- https://docs.ansible.com/ansible/latest/playbook_guide/complex_data_manipulation.html
+- https://docs.ansible.com/ansible/2.7/user_guide/playbooks_filters.html
+- https://jinja.palletsprojects.com/en/3.0.x/templates/#jinja-filters
 - https://docs.ansible.com/ansible/latest/collections/ansible/builtin/index.html
 - https://docs.ansible.com/ansible/devel/collections/ansible/utils/index.html
-- https://docs.ansible.com/ansible/2.7/user_guide/playbooks_filters.html
 - https://docs.ansible.com/ansible/latest/collections/index.html
 
 ### 6. Running the playbook using ansible's built-in modules via SSH using a private key

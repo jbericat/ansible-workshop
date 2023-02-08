@@ -77,7 +77,7 @@ pip install ansible-builder
 
 rm -rf ~/ansible-builder
 mkdir ~/ansible-builder && cd ~/ansible-builder
-touch execution-environment.yml requirements.yml requirements.txt bindep.txt 
+touch execution-environment.yml requirements.yml requirements.txt bindep.txt ansible.cfg
 mkdir context && cd context
 touch run.sh && chmod 774 run.sh
 cat << EOF > run.sh
@@ -92,8 +92,11 @@ cat << EOF > execution-environment.yml
 ---
 version: 1
 
+ansible_config: 'ansible.cfg'
+
 build_arg_defaults:
   EE_BASE_IMAGE: 'quay.io/ansible/ansible-runner:latest'
+  EE_BUILDER_IMAGE: 'quay.io/ansible/ansible-builder:latest'
 
 dependencies:
   galaxy: requirements.yml
@@ -103,6 +106,7 @@ dependencies:
 additional_build_steps:
   append:
     - RUN alternatives --set python /usr/bin/python3
+    - RUN /usr/bin/python3 -m pip install --upgrade pip
     - COPY --from=quay.io/project-receptor/receptor:latest /usr/bin/receptor /usr/bin/receptor
     - RUN mkdir -p /var/run/receptor
     - ADD run.sh /run.sh
@@ -129,7 +133,9 @@ EOF
 
 cat << EOF > requirements.txt
 urllib3
-ansible-lint==6.11.0
+ansible-core==2.13.7
+awxkit==21.8.0
+ansible-lint==6.12.1
 pyvmomi==7.0.3
 pyvim==3.0.3
 EOF
@@ -137,21 +143,33 @@ EOF
 # 2.5) Setting OS Dependencies
 
 cat << EOF > bindep.txt
-python38-devel [platform:centos]
+python39-devel [platform:centos]
 subversion [platform:centos]
 git-lfs [platform:centos]
+EOF
+
+# 2.6) Setting ansible configuration parameters
+
+cat << EOF > ansible.cfg
+[defaults]
+stdout_callback = debug
+interpreter_python = /usr/bin/python3.9
 EOF
 
 # 3) Running ansible-builder to create the EE
 
 # 3.1) Creating python venv
 
-cd ~/ansible-builder
 python3 -m venv builder_venv
 source builder_venv/bin/activate
 
 # 3.2) Creating the EE docker container
-ansible-builder build --tag quay.io/jordi_bericat/awx-ee:2.13-workshop --context ./context --container-runtime docker  --verbosity 3
+ansible-builder build \
+  --tag quay.io/jordi_bericat/awx-ee:2.13-workshop \
+  --context ./context \
+  --container-runtime docker \
+  --prune-images \
+  -v 3
 
 # 3.3) Uploading the EE Container to the quay registry
 
@@ -159,6 +177,10 @@ docker login quay.io
 docker push quay.io/jordi_bericat/awx-ee:2.13-workshop
 deactivate builder_venv
 ```
+
+Lectura recomendada:
+
+https://www.ansible.com/blog/the-anatomy-of-automation-execution-environments
 
 ### 2. Deploy the EE on vscode
 

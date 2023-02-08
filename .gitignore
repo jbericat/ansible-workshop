@@ -1,5 +1,6 @@
 #Repo rules
-.vscode
+/.vscode
+/log
 .trash
 *_venv
 lib
@@ -7,6 +8,3 @@ lib64
 share
 bin
 pyvenv.cfg
-
-#Ansible rules
-#vault*

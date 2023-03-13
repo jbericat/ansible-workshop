@@ -19,7 +19,6 @@
         name: 001_f5_automation_stats
       vars:
         current_stats: "ANSAB001/001, 2022-09, 2022-10"
-#      when: not var_prompt_1 == ""
 
     - name: DYNAMIC ROLE (include)
       ansible.builtin.include_role:

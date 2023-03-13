@@ -1,0 +1,40 @@
+---
+- name: >
+    PLAYBOOK - "workshop_lab_part_3.yml" (Advanced topics)
+  hosts: all
+  vars_files:
+    - "{{ playbook_dir + vault_file }}"
+  # vars_prompt:
+  #   - name: var_prompt_1
+  #     prompt: What automation ID and dates you want stats for (CSV Format, first value is automation ID)?
+  #     private: false
+  strategy: linear # free / host_pinned / debug
+  gather_facts: false
+  roles:
+    - common
+  tasks:
+
+    - name: 1. STATIC ROLE (import)
+      ansible.builtin.import_role:
+        name: 001_f5_automation_stats
+      vars:
+        current_stats: "ANSAB001/001, 2022-09, 2022-10"
+#      when: not var_prompt_1 == ""
+
+    - name: DYNAMIC ROLE (include)
+      ansible.builtin.include_role:
+        name: 001_f5_automation_stats
+      vars:
+        current_stats: "{{ item }}"
+      loop: "{{ input_csv_data | split('\n') }}"
+      loop_control:
+        extended: true
+      when: input_csv_data is defined
+
+  post_tasks:
+
+  - name: SHOW FINAL SUMMARY RESULTS
+    ansible.builtin.debug:
+      var: final_summary
+    run_once: true
+...

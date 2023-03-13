@@ -1,0 +1,147 @@
+{
+    "plays": [],
+    "settings_entries": {
+        "ansible-navigator": {
+            "ansible": {
+                "cmdline": "--limit f5bigip --extra-vars @debug/part_3_input.yml",
+                "config": {
+                    "help": false
+                },
+                "doc": {
+                    "help": false,
+                    "plugin": {
+                        "type": "module"
+                    }
+                },
+                "inventory": {
+                    "entries": [
+                        "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/environments/dev"
+                    ],
+                    "help": false
+                },
+                "playbook": {
+                    "help": false,
+                    "path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml"
+                }
+            },
+            "ansible-builder": {
+                "help": false,
+                "workdir": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop"
+            },
+            "app": "run",
+            "collection-doc-cache-path": "/home/jbericat/.cache/ansible-navigator/collection_doc_cache.db",
+            "color": {
+                "enable": true,
+                "osc4": true
+            },
+            "editor": {
+                "command": "vi +{line_number} {filename}",
+                "console": true
+            },
+            "exec": {
+                "command": "/bin/bash",
+                "shell": true
+            },
+            "execution-environment": {
+                "container-engine": "docker",
+                "enabled": true,
+                "image": "quay.io/jordi_bericat/ansible-ee:2.13-latest",
+                "pull": {
+                    "policy": "tag"
+                }
+            },
+            "images": {
+                "details": [
+                    "everything"
+                ]
+            },
+            "logging": {
+                "append": true,
+                "file": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/logs/ansible-navigator.log",
+                "level": "warning"
+            },
+            "mode": "interactive",
+            "playbook-artifact": {
+                "enable": true,
+                "save-as": "logs/{playbook_name}-artifact-{time_stamp}.json"
+            },
+            "settings": {
+                "effective": false,
+                "sample": false,
+                "schema": "json",
+                "sources": false
+            },
+            "time-zone": "UTC"
+        }
+    },
+    "settings_sources": {
+        "ansible-navigator.ansible-builder.help": "Defaults",
+        "ansible-navigator.ansible-builder.workdir": "Defaults",
+        "ansible-navigator.ansible-lint.config": "Not set",
+        "ansible-navigator.ansible-lint.lintables": "Not set",
+        "ansible-navigator.ansible-runner.artifact-dir": "Not set",
+        "ansible-navigator.ansible-runner.rotate-artifacts-count": "Not set",
+        "ansible-navigator.ansible-runner.timeout": "Not set",
+        "ansible-navigator.ansible.cmdline": "Previous cli command",
+        "ansible-navigator.ansible.config.help": "Defaults",
+        "ansible-navigator.ansible.config.path": "Not set",
+        "ansible-navigator.ansible.doc.help": "Defaults",
+        "ansible-navigator.ansible.doc.plugin.name": "Not set",
+        "ansible-navigator.ansible.doc.plugin.type": "Defaults",
+        "ansible-navigator.ansible.inventory.entries": "Previous cli command",
+        "ansible-navigator.ansible.inventory.help": "Defaults",
+        "ansible-navigator.ansible.playbook.help": "Defaults",
+        "ansible-navigator.ansible.playbook.path": "Previous cli command",
+        "ansible-navigator.app": "Command line",
+        "ansible-navigator.collection-doc-cache-path": "Defaults",
+        "ansible-navigator.color.enable": "Defaults",
+        "ansible-navigator.color.osc4": "Defaults",
+        "ansible-navigator.editor.command": "Defaults",
+        "ansible-navigator.editor.console": "Defaults",
+        "ansible-navigator.exec.command": "Defaults",
+        "ansible-navigator.exec.shell": "Defaults",
+        "ansible-navigator.execution-environment.container-engine": "Automatically determined",
+        "ansible-navigator.execution-environment.container-options": "Not set",
+        "ansible-navigator.execution-environment.enabled": "Defaults",
+        "ansible-navigator.execution-environment.environment-variables.pass": "Not set",
+        "ansible-navigator.execution-environment.environment-variables.set": "Not set",
+        "ansible-navigator.execution-environment.image": "Previous cli command",
+        "ansible-navigator.execution-environment.pull.arguments": "Not set",
+        "ansible-navigator.execution-environment.pull.policy": "Defaults",
+        "ansible-navigator.execution-environment.volume-mounts": "Not set",
+        "ansible-navigator.images.details": "Defaults",
+        "ansible-navigator.inventory-columns": "Not set",
+        "ansible-navigator.logging.append": "Defaults",
+        "ansible-navigator.logging.file": "Previous cli command",
+        "ansible-navigator.logging.level": "Defaults",
+        "ansible-navigator.mode": "Defaults",
+        "ansible-navigator.playbook-artifact.enable": "Defaults",
+        "ansible-navigator.playbook-artifact.replay": "Not set",
+        "ansible-navigator.playbook-artifact.save-as": "Previous cli command",
+        "ansible-navigator.settings.effective": "Defaults",
+        "ansible-navigator.settings.sample": "Defaults",
+        "ansible-navigator.settings.schema": "Defaults",
+        "ansible-navigator.settings.sources": "Defaults",
+        "ansible-navigator.time-zone": "Defaults",
+        "settings_file_path": "None",
+        "settings_file_source": "None"
+    },
+    "status": "failed",
+    "status_color": 9,
+    "stdout": [
+        "\u001b[1;35m[WARNING]: file /home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-\u001b[0m",
+        "\u001b[1;35mworkshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml is\u001b[0m",
+        "\u001b[1;35mempty and had no tasks to include\u001b[0m",
+        "\u001b[0;31mERROR! this task 'import_task' has extra params, which is only allowed in the following modules: meta, ansible.legacy.win_command, ansible.builtin.include, ansible.legacy.command, win_command, group_by, ansible.windows.win_command, ansible.legacy.script, ansible.builtin.include_vars, ansible.builtin.group_by, ansible.legacy.include_vars, include_role, ansible.legacy.set_fact, ansible.builtin.win_shell, ansible.builtin.raw, ansible.legacy.include_role, ansible.legacy.raw, ansible.legacy.include_tasks, raw, ansible.builtin.win_command, ansible.legacy.group_by, ansible.builtin.include_role, command, ansible.legacy.meta, ansible.legacy.shell, import_role, ansible.legacy.import_role, script, ansible.legacy.add_host, ansible.builtin.script, ansible.builtin.meta, ansible.builtin.import_tasks, include_tasks, set_fact, shell, ansible.builtin.shell, include_vars, ansible.legacy.import_tasks, ansible.builtin.add_host, ansible.windows.win_shell, include, import_tasks, ansible.legacy.include, win_shell, ansible.builtin.command, ansible.builtin.import_role, add_host, ansible.builtin.include_tasks, ansible.legacy.win_shell, ansible.builtin.set_fact\u001b[0m",
+        "\u001b[0;31m\u001b[0m",
+        "\u001b[0;31mThe error appears to be in '/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/main.yml': line 14, column 7, but may\u001b[0m",
+        "\u001b[0;31mbe elsewhere in the file depending on the exact syntax problem.\u001b[0m",
+        "\u001b[0;31m\u001b[0m",
+        "\u001b[0;31mThe offending line appears to be:\u001b[0m",
+        "\u001b[0;31m\u001b[0m",
+        "\u001b[0;31m\u001b[0m",
+        "\u001b[0;31m    - name: >\u001b[0m",
+        "\u001b[0;31m      ^ here\u001b[0m"
+    ],
+    "version": "2.0.0"
+}

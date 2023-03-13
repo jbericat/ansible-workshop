@@ -1,0 +1,10 @@
+---
+{% set list = current_stats.split(",") %}
+automation_id: '{{ list[0] | trim() | upper() }}'
+dates: 
+{% for item in list %}
+{% if loop.index0 != 0 %}
+  - '{{ list[loop.index0] | trim() }}'
+{% endif %}
+{% endfor %}
+...

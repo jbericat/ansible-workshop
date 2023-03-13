@@ -1,0 +1,1242 @@
+{
+    "plays": [
+        {
+            "___progress": "100%",
+            "__changed": 0,
+            "__failed": 0,
+            "__ignored": 0,
+            "__in progress": 0,
+            "__ok": 21,
+            "__percent_complete": 100,
+            "__play_name": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+            "__progress": "Complete",
+            "__skipped": 0,
+            "__task_count": 21,
+            "__unreachable": 0,
+            "name": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+            "pattern": "all",
+            "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+            "play_pattern": "all",
+            "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+            "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+            "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+            "tasks": [
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip01.dev.cgr-lab.lan",
+                    "__number": 0,
+                    "__result": "Ok",
+                    "__task": "DYNAMIC ROLE (include)",
+                    "__task_action": "ansible.builtin.include_role",
+                    "duration": 0.053769,
+                    "end": "2023-03-13T14:52:43.649573",
+                    "event_loop": null,
+                    "host": "f5bigip01.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip01.dev.cgr-lab.lan",
+                    "res": {
+                        "changed": false,
+                        "msg": "All items completed",
+                        "results": [
+                            {
+                                "_ansible_item_label": "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                "ansible_loop": {
+                                    "allitems": [
+                                        "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                                    ],
+                                    "first": true,
+                                    "index": 1,
+                                    "index0": 0,
+                                    "last": false,
+                                    "length": 3,
+                                    "nextitem": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "revindex": 3,
+                                    "revindex0": 2
+                                },
+                                "ansible_loop_var": "item",
+                                "include_args": {
+                                    "name": "001_f5_automation_stats"
+                                },
+                                "item": "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                            },
+                            {
+                                "_ansible_item_label": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                "ansible_loop": {
+                                    "allitems": [
+                                        "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                                    ],
+                                    "first": false,
+                                    "index": 2,
+                                    "index0": 1,
+                                    "last": false,
+                                    "length": 3,
+                                    "nextitem": "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "previtem": "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "revindex": 2,
+                                    "revindex0": 1
+                                },
+                                "ansible_loop_var": "item",
+                                "include_args": {
+                                    "name": "001_f5_automation_stats"
+                                },
+                                "item": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                            },
+                            {
+                                "_ansible_item_label": "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                "ansible_loop": {
+                                    "allitems": [
+                                        "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                                    ],
+                                    "first": false,
+                                    "index": 3,
+                                    "index0": 2,
+                                    "last": true,
+                                    "length": 3,
+                                    "previtem": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "revindex": 1,
+                                    "revindex0": 0
+                                },
+                                "ansible_loop_var": "item",
+                                "include_args": {
+                                    "name": "001_f5_automation_stats"
+                                },
+                                "item": "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                            }
+                        ]
+                    },
+                    "resolved_action": null,
+                    "start": "2023-03-13T14:52:43.595804",
+                    "task": "DYNAMIC ROLE (include)",
+                    "task_action": "ansible.builtin.include_role",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml:23",
+                    "task_uuid": "0242ac11-0002-e6db-d896-00000000000f",
+                    "uuid": "1fa5152f-1799-4a87-b5e2-1ef71c95a1ec"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip02.dev.cgr-lab.lan",
+                    "__number": 1,
+                    "__result": "Ok",
+                    "__task": "DYNAMIC ROLE (include)",
+                    "__task_action": "ansible.builtin.include_role",
+                    "duration": 0.058527,
+                    "end": "2023-03-13T14:52:43.667015",
+                    "event_loop": null,
+                    "host": "f5bigip02.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip02.dev.cgr-lab.lan",
+                    "res": {
+                        "changed": false,
+                        "msg": "All items completed",
+                        "results": [
+                            {
+                                "_ansible_item_label": "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                "ansible_loop": {
+                                    "allitems": [
+                                        "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                                    ],
+                                    "first": true,
+                                    "index": 1,
+                                    "index0": 0,
+                                    "last": false,
+                                    "length": 3,
+                                    "nextitem": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "revindex": 3,
+                                    "revindex0": 2
+                                },
+                                "ansible_loop_var": "item",
+                                "include_args": {
+                                    "name": "001_f5_automation_stats"
+                                },
+                                "item": "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                            },
+                            {
+                                "_ansible_item_label": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                "ansible_loop": {
+                                    "allitems": [
+                                        "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                                    ],
+                                    "first": false,
+                                    "index": 2,
+                                    "index0": 1,
+                                    "last": false,
+                                    "length": 3,
+                                    "nextitem": "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "previtem": "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "revindex": 2,
+                                    "revindex0": 1
+                                },
+                                "ansible_loop_var": "item",
+                                "include_args": {
+                                    "name": "001_f5_automation_stats"
+                                },
+                                "item": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                            },
+                            {
+                                "_ansible_item_label": "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                "ansible_loop": {
+                                    "allitems": [
+                                        "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                                    ],
+                                    "first": false,
+                                    "index": 3,
+                                    "index0": 2,
+                                    "last": true,
+                                    "length": 3,
+                                    "previtem": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "revindex": 1,
+                                    "revindex0": 0
+                                },
+                                "ansible_loop_var": "item",
+                                "include_args": {
+                                    "name": "001_f5_automation_stats"
+                                },
+                                "item": "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                            }
+                        ]
+                    },
+                    "resolved_action": null,
+                    "start": "2023-03-13T14:52:43.608488",
+                    "task": "DYNAMIC ROLE (include)",
+                    "task_action": "ansible.builtin.include_role",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml:23",
+                    "task_uuid": "0242ac11-0002-e6db-d896-00000000000f",
+                    "uuid": "2295791e-704b-47b1-bcf6-399e3b364100"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip03.dev.cgr-lab.lan",
+                    "__number": 2,
+                    "__result": "Ok",
+                    "__task": "DYNAMIC ROLE (include)",
+                    "__task_action": "ansible.builtin.include_role",
+                    "duration": 0.060317,
+                    "end": "2023-03-13T14:52:43.681743",
+                    "event_loop": null,
+                    "host": "f5bigip03.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip03.dev.cgr-lab.lan",
+                    "res": {
+                        "changed": false,
+                        "msg": "All items completed",
+                        "results": [
+                            {
+                                "_ansible_item_label": "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                "ansible_loop": {
+                                    "allitems": [
+                                        "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                                    ],
+                                    "first": true,
+                                    "index": 1,
+                                    "index0": 0,
+                                    "last": false,
+                                    "length": 3,
+                                    "nextitem": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "revindex": 3,
+                                    "revindex0": 2
+                                },
+                                "ansible_loop_var": "item",
+                                "include_args": {
+                                    "name": "001_f5_automation_stats"
+                                },
+                                "item": "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                            },
+                            {
+                                "_ansible_item_label": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                "ansible_loop": {
+                                    "allitems": [
+                                        "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                                    ],
+                                    "first": false,
+                                    "index": 2,
+                                    "index0": 1,
+                                    "last": false,
+                                    "length": 3,
+                                    "nextitem": "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "previtem": "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "revindex": 2,
+                                    "revindex0": 1
+                                },
+                                "ansible_loop_var": "item",
+                                "include_args": {
+                                    "name": "001_f5_automation_stats"
+                                },
+                                "item": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                            },
+                            {
+                                "_ansible_item_label": "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                "ansible_loop": {
+                                    "allitems": [
+                                        "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                                    ],
+                                    "first": false,
+                                    "index": 3,
+                                    "index0": 2,
+                                    "last": true,
+                                    "length": 3,
+                                    "previtem": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "revindex": 1,
+                                    "revindex0": 0
+                                },
+                                "ansible_loop_var": "item",
+                                "include_args": {
+                                    "name": "001_f5_automation_stats"
+                                },
+                                "item": "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                            }
+                        ]
+                    },
+                    "resolved_action": null,
+                    "start": "2023-03-13T14:52:43.621426",
+                    "task": "DYNAMIC ROLE (include)",
+                    "task_action": "ansible.builtin.include_role",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml:23",
+                    "task_uuid": "0242ac11-0002-e6db-d896-00000000000f",
+                    "uuid": "a3ab930d-879e-46b3-87a6-f10f85dda6dc"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip01.dev.cgr-lab.lan",
+                    "__number": 3,
+                    "__result": "Ok",
+                    "__task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "__task_action": "ansible.builtin.set_fact",
+                    "duration": 0.054018,
+                    "end": "2023-03-13T14:52:43.821112",
+                    "event_loop": null,
+                    "host": "f5bigip01.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip01.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "current_execution": {
+                                "automation_id": "ANSAB001/001",
+                                "dates": [
+                                    "2022-11",
+                                    "2022-12",
+                                    "2023-01",
+                                    "2023-02",
+                                    "2023-03"
+                                ]
+                            }
+                        },
+                        "changed": false
+                    },
+                    "resolved_action": "ansible.builtin.set_fact",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T14:52:43.767094",
+                    "task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "task_action": "ansible.builtin.set_fact",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:1",
+                    "task_uuid": "0242ac11-0002-e6db-d896-000000000062",
+                    "uuid": "cb6600c7-8681-437b-9e73-a06cda68c596"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip02.dev.cgr-lab.lan",
+                    "__number": 4,
+                    "__result": "Ok",
+                    "__task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "__task_action": "ansible.builtin.set_fact",
+                    "duration": 0.05349,
+                    "end": "2023-03-13T14:52:43.836337",
+                    "event_loop": null,
+                    "host": "f5bigip02.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip02.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "current_execution": {
+                                "automation_id": "ANSAB001/001",
+                                "dates": [
+                                    "2022-11",
+                                    "2022-12",
+                                    "2023-01",
+                                    "2023-02",
+                                    "2023-03"
+                                ]
+                            }
+                        },
+                        "changed": false
+                    },
+                    "resolved_action": "ansible.builtin.set_fact",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T14:52:43.782847",
+                    "task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "task_action": "ansible.builtin.set_fact",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:1",
+                    "task_uuid": "0242ac11-0002-e6db-d896-000000000062",
+                    "uuid": "eca96208-ce34-4e18-bf45-6f6688c7681e"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip03.dev.cgr-lab.lan",
+                    "__number": 5,
+                    "__result": "Ok",
+                    "__task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "__task_action": "ansible.builtin.set_fact",
+                    "duration": 0.050766,
+                    "end": "2023-03-13T14:52:43.847218",
+                    "event_loop": null,
+                    "host": "f5bigip03.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip03.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "current_execution": {
+                                "automation_id": "ANSAB001/001",
+                                "dates": [
+                                    "2022-11",
+                                    "2022-12",
+                                    "2023-01",
+                                    "2023-02",
+                                    "2023-03"
+                                ]
+                            }
+                        },
+                        "changed": false
+                    },
+                    "resolved_action": "ansible.builtin.set_fact",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T14:52:43.796452",
+                    "task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "task_action": "ansible.builtin.set_fact",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:1",
+                    "task_uuid": "0242ac11-0002-e6db-d896-000000000062",
+                    "uuid": "a18002a1-22bb-412e-a92e-4f48fc66abd5"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip01.dev.cgr-lab.lan",
+                    "__number": 6,
+                    "__result": "Ok",
+                    "__task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "__task_action": "ansible.builtin.assert",
+                    "duration": 0.036516,
+                    "end": "2023-03-13T14:52:43.891804",
+                    "event_loop": null,
+                    "host": "f5bigip01.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip01.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "_ansible_verbose_always": true,
+                        "changed": false,
+                        "msg": "Los datos de entrada para la ejecución [ 1\nde 3] son los siguientes:\n\nAutomation ID -> ANSAB001/001\nFechas -> ['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']"
+                    },
+                    "resolved_action": "ansible.builtin.assert",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T14:52:43.855288",
+                    "task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "task_action": "ansible.builtin.assert",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:8",
+                    "task_uuid": "0242ac11-0002-e6db-d896-000000000063",
+                    "uuid": "aca16481-8249-4b2b-93b3-e35734fe20a2"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip02.dev.cgr-lab.lan",
+                    "__number": 7,
+                    "__result": "Ok",
+                    "__task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "__task_action": "ansible.builtin.assert",
+                    "duration": 0.030057,
+                    "end": "2023-03-13T14:52:43.898498",
+                    "event_loop": null,
+                    "host": "f5bigip02.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip02.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "_ansible_verbose_always": true,
+                        "changed": false,
+                        "msg": "Los datos de entrada para la ejecución [ 1\nde 3] son los siguientes:\n\nAutomation ID -> ANSAB001/001\nFechas -> ['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']"
+                    },
+                    "resolved_action": "ansible.builtin.assert",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T14:52:43.868441",
+                    "task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "task_action": "ansible.builtin.assert",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:8",
+                    "task_uuid": "0242ac11-0002-e6db-d896-000000000063",
+                    "uuid": "c87cf9bd-000b-4e4d-9dd4-99be04ee9262"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip03.dev.cgr-lab.lan",
+                    "__number": 8,
+                    "__result": "Ok",
+                    "__task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "__task_action": "ansible.builtin.assert",
+                    "duration": 0.027711,
+                    "end": "2023-03-13T14:52:43.913719",
+                    "event_loop": null,
+                    "host": "f5bigip03.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip03.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "_ansible_verbose_always": true,
+                        "changed": false,
+                        "msg": "Los datos de entrada para la ejecución [ 1\nde 3] son los siguientes:\n\nAutomation ID -> ANSAB001/001\nFechas -> ['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']"
+                    },
+                    "resolved_action": "ansible.builtin.assert",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T14:52:43.886008",
+                    "task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "task_action": "ansible.builtin.assert",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:8",
+                    "task_uuid": "0242ac11-0002-e6db-d896-000000000063",
+                    "uuid": "035f7aca-da5a-4a2b-aa6f-144a1d6a907e"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip01.dev.cgr-lab.lan",
+                    "__number": 9,
+                    "__result": "Ok",
+                    "__task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "__task_action": "ansible.builtin.set_fact",
+                    "duration": 0.056807,
+                    "end": "2023-03-13T14:52:43.993664",
+                    "event_loop": null,
+                    "host": "f5bigip01.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip01.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "current_execution": {
+                                "automation_id": "ANSAB001/002",
+                                "dates": [
+                                    "2022-11",
+                                    "2022-12",
+                                    "2023-01",
+                                    "2023-02",
+                                    "2023-03"
+                                ]
+                            }
+                        },
+                        "changed": false
+                    },
+                    "resolved_action": "ansible.builtin.set_fact",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T14:52:43.936857",
+                    "task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "task_action": "ansible.builtin.set_fact",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:1",
+                    "task_uuid": "0242ac11-0002-e6db-d896-000000000089",
+                    "uuid": "e7ce8c47-7e56-4744-95e3-1bc26da07147"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip02.dev.cgr-lab.lan",
+                    "__number": 10,
+                    "__result": "Ok",
+                    "__task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "__task_action": "ansible.builtin.set_fact",
+                    "duration": 0.059823,
+                    "end": "2023-03-13T14:52:44.008924",
+                    "event_loop": null,
+                    "host": "f5bigip02.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip02.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "current_execution": {
+                                "automation_id": "ANSAB001/002",
+                                "dates": [
+                                    "2022-11",
+                                    "2022-12",
+                                    "2023-01",
+                                    "2023-02",
+                                    "2023-03"
+                                ]
+                            }
+                        },
+                        "changed": false
+                    },
+                    "resolved_action": "ansible.builtin.set_fact",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T14:52:43.949101",
+                    "task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "task_action": "ansible.builtin.set_fact",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:1",
+                    "task_uuid": "0242ac11-0002-e6db-d896-000000000089",
+                    "uuid": "918c6500-63bd-4960-8c61-798e7bf511f7"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip03.dev.cgr-lab.lan",
+                    "__number": 11,
+                    "__result": "Ok",
+                    "__task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "__task_action": "ansible.builtin.set_fact",
+                    "duration": 0.05954,
+                    "end": "2023-03-13T14:52:44.023900",
+                    "event_loop": null,
+                    "host": "f5bigip03.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip03.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "current_execution": {
+                                "automation_id": "ANSAB001/002",
+                                "dates": [
+                                    "2022-11",
+                                    "2022-12",
+                                    "2023-01",
+                                    "2023-02",
+                                    "2023-03"
+                                ]
+                            }
+                        },
+                        "changed": false
+                    },
+                    "resolved_action": "ansible.builtin.set_fact",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T14:52:43.964360",
+                    "task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "task_action": "ansible.builtin.set_fact",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:1",
+                    "task_uuid": "0242ac11-0002-e6db-d896-000000000089",
+                    "uuid": "e7380fd3-8682-40e0-aacc-d41c2885bd48"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip01.dev.cgr-lab.lan",
+                    "__number": 12,
+                    "__result": "Ok",
+                    "__task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "__task_action": "ansible.builtin.assert",
+                    "duration": 0.034678,
+                    "end": "2023-03-13T14:52:44.066630",
+                    "event_loop": null,
+                    "host": "f5bigip01.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip01.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "_ansible_verbose_always": true,
+                        "changed": false,
+                        "msg": "Los datos de entrada para la ejecución [ 2\nde 3] son los siguientes:\n\nAutomation ID -> ANSAB001/002\nFechas -> ['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']"
+                    },
+                    "resolved_action": "ansible.builtin.assert",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T14:52:44.031952",
+                    "task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "task_action": "ansible.builtin.assert",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:8",
+                    "task_uuid": "0242ac11-0002-e6db-d896-00000000008a",
+                    "uuid": "c3833fc2-d1ee-48c3-9ce2-ad7b75ecf793"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip02.dev.cgr-lab.lan",
+                    "__number": 13,
+                    "__result": "Ok",
+                    "__task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "__task_action": "ansible.builtin.assert",
+                    "duration": 0.029839,
+                    "end": "2023-03-13T14:52:44.074769",
+                    "event_loop": null,
+                    "host": "f5bigip02.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip02.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "_ansible_verbose_always": true,
+                        "changed": false,
+                        "msg": "Los datos de entrada para la ejecución [ 2\nde 3] son los siguientes:\n\nAutomation ID -> ANSAB001/002\nFechas -> ['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']"
+                    },
+                    "resolved_action": "ansible.builtin.assert",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T14:52:44.044930",
+                    "task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "task_action": "ansible.builtin.assert",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:8",
+                    "task_uuid": "0242ac11-0002-e6db-d896-00000000008a",
+                    "uuid": "5a86ace0-0354-4e53-ba2c-c1fdc7ab2c7f"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip03.dev.cgr-lab.lan",
+                    "__number": 14,
+                    "__result": "Ok",
+                    "__task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "__task_action": "ansible.builtin.assert",
+                    "duration": 0.030271,
+                    "end": "2023-03-13T14:52:44.090114",
+                    "event_loop": null,
+                    "host": "f5bigip03.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip03.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "_ansible_verbose_always": true,
+                        "changed": false,
+                        "msg": "Los datos de entrada para la ejecución [ 2\nde 3] son los siguientes:\n\nAutomation ID -> ANSAB001/002\nFechas -> ['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']"
+                    },
+                    "resolved_action": "ansible.builtin.assert",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T14:52:44.059843",
+                    "task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "task_action": "ansible.builtin.assert",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:8",
+                    "task_uuid": "0242ac11-0002-e6db-d896-00000000008a",
+                    "uuid": "96d742d2-fcb5-42af-8a6e-78384f302f35"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip01.dev.cgr-lab.lan",
+                    "__number": 15,
+                    "__result": "Ok",
+                    "__task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "__task_action": "ansible.builtin.set_fact",
+                    "duration": 0.055435,
+                    "end": "2023-03-13T14:52:44.170608",
+                    "event_loop": null,
+                    "host": "f5bigip01.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip01.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "current_execution": {
+                                "automation_id": "ANSAB001/003",
+                                "dates": [
+                                    "2022-11",
+                                    "2022-12",
+                                    "2023-01",
+                                    "2023-02",
+                                    "2023-03"
+                                ]
+                            }
+                        },
+                        "changed": false
+                    },
+                    "resolved_action": "ansible.builtin.set_fact",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T14:52:44.115173",
+                    "task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "task_action": "ansible.builtin.set_fact",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:1",
+                    "task_uuid": "0242ac11-0002-e6db-d896-0000000000b0",
+                    "uuid": "52858a3f-ed1e-4471-97a0-4f8b7a3c58fb"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip02.dev.cgr-lab.lan",
+                    "__number": 16,
+                    "__result": "Ok",
+                    "__task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "__task_action": "ansible.builtin.set_fact",
+                    "duration": 0.05713,
+                    "end": "2023-03-13T14:52:44.185009",
+                    "event_loop": null,
+                    "host": "f5bigip02.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip02.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "current_execution": {
+                                "automation_id": "ANSAB001/003",
+                                "dates": [
+                                    "2022-11",
+                                    "2022-12",
+                                    "2023-01",
+                                    "2023-02",
+                                    "2023-03"
+                                ]
+                            }
+                        },
+                        "changed": false
+                    },
+                    "resolved_action": "ansible.builtin.set_fact",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T14:52:44.127879",
+                    "task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "task_action": "ansible.builtin.set_fact",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:1",
+                    "task_uuid": "0242ac11-0002-e6db-d896-0000000000b0",
+                    "uuid": "848d2153-5555-4644-8997-4ad62d6c8d35"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip03.dev.cgr-lab.lan",
+                    "__number": 17,
+                    "__result": "Ok",
+                    "__task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "__task_action": "ansible.builtin.set_fact",
+                    "duration": 0.058434,
+                    "end": "2023-03-13T14:52:44.201464",
+                    "event_loop": null,
+                    "host": "f5bigip03.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip03.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "current_execution": {
+                                "automation_id": "ANSAB001/003",
+                                "dates": [
+                                    "2022-11",
+                                    "2022-12",
+                                    "2023-01",
+                                    "2023-02",
+                                    "2023-03"
+                                ]
+                            }
+                        },
+                        "changed": false
+                    },
+                    "resolved_action": "ansible.builtin.set_fact",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T14:52:44.143030",
+                    "task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "task_action": "ansible.builtin.set_fact",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:1",
+                    "task_uuid": "0242ac11-0002-e6db-d896-0000000000b0",
+                    "uuid": "6423b8f1-cb3a-4cb9-8cd6-9ae5e4b79553"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip01.dev.cgr-lab.lan",
+                    "__number": 18,
+                    "__result": "Ok",
+                    "__task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "__task_action": "ansible.builtin.assert",
+                    "duration": 0.041022,
+                    "end": "2023-03-13T14:52:44.253335",
+                    "event_loop": null,
+                    "host": "f5bigip01.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip01.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "_ansible_verbose_always": true,
+                        "changed": false,
+                        "msg": "Los datos de entrada para la ejecución [ 3\nde 3] son los siguientes:\n\nAutomation ID -> ANSAB001/003\nFechas -> ['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']"
+                    },
+                    "resolved_action": "ansible.builtin.assert",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T14:52:44.212313",
+                    "task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "task_action": "ansible.builtin.assert",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:8",
+                    "task_uuid": "0242ac11-0002-e6db-d896-0000000000b1",
+                    "uuid": "824b8128-5b09-4705-9b2c-5451ca7f406f"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip02.dev.cgr-lab.lan",
+                    "__number": 19,
+                    "__result": "Ok",
+                    "__task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "__task_action": "ansible.builtin.assert",
+                    "duration": 0.033633,
+                    "end": "2023-03-13T14:52:44.260683",
+                    "event_loop": null,
+                    "host": "f5bigip02.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip02.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "_ansible_verbose_always": true,
+                        "changed": false,
+                        "msg": "Los datos de entrada para la ejecución [ 3\nde 3] son los siguientes:\n\nAutomation ID -> ANSAB001/003\nFechas -> ['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']"
+                    },
+                    "resolved_action": "ansible.builtin.assert",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T14:52:44.227050",
+                    "task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "task_action": "ansible.builtin.assert",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:8",
+                    "task_uuid": "0242ac11-0002-e6db-d896-0000000000b1",
+                    "uuid": "6d344b88-44f2-43dd-9ae1-1ad34cadaabb"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip03.dev.cgr-lab.lan",
+                    "__number": 20,
+                    "__result": "Ok",
+                    "__task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "__task_action": "ansible.builtin.assert",
+                    "duration": 0.032365,
+                    "end": "2023-03-13T14:52:44.277456",
+                    "event_loop": null,
+                    "host": "f5bigip03.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-e6db-d896-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7f924eb5-5c44-4fb8-ad30-aba28a24d75e",
+                    "remote_addr": "f5bigip03.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "_ansible_verbose_always": true,
+                        "changed": false,
+                        "msg": "Los datos de entrada para la ejecución [ 3\nde 3] son los siguientes:\n\nAutomation ID -> ANSAB001/003\nFechas -> ['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']"
+                    },
+                    "resolved_action": "ansible.builtin.assert",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T14:52:44.245091",
+                    "task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "task_action": "ansible.builtin.assert",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:8",
+                    "task_uuid": "0242ac11-0002-e6db-d896-0000000000b1",
+                    "uuid": "16e7bb47-e572-48f7-93e1-fc8bf946c0f0"
+                }
+            ],
+            "uuid": "0242ac11-0002-e6db-d896-00000000000d"
+        }
+    ],
+    "settings_entries": {
+        "ansible-navigator": {
+            "ansible": {
+                "cmdline": "--limit f5bigip --extra-vars @debug/part_3_input.yml",
+                "config": {
+                    "help": false
+                },
+                "doc": {
+                    "help": false,
+                    "plugin": {
+                        "type": "module"
+                    }
+                },
+                "inventory": {
+                    "entries": [
+                        "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/environments/dev"
+                    ],
+                    "help": false
+                },
+                "playbook": {
+                    "help": false,
+                    "path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml"
+                }
+            },
+            "ansible-builder": {
+                "help": false,
+                "workdir": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop"
+            },
+            "app": "run",
+            "collection-doc-cache-path": "/home/jbericat/.cache/ansible-navigator/collection_doc_cache.db",
+            "color": {
+                "enable": true,
+                "osc4": true
+            },
+            "editor": {
+                "command": "vi +{line_number} {filename}",
+                "console": true
+            },
+            "exec": {
+                "command": "/bin/bash",
+                "shell": true
+            },
+            "execution-environment": {
+                "container-engine": "docker",
+                "enabled": true,
+                "image": "quay.io/jordi_bericat/ansible-ee:2.13-latest",
+                "pull": {
+                    "policy": "tag"
+                }
+            },
+            "images": {
+                "details": [
+                    "everything"
+                ]
+            },
+            "logging": {
+                "append": true,
+                "file": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/logs/ansible-navigator.log",
+                "level": "warning"
+            },
+            "mode": "interactive",
+            "playbook-artifact": {
+                "enable": true,
+                "save-as": "logs/{playbook_name}-artifact-{time_stamp}.json"
+            },
+            "settings": {
+                "effective": false,
+                "sample": false,
+                "schema": "json",
+                "sources": false
+            },
+            "time-zone": "UTC"
+        }
+    },
+    "settings_sources": {
+        "ansible-navigator.ansible-builder.help": "Defaults",
+        "ansible-navigator.ansible-builder.workdir": "Defaults",
+        "ansible-navigator.ansible-lint.config": "Not set",
+        "ansible-navigator.ansible-lint.lintables": "Not set",
+        "ansible-navigator.ansible-runner.artifact-dir": "Not set",
+        "ansible-navigator.ansible-runner.rotate-artifacts-count": "Not set",
+        "ansible-navigator.ansible-runner.timeout": "Not set",
+        "ansible-navigator.ansible.cmdline": "Previous cli command",
+        "ansible-navigator.ansible.config.help": "Defaults",
+        "ansible-navigator.ansible.config.path": "Not set",
+        "ansible-navigator.ansible.doc.help": "Defaults",
+        "ansible-navigator.ansible.doc.plugin.name": "Not set",
+        "ansible-navigator.ansible.doc.plugin.type": "Defaults",
+        "ansible-navigator.ansible.inventory.entries": "Previous cli command",
+        "ansible-navigator.ansible.inventory.help": "Defaults",
+        "ansible-navigator.ansible.playbook.help": "Defaults",
+        "ansible-navigator.ansible.playbook.path": "Previous cli command",
+        "ansible-navigator.app": "Command line",
+        "ansible-navigator.collection-doc-cache-path": "Defaults",
+        "ansible-navigator.color.enable": "Defaults",
+        "ansible-navigator.color.osc4": "Defaults",
+        "ansible-navigator.editor.command": "Defaults",
+        "ansible-navigator.editor.console": "Defaults",
+        "ansible-navigator.exec.command": "Defaults",
+        "ansible-navigator.exec.shell": "Defaults",
+        "ansible-navigator.execution-environment.container-engine": "Automatically determined",
+        "ansible-navigator.execution-environment.container-options": "Not set",
+        "ansible-navigator.execution-environment.enabled": "Defaults",
+        "ansible-navigator.execution-environment.environment-variables.pass": "Not set",
+        "ansible-navigator.execution-environment.environment-variables.set": "Not set",
+        "ansible-navigator.execution-environment.image": "Previous cli command",
+        "ansible-navigator.execution-environment.pull.arguments": "Not set",
+        "ansible-navigator.execution-environment.pull.policy": "Defaults",
+        "ansible-navigator.execution-environment.volume-mounts": "Not set",
+        "ansible-navigator.images.details": "Defaults",
+        "ansible-navigator.inventory-columns": "Not set",
+        "ansible-navigator.logging.append": "Defaults",
+        "ansible-navigator.logging.file": "Previous cli command",
+        "ansible-navigator.logging.level": "Defaults",
+        "ansible-navigator.mode": "Defaults",
+        "ansible-navigator.playbook-artifact.enable": "Defaults",
+        "ansible-navigator.playbook-artifact.replay": "Not set",
+        "ansible-navigator.playbook-artifact.save-as": "Previous cli command",
+        "ansible-navigator.settings.effective": "Defaults",
+        "ansible-navigator.settings.sample": "Defaults",
+        "ansible-navigator.settings.schema": "Defaults",
+        "ansible-navigator.settings.sources": "Defaults",
+        "ansible-navigator.time-zone": "Defaults",
+        "settings_file_path": "None",
+        "settings_file_source": "None"
+    },
+    "status": "successful",
+    "status_color": 10,
+    "stdout": [
+        "",
+        "PLAY [PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)] ******************",
+        "",
+        "TASK [DYNAMIC ROLE (include)] **************************************************",
+        "\u001b[1;35m[WARNING]: file /home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-\u001b[0m",
+        "\u001b[1;35mworkshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml is\u001b[0m",
+        "\u001b[1;35mempty and had no tasks to include\u001b[0m",
+        "\u001b[1;35m[WARNING]: file /home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-\u001b[0m",
+        "\u001b[1;35mworkshop/roles/001_f5_automation_stats/tasks/3_show_results.yml is empty and\u001b[0m",
+        "\u001b[1;35mhad no tasks to include\u001b[0m",
+        "",
+        "TASK [001_f5_automation_stats : 1.1. - Parsing CSV input data and saving it in a YAML dict] ***",
+        "\u001b[0;32mok: [f5bigip01.dev.cgr-lab.lan]\u001b[0m",
+        "\u001b[0;32mok: [f5bigip02.dev.cgr-lab.lan]\u001b[0m",
+        "\u001b[0;32mok: [f5bigip03.dev.cgr-lab.lan]\u001b[0m",
+        "",
+        "TASK [001_f5_automation_stats : 1.2. - Asserting if input data was correctly specified on the AAP Survey] ***",
+        "\u001b[0;32mok: [f5bigip01.dev.cgr-lab.lan] => {\u001b[0m",
+        "\u001b[0;32m    \"changed\": false,\u001b[0m",
+        "\u001b[0;32m    \"msg\": \"Los datos de entrada para la ejecución [ 1\\nde 3] son los siguientes:\\n\\nAutomation ID -> ANSAB001/001\\nFechas -> ['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']\"\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "\u001b[0;32mok: [f5bigip02.dev.cgr-lab.lan] => {\u001b[0m",
+        "\u001b[0;32m    \"changed\": false,\u001b[0m",
+        "\u001b[0;32m    \"msg\": \"Los datos de entrada para la ejecución [ 1\\nde 3] son los siguientes:\\n\\nAutomation ID -> ANSAB001/001\\nFechas -> ['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']\"\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "\u001b[0;32mok: [f5bigip03.dev.cgr-lab.lan] => {\u001b[0m",
+        "\u001b[0;32m    \"changed\": false,\u001b[0m",
+        "\u001b[0;32m    \"msg\": \"Los datos de entrada para la ejecución [ 1\\nde 3] son los siguientes:\\n\\nAutomation ID -> ANSAB001/001\\nFechas -> ['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']\"\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "",
+        "TASK [001_f5_automation_stats : 1.1. - Parsing CSV input data and saving it in a YAML dict] ***",
+        "\u001b[0;32mok: [f5bigip01.dev.cgr-lab.lan]\u001b[0m",
+        "\u001b[0;32mok: [f5bigip02.dev.cgr-lab.lan]\u001b[0m",
+        "\u001b[0;32mok: [f5bigip03.dev.cgr-lab.lan]\u001b[0m",
+        "",
+        "TASK [001_f5_automation_stats : 1.2. - Asserting if input data was correctly specified on the AAP Survey] ***",
+        "\u001b[0;32mok: [f5bigip01.dev.cgr-lab.lan] => {\u001b[0m",
+        "\u001b[0;32m    \"changed\": false,\u001b[0m",
+        "\u001b[0;32m    \"msg\": \"Los datos de entrada para la ejecución [ 2\\nde 3] son los siguientes:\\n\\nAutomation ID -> ANSAB001/002\\nFechas -> ['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']\"\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "\u001b[0;32mok: [f5bigip02.dev.cgr-lab.lan] => {\u001b[0m",
+        "\u001b[0;32m    \"changed\": false,\u001b[0m",
+        "\u001b[0;32m    \"msg\": \"Los datos de entrada para la ejecución [ 2\\nde 3] son los siguientes:\\n\\nAutomation ID -> ANSAB001/002\\nFechas -> ['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']\"\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "\u001b[0;32mok: [f5bigip03.dev.cgr-lab.lan] => {\u001b[0m",
+        "\u001b[0;32m    \"changed\": false,\u001b[0m",
+        "\u001b[0;32m    \"msg\": \"Los datos de entrada para la ejecución [ 2\\nde 3] son los siguientes:\\n\\nAutomation ID -> ANSAB001/002\\nFechas -> ['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']\"\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "",
+        "TASK [001_f5_automation_stats : 1.1. - Parsing CSV input data and saving it in a YAML dict] ***",
+        "\u001b[0;32mok: [f5bigip01.dev.cgr-lab.lan]\u001b[0m",
+        "\u001b[0;32mok: [f5bigip02.dev.cgr-lab.lan]\u001b[0m",
+        "\u001b[0;32mok: [f5bigip03.dev.cgr-lab.lan]\u001b[0m",
+        "",
+        "TASK [001_f5_automation_stats : 1.2. - Asserting if input data was correctly specified on the AAP Survey] ***",
+        "\u001b[0;32mok: [f5bigip01.dev.cgr-lab.lan] => {\u001b[0m",
+        "\u001b[0;32m    \"changed\": false,\u001b[0m",
+        "\u001b[0;32m    \"msg\": \"Los datos de entrada para la ejecución [ 3\\nde 3] son los siguientes:\\n\\nAutomation ID -> ANSAB001/003\\nFechas -> ['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']\"\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "\u001b[0;32mok: [f5bigip02.dev.cgr-lab.lan] => {\u001b[0m",
+        "\u001b[0;32m    \"changed\": false,\u001b[0m",
+        "\u001b[0;32m    \"msg\": \"Los datos de entrada para la ejecución [ 3\\nde 3] son los siguientes:\\n\\nAutomation ID -> ANSAB001/003\\nFechas -> ['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']\"\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "\u001b[0;32mok: [f5bigip03.dev.cgr-lab.lan] => {\u001b[0m",
+        "\u001b[0;32m    \"changed\": false,\u001b[0m",
+        "\u001b[0;32m    \"msg\": \"Los datos de entrada para la ejecución [ 3\\nde 3] son los siguientes:\\n\\nAutomation ID -> ANSAB001/003\\nFechas -> ['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']\"\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "",
+        "PLAY RECAP *********************************************************************",
+        "\u001b[0;32mf5bigip01.dev.cgr-lab.lan\u001b[0m  : \u001b[0;32mok=6   \u001b[0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   ",
+        "\u001b[0;32mf5bigip02.dev.cgr-lab.lan\u001b[0m  : \u001b[0;32mok=6   \u001b[0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   ",
+        "\u001b[0;32mf5bigip03.dev.cgr-lab.lan\u001b[0m  : \u001b[0;32mok=6   \u001b[0m changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   "
+    ],
+    "version": "2.0.0"
+}

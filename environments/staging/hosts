@@ -1,6 +1,9 @@
 [f5bigip]
 f5bigip[01:03].staging.cgr-lab.lan
 
+[f5_test]
+cumulonimbo.ddns.net
+
 [vcenter]
 vcenter[01:02].staging.cgr-lab.lan
 

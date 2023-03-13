@@ -1,0 +1,23 @@
+- name: 1.1. - Parsing CSV input data and saving it in a YAML dict
+  ansible.builtin.set_fact:
+    current_execution: >-
+      {{ lookup('template', 'parse_input_data.j2') | from_yaml }}
+  register: current_input_data
+  ignore_errors: true
+
+- name: >
+    1.2. - Asserting if input data was correctly specified on the AAP
+    Survey
+  ansible.builtin.assert:
+    that:
+      - not current_input_data.failed
+    fail_msg: >-
+      No se pudieron parsear los datos de entrada para la ejecución
+      [ {{ansible_loop.index | default('no_loop_data') }} de {{ ansible_loop.length  | default('no_loop_data') }}] (el
+      formato del CSV de entrada de datos es incorrecto).
+    success_msg: |-
+      Los datos de entrada para la ejecución [{{ ansible_loop.index | default('no_loop_data') }}
+      de {{ ansible_loop.length | default('no_loop_data') }}] son los siguientes:
+
+      Automation ID -> [{{ current_execution.automation_id }}]
+      Fechas -> [{{ current_execution.dates | from_yaml }}]

@@ -1,0 +1,29 @@
+---
+- name: >
+    2.1. Gathering all the balanced services created for the
+    [{{ inventory_hostname }}] F5-BIGIP device from the
+    [{{ inventory_file | regex_replace(playbook_dir,'') }}] inventory
+    via REST
+  f5networks.f5_modules.bigip_command:
+    provider: "{{ f5_provider }}"
+    commands: >-
+      list ltm virtual creation-time description |
+      grep -A 1 '{{ date_stats }}' |
+      grep '{{ automation_id }}' -c
+  register: command_results
+  delegate_to: localhost
+  ignore_errors: true
+
+- name: 2.2. Generating results message to be included in final summary list
+  ansible.builtin.set_fact:
+    current_exec_results:
+      - "For the automation ID [{{ automation_id }}],
+        the total balanced services created on [{{ date_stats }}] is
+        [{{ command_results.stdout | default(none) }}]"
+
+- name: >
+    2.2. Saving current results to ansible fact, so we can show the
+    overall result later on task 3.1
+  ansible.builtin.set_fact:
+    final_summary: "{{ final_summary + current_exec_results }}"
+...

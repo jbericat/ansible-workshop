@@ -1,0 +1,8 @@
+---
+f5_provider:
+  server: "{{ inventory_hostname }}"
+  user: admin
+  password: Mapa4321.
+  server_port: 7009
+  validate_certs: false
+...

@@ -1,0 +1,1359 @@
+{
+    "plays": [
+        {
+            "___progress": "100%",
+            "__changed": 0,
+            "__failed": 0,
+            "__ignored": 0,
+            "__in progress": 3,
+            "__ok": 12,
+            "__percent_complete": 100,
+            "__play_name": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+            "__progress": "Complete",
+            "__skipped": 0,
+            "__task_count": 15,
+            "__unreachable": 0,
+            "name": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+            "pattern": "all",
+            "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+            "play_pattern": "all",
+            "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+            "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+            "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+            "tasks": [
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip01.dev.cgr-lab.lan",
+                    "__number": 0,
+                    "__result": "Ok",
+                    "__task": "DYNAMIC ROLE (include)",
+                    "__task_action": "ansible.builtin.include_role",
+                    "duration": 0.074563,
+                    "end": "2023-03-13T16:22:15.404643",
+                    "event_loop": null,
+                    "host": "f5bigip01.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip01.dev.cgr-lab.lan",
+                    "res": {
+                        "changed": false,
+                        "msg": "All items completed",
+                        "results": [
+                            {
+                                "_ansible_item_label": "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                "ansible_loop": {
+                                    "allitems": [
+                                        "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                                    ],
+                                    "first": true,
+                                    "index": 1,
+                                    "index0": 0,
+                                    "last": false,
+                                    "length": 3,
+                                    "nextitem": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "revindex": 3,
+                                    "revindex0": 2
+                                },
+                                "ansible_loop_var": "item",
+                                "include_args": {
+                                    "name": "001_f5_automation_stats"
+                                },
+                                "item": "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                            },
+                            {
+                                "_ansible_item_label": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                "ansible_loop": {
+                                    "allitems": [
+                                        "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                                    ],
+                                    "first": false,
+                                    "index": 2,
+                                    "index0": 1,
+                                    "last": false,
+                                    "length": 3,
+                                    "nextitem": "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "previtem": "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "revindex": 2,
+                                    "revindex0": 1
+                                },
+                                "ansible_loop_var": "item",
+                                "include_args": {
+                                    "name": "001_f5_automation_stats"
+                                },
+                                "item": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                            },
+                            {
+                                "_ansible_item_label": "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                "ansible_loop": {
+                                    "allitems": [
+                                        "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                                    ],
+                                    "first": false,
+                                    "index": 3,
+                                    "index0": 2,
+                                    "last": true,
+                                    "length": 3,
+                                    "previtem": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "revindex": 1,
+                                    "revindex0": 0
+                                },
+                                "ansible_loop_var": "item",
+                                "include_args": {
+                                    "name": "001_f5_automation_stats"
+                                },
+                                "item": "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                            }
+                        ]
+                    },
+                    "resolved_action": null,
+                    "start": "2023-03-13T16:22:15.330080",
+                    "task": "DYNAMIC ROLE (include)",
+                    "task_action": "ansible.builtin.include_role",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml:23",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-000000000012",
+                    "uuid": "be1b4b25-0c5f-4ec2-8345-fe7136e70a89"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip02.dev.cgr-lab.lan",
+                    "__number": 1,
+                    "__result": "Ok",
+                    "__task": "DYNAMIC ROLE (include)",
+                    "__task_action": "ansible.builtin.include_role",
+                    "duration": 0.077343,
+                    "end": "2023-03-13T16:22:15.424061",
+                    "event_loop": null,
+                    "host": "f5bigip02.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip02.dev.cgr-lab.lan",
+                    "res": {
+                        "changed": false,
+                        "msg": "All items completed",
+                        "results": [
+                            {
+                                "_ansible_item_label": "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                "ansible_loop": {
+                                    "allitems": [
+                                        "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                                    ],
+                                    "first": true,
+                                    "index": 1,
+                                    "index0": 0,
+                                    "last": false,
+                                    "length": 3,
+                                    "nextitem": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "revindex": 3,
+                                    "revindex0": 2
+                                },
+                                "ansible_loop_var": "item",
+                                "include_args": {
+                                    "name": "001_f5_automation_stats"
+                                },
+                                "item": "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                            },
+                            {
+                                "_ansible_item_label": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                "ansible_loop": {
+                                    "allitems": [
+                                        "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                                    ],
+                                    "first": false,
+                                    "index": 2,
+                                    "index0": 1,
+                                    "last": false,
+                                    "length": 3,
+                                    "nextitem": "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "previtem": "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "revindex": 2,
+                                    "revindex0": 1
+                                },
+                                "ansible_loop_var": "item",
+                                "include_args": {
+                                    "name": "001_f5_automation_stats"
+                                },
+                                "item": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                            },
+                            {
+                                "_ansible_item_label": "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                "ansible_loop": {
+                                    "allitems": [
+                                        "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                                    ],
+                                    "first": false,
+                                    "index": 3,
+                                    "index0": 2,
+                                    "last": true,
+                                    "length": 3,
+                                    "previtem": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "revindex": 1,
+                                    "revindex0": 0
+                                },
+                                "ansible_loop_var": "item",
+                                "include_args": {
+                                    "name": "001_f5_automation_stats"
+                                },
+                                "item": "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                            }
+                        ]
+                    },
+                    "resolved_action": null,
+                    "start": "2023-03-13T16:22:15.346718",
+                    "task": "DYNAMIC ROLE (include)",
+                    "task_action": "ansible.builtin.include_role",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml:23",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-000000000012",
+                    "uuid": "811570f3-7e3d-4ae7-88f0-fa1cb9ff12b3"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip03.dev.cgr-lab.lan",
+                    "__number": 2,
+                    "__result": "Ok",
+                    "__task": "DYNAMIC ROLE (include)",
+                    "__task_action": "ansible.builtin.include_role",
+                    "duration": 0.078304,
+                    "end": "2023-03-13T16:22:15.445041",
+                    "event_loop": null,
+                    "host": "f5bigip03.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip03.dev.cgr-lab.lan",
+                    "res": {
+                        "changed": false,
+                        "msg": "All items completed",
+                        "results": [
+                            {
+                                "_ansible_item_label": "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                "ansible_loop": {
+                                    "allitems": [
+                                        "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                                    ],
+                                    "first": true,
+                                    "index": 1,
+                                    "index0": 0,
+                                    "last": false,
+                                    "length": 3,
+                                    "nextitem": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "revindex": 3,
+                                    "revindex0": 2
+                                },
+                                "ansible_loop_var": "item",
+                                "include_args": {
+                                    "name": "001_f5_automation_stats"
+                                },
+                                "item": "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                            },
+                            {
+                                "_ansible_item_label": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                "ansible_loop": {
+                                    "allitems": [
+                                        "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                                    ],
+                                    "first": false,
+                                    "index": 2,
+                                    "index0": 1,
+                                    "last": false,
+                                    "length": 3,
+                                    "nextitem": "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "previtem": "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "revindex": 2,
+                                    "revindex0": 1
+                                },
+                                "ansible_loop_var": "item",
+                                "include_args": {
+                                    "name": "001_f5_automation_stats"
+                                },
+                                "item": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                            },
+                            {
+                                "_ansible_item_label": "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                "ansible_loop": {
+                                    "allitems": [
+                                        "ANSAB001/001, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                        "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                                    ],
+                                    "first": false,
+                                    "index": 3,
+                                    "index0": 2,
+                                    "last": true,
+                                    "length": 3,
+                                    "previtem": "ANSAB001/002, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03",
+                                    "revindex": 1,
+                                    "revindex0": 0
+                                },
+                                "ansible_loop_var": "item",
+                                "include_args": {
+                                    "name": "001_f5_automation_stats"
+                                },
+                                "item": "ANSAB001/003, 2022-11, 2022-12, 2023-01, 2023-02, 2023-03"
+                            }
+                        ]
+                    },
+                    "resolved_action": null,
+                    "start": "2023-03-13T16:22:15.366737",
+                    "task": "DYNAMIC ROLE (include)",
+                    "task_action": "ansible.builtin.include_role",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml:23",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-000000000012",
+                    "uuid": "30722a72-4dcb-45a6-8deb-6ffa2671643f"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip01.dev.cgr-lab.lan",
+                    "__number": 3,
+                    "__result": "Ok",
+                    "__task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "__task_action": "ansible.builtin.set_fact",
+                    "duration": 0.063557,
+                    "end": "2023-03-13T16:22:15.619480",
+                    "event_loop": null,
+                    "host": "f5bigip01.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip01.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "current_execution": {
+                                "automation_id": "ANSAB001/001",
+                                "dates": [
+                                    "2022-11",
+                                    "2022-12",
+                                    "2023-01",
+                                    "2023-02",
+                                    "2023-03"
+                                ]
+                            }
+                        },
+                        "changed": false
+                    },
+                    "resolved_action": "ansible.builtin.set_fact",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T16:22:15.555923",
+                    "task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "task_action": "ansible.builtin.set_fact",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:1",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-000000000069",
+                    "uuid": "c5d94912-e949-4cfc-8895-974eb5b09c31"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip02.dev.cgr-lab.lan",
+                    "__number": 4,
+                    "__result": "Ok",
+                    "__task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "__task_action": "ansible.builtin.set_fact",
+                    "duration": 0.059208,
+                    "end": "2023-03-13T16:22:15.632038",
+                    "event_loop": null,
+                    "host": "f5bigip02.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip02.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "current_execution": {
+                                "automation_id": "ANSAB001/001",
+                                "dates": [
+                                    "2022-11",
+                                    "2022-12",
+                                    "2023-01",
+                                    "2023-02",
+                                    "2023-03"
+                                ]
+                            }
+                        },
+                        "changed": false
+                    },
+                    "resolved_action": "ansible.builtin.set_fact",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T16:22:15.572830",
+                    "task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "task_action": "ansible.builtin.set_fact",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:1",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-000000000069",
+                    "uuid": "e4d96da7-3507-4aa5-89f3-c681b596468b"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip03.dev.cgr-lab.lan",
+                    "__number": 5,
+                    "__result": "Ok",
+                    "__task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "__task_action": "ansible.builtin.set_fact",
+                    "duration": 0.059432,
+                    "end": "2023-03-13T16:22:15.653075",
+                    "event_loop": null,
+                    "host": "f5bigip03.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip03.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "current_execution": {
+                                "automation_id": "ANSAB001/001",
+                                "dates": [
+                                    "2022-11",
+                                    "2022-12",
+                                    "2023-01",
+                                    "2023-02",
+                                    "2023-03"
+                                ]
+                            }
+                        },
+                        "changed": false
+                    },
+                    "resolved_action": "ansible.builtin.set_fact",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T16:22:15.593643",
+                    "task": "1.1. - Parsing CSV input data and saving it in a YAML dict",
+                    "task_action": "ansible.builtin.set_fact",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:1",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-000000000069",
+                    "uuid": "faa4de5f-6714-4655-839a-aed23c78fb68"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip01.dev.cgr-lab.lan",
+                    "__number": 6,
+                    "__result": "Ok",
+                    "__task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "__task_action": "ansible.builtin.assert",
+                    "duration": 0.051436,
+                    "end": "2023-03-13T16:22:15.712763",
+                    "event_loop": null,
+                    "host": "f5bigip01.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip01.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "_ansible_verbose_always": true,
+                        "changed": false,
+                        "msg": "Los datos de entrada para la ejecución [1\nde 3] son los siguientes:\n\nAutomation ID -> [ANSAB001/001]\nFechas -> [['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']]"
+                    },
+                    "resolved_action": "ansible.builtin.assert",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T16:22:15.661327",
+                    "task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "task_action": "ansible.builtin.assert",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:8",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-00000000006a",
+                    "uuid": "fc792d1b-7350-4f97-ab3b-2e21c8a0bcdc"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip02.dev.cgr-lab.lan",
+                    "__number": 7,
+                    "__result": "Ok",
+                    "__task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "__task_action": "ansible.builtin.assert",
+                    "duration": 0.055443,
+                    "end": "2023-03-13T16:22:15.731900",
+                    "event_loop": null,
+                    "host": "f5bigip02.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip02.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "_ansible_verbose_always": true,
+                        "changed": false,
+                        "msg": "Los datos de entrada para la ejecución [1\nde 3] son los siguientes:\n\nAutomation ID -> [ANSAB001/001]\nFechas -> [['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']]"
+                    },
+                    "resolved_action": "ansible.builtin.assert",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T16:22:15.676457",
+                    "task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "task_action": "ansible.builtin.assert",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:8",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-00000000006a",
+                    "uuid": "c697a32e-7f41-4255-aebd-adadab85a513"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip03.dev.cgr-lab.lan",
+                    "__number": 8,
+                    "__result": "Ok",
+                    "__task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "__task_action": "ansible.builtin.assert",
+                    "duration": 0.049844,
+                    "end": "2023-03-13T16:22:15.744329",
+                    "event_loop": null,
+                    "host": "f5bigip03.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip03.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "_ansible_verbose_always": true,
+                        "changed": false,
+                        "msg": "Los datos de entrada para la ejecución [1\nde 3] son los siguientes:\n\nAutomation ID -> [ANSAB001/001]\nFechas -> [['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']]"
+                    },
+                    "resolved_action": "ansible.builtin.assert",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T16:22:15.694485",
+                    "task": "1.2. - Asserting if input data was correctly specified on the AAP Survey\n",
+                    "task_action": "ansible.builtin.assert",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/1_parse_input_data.yml:8",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-00000000006a",
+                    "uuid": "2b4ea483-5109-49c8-9a45-dc7a4e2cd99c"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip01.dev.cgr-lab.lan",
+                    "__number": 9,
+                    "__result": "Ok",
+                    "__task": "2. Gathering automation stats from the [{{ inventory_hostname }}] F5-BIGIP Device, automation ID [{{ automation_id }}] and date [{{ date_stats }}]\n",
+                    "__task_action": "ansible.builtin.include_tasks",
+                    "duration": 0.059343,
+                    "end": "2023-03-13T16:22:15.815824",
+                    "event_loop": null,
+                    "host": "f5bigip01.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip01.dev.cgr-lab.lan",
+                    "res": {
+                        "changed": false,
+                        "msg": "All items completed",
+                        "results": [
+                            {
+                                "_ansible_item_label": "2022-11",
+                                "ansible_loop_var": "current_date",
+                                "current_date": "2022-11",
+                                "include": "2_gather_automation_stats.yml",
+                                "include_args": {}
+                            },
+                            {
+                                "_ansible_item_label": "2022-12",
+                                "ansible_loop_var": "current_date",
+                                "current_date": "2022-12",
+                                "include": "2_gather_automation_stats.yml",
+                                "include_args": {}
+                            },
+                            {
+                                "_ansible_item_label": "2023-01",
+                                "ansible_loop_var": "current_date",
+                                "current_date": "2023-01",
+                                "include": "2_gather_automation_stats.yml",
+                                "include_args": {}
+                            },
+                            {
+                                "_ansible_item_label": "2023-02",
+                                "ansible_loop_var": "current_date",
+                                "current_date": "2023-02",
+                                "include": "2_gather_automation_stats.yml",
+                                "include_args": {}
+                            },
+                            {
+                                "_ansible_item_label": "2023-03",
+                                "ansible_loop_var": "current_date",
+                                "current_date": "2023-03",
+                                "include": "2_gather_automation_stats.yml",
+                                "include_args": {}
+                            }
+                        ]
+                    },
+                    "resolved_action": null,
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T16:22:15.756481",
+                    "task": "2. Gathering automation stats from the [{{ inventory_hostname }}] F5-BIGIP Device, automation ID [{{ automation_id }}] and date [{{ date_stats }}]\n",
+                    "task_action": "ansible.builtin.include_tasks",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/main.yml:8",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-00000000006c",
+                    "uuid": "edb602ef-22a7-4b1f-aad0-a0e26e731e8b"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip02.dev.cgr-lab.lan",
+                    "__number": 10,
+                    "__result": "Ok",
+                    "__task": "2. Gathering automation stats from the [{{ inventory_hostname }}] F5-BIGIP Device, automation ID [{{ automation_id }}] and date [{{ date_stats }}]\n",
+                    "__task_action": "ansible.builtin.include_tasks",
+                    "duration": 0.054883,
+                    "end": "2023-03-13T16:22:15.826975",
+                    "event_loop": null,
+                    "host": "f5bigip02.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip02.dev.cgr-lab.lan",
+                    "res": {
+                        "changed": false,
+                        "msg": "All items completed",
+                        "results": [
+                            {
+                                "_ansible_item_label": "2022-11",
+                                "ansible_loop_var": "current_date",
+                                "current_date": "2022-11",
+                                "include": "2_gather_automation_stats.yml",
+                                "include_args": {}
+                            },
+                            {
+                                "_ansible_item_label": "2022-12",
+                                "ansible_loop_var": "current_date",
+                                "current_date": "2022-12",
+                                "include": "2_gather_automation_stats.yml",
+                                "include_args": {}
+                            },
+                            {
+                                "_ansible_item_label": "2023-01",
+                                "ansible_loop_var": "current_date",
+                                "current_date": "2023-01",
+                                "include": "2_gather_automation_stats.yml",
+                                "include_args": {}
+                            },
+                            {
+                                "_ansible_item_label": "2023-02",
+                                "ansible_loop_var": "current_date",
+                                "current_date": "2023-02",
+                                "include": "2_gather_automation_stats.yml",
+                                "include_args": {}
+                            },
+                            {
+                                "_ansible_item_label": "2023-03",
+                                "ansible_loop_var": "current_date",
+                                "current_date": "2023-03",
+                                "include": "2_gather_automation_stats.yml",
+                                "include_args": {}
+                            }
+                        ]
+                    },
+                    "resolved_action": null,
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T16:22:15.772092",
+                    "task": "2. Gathering automation stats from the [{{ inventory_hostname }}] F5-BIGIP Device, automation ID [{{ automation_id }}] and date [{{ date_stats }}]\n",
+                    "task_action": "ansible.builtin.include_tasks",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/main.yml:8",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-00000000006c",
+                    "uuid": "c42e04a5-dc27-4b55-acb8-42c3f9b6b223"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip03.dev.cgr-lab.lan",
+                    "__number": 11,
+                    "__result": "Ok",
+                    "__task": "2. Gathering automation stats from the [{{ inventory_hostname }}] F5-BIGIP Device, automation ID [{{ automation_id }}] and date [{{ date_stats }}]\n",
+                    "__task_action": "ansible.builtin.include_tasks",
+                    "duration": 0.050755,
+                    "end": "2023-03-13T16:22:15.846166",
+                    "event_loop": null,
+                    "host": "f5bigip03.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip03.dev.cgr-lab.lan",
+                    "res": {
+                        "changed": false,
+                        "msg": "All items completed",
+                        "results": [
+                            {
+                                "_ansible_item_label": "2022-11",
+                                "ansible_loop_var": "current_date",
+                                "current_date": "2022-11",
+                                "include": "2_gather_automation_stats.yml",
+                                "include_args": {}
+                            },
+                            {
+                                "_ansible_item_label": "2022-12",
+                                "ansible_loop_var": "current_date",
+                                "current_date": "2022-12",
+                                "include": "2_gather_automation_stats.yml",
+                                "include_args": {}
+                            },
+                            {
+                                "_ansible_item_label": "2023-01",
+                                "ansible_loop_var": "current_date",
+                                "current_date": "2023-01",
+                                "include": "2_gather_automation_stats.yml",
+                                "include_args": {}
+                            },
+                            {
+                                "_ansible_item_label": "2023-02",
+                                "ansible_loop_var": "current_date",
+                                "current_date": "2023-02",
+                                "include": "2_gather_automation_stats.yml",
+                                "include_args": {}
+                            },
+                            {
+                                "_ansible_item_label": "2023-03",
+                                "ansible_loop_var": "current_date",
+                                "current_date": "2023-03",
+                                "include": "2_gather_automation_stats.yml",
+                                "include_args": {}
+                            }
+                        ]
+                    },
+                    "resolved_action": null,
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T16:22:15.795411",
+                    "task": "2. Gathering automation stats from the [{{ inventory_hostname }}] F5-BIGIP Device, automation ID [{{ automation_id }}] and date [{{ date_stats }}]\n",
+                    "task_action": "ansible.builtin.include_tasks",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/main.yml:8",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-00000000006c",
+                    "uuid": "629e3cbd-f91b-471a-bf48-6a4480a44408"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "3s",
+                    "__host": "f5bigip01.dev.cgr-lab.lan",
+                    "__number": 12,
+                    "__result": "Ok",
+                    "__task": "2.1. Gathering all the balanced services created for the [f5bigip01.dev.cgr-lab.lan] F5-BIGIP device from the [/environments/dev/hosts] inventory via REST\n",
+                    "__task_action": "f5networks.f5_modules.bigip_command",
+                    "duration": 3.192203,
+                    "end": "2023-03-13T16:22:19.129490",
+                    "event_loop": null,
+                    "host": "f5bigip01.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip01.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_delegated_vars": {
+                            "ansible_connection": "local",
+                            "ansible_host": "localhost",
+                            "ansible_port": null,
+                            "ansible_user": null
+                        },
+                        "_ansible_no_log": null,
+                        "changed": false,
+                        "executed_commands": [
+                            "tmsh -c \\\"list ltm virtual creation-time description \\\" |  grep -A 1 \\'2022-11\\' | grep \\'ANSAB001/001\\' -c"
+                        ],
+                        "invocation": {
+                            "module_args": {
+                                "chdir": null,
+                                "commands": "list ltm virtual creation-time description | grep -A 1 '2022-11' | grep 'ANSAB001/001' -c",
+                                "interval": 1,
+                                "match": "all",
+                                "provider": {
+                                    "auth_provider": null,
+                                    "no_f5_teem": null,
+                                    "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                                    "server": "f5bigip01.dev.cgr-lab.lan",
+                                    "server_port": 443,
+                                    "ssh_keyfile": null,
+                                    "timeout": null,
+                                    "transport": "rest",
+                                    "user": "admin",
+                                    "validate_certs": false
+                                },
+                                "retries": 10,
+                                "wait_for": null,
+                                "warn": true
+                            }
+                        },
+                        "stdout": [
+                            "3"
+                        ],
+                        "stdout_lines": [
+                            [
+                                "3"
+                            ]
+                        ]
+                    },
+                    "resolved_action": "f5networks.f5_modules.bigip_command",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T16:22:15.937287",
+                    "task": "2.1. Gathering all the balanced services created for the [f5bigip01.dev.cgr-lab.lan] F5-BIGIP device from the [/environments/dev/hosts] inventory via REST\n",
+                    "task_action": "f5networks.f5_modules.bigip_command",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml:2",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-00000000013b",
+                    "uuid": "6a4e31de-4954-4b56-b8e5-35f76f484ccd"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "1s",
+                    "__host": "f5bigip02.dev.cgr-lab.lan",
+                    "__number": 13,
+                    "__result": "Ignored",
+                    "__task": "2.1. Gathering all the balanced services created for the [f5bigip02.dev.cgr-lab.lan] F5-BIGIP device from the [/environments/dev/hosts] inventory via REST\n",
+                    "__task_action": "f5networks.f5_modules.bigip_command",
+                    "duration": 1.152418,
+                    "end": "2023-03-13T16:22:17.107601",
+                    "event_loop": null,
+                    "host": "f5bigip02.dev.cgr-lab.lan",
+                    "ignore_errors": true,
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip02.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_delegated_vars": {
+                            "ansible_connection": "local",
+                            "ansible_host": "localhost",
+                            "ansible_port": null,
+                            "ansible_user": null
+                        },
+                        "_ansible_no_log": null,
+                        "changed": false,
+                        "exception": "Traceback (most recent call last):\n  File \"/usr/lib64/python3.8/urllib/request.py\", line 1354, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/lib64/python3.8/http/client.py\", line 1256, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/lib64/python3.8/http/client.py\", line 1302, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/lib64/python3.8/http/client.py\", line 1251, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/lib64/python3.8/http/client.py\", line 1011, in _send_output\n    self.send(msg)\n  File \"/usr/lib64/python3.8/http/client.py\", line 951, in send\n    self.connect()\n  File \"/usr/lib64/python3.8/http/client.py\", line 1418, in connect\n    super().connect()\n  File \"/usr/lib64/python3.8/http/client.py\", line 922, in connect\n    self.sock = self._create_connection(\n  File \"/usr/lib64/python3.8/socket.py\", line 787, in create_connection\n    for res in getaddrinfo(host, port, 0, SOCK_STREAM):\n  File \"/usr/lib64/python3.8/socket.py\", line 918, in getaddrinfo\n    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):\nsocket.gaierror: [Errno -2] Name or service not known\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/home/runner/.ansible/tmp/ansible-tmp-1678724536.0583837-55-264658496205760/AnsiballZ_bigip_command.py\", line 107, in <module>\n    _ansiballz_main()\n  File \"/home/runner/.ansible/tmp/ansible-tmp-1678724536.0583837-55-264658496205760/AnsiballZ_bigip_command.py\", line 99, in _ansiballz_main\n    invoke_module(zipped_mod, temp_path, ANSIBALLZ_PARAMS)\n  File \"/home/runner/.ansible/tmp/ansible-tmp-1678724536.0583837-55-264658496205760/AnsiballZ_bigip_command.py\", line 47, in invoke_module\n    runpy.run_module(mod_name='ansible_collections.f5networks.f5_modules.plugins.modules.bigip_command', init_globals=dict(_module_fqn='ansible_collections.f5networks.f5_modules.plugins.modules.bigip_command', _modlib_path=modlib_path),\n  File \"/usr/lib64/python3.8/runpy.py\", line 207, in run_module\n    return _run_module_code(code, init_globals, run_name, mod_spec)\n  File \"/usr/lib64/python3.8/runpy.py\", line 97, in _run_module_code\n    _run_code(code, mod_globals, init_globals,\n  File \"/usr/lib64/python3.8/runpy.py\", line 87, in _run_code\n    exec(code, run_globals)\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/modules/bigip_command.py\", line 745, in <module>\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/modules/bigip_command.py\", line 738, in main\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/modules/bigip_command.py\", line 668, in exec_module\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/modules/bigip_command.py\", line 619, in exec_module\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/module_utils/icontrol.py\", line 551, in tmos_version\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/module_utils/bigip.py\", line 31, in api\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/module_utils/bigip.py\", line 52, in connect_via_token_auth\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/module_utils/icontrol.py\", line 239, in post\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/module_utils/icontrol.py\", line 194, in send\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible/module_utils/urls.py\", line 1486, in open\n  File \"/usr/lib64/python3.8/urllib/request.py\", line 222, in urlopen\n    return opener.open(url, data, timeout)\n  File \"/usr/lib64/python3.8/urllib/request.py\", line 525, in open\n    response = self._open(req, data)\n  File \"/usr/lib64/python3.8/urllib/request.py\", line 542, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n  File \"/usr/lib64/python3.8/urllib/request.py\", line 502, in _call_chain\n    result = func(*args)\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible/module_utils/urls.py\", line 588, in https_open\n  File \"/usr/lib64/python3.8/urllib/request.py\", line 1357, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno -2] Name or service not known>\n",
+                        "module_stderr": "Traceback (most recent call last):\n  File \"/usr/lib64/python3.8/urllib/request.py\", line 1354, in do_open\n    h.request(req.get_method(), req.selector, req.data, headers,\n  File \"/usr/lib64/python3.8/http/client.py\", line 1256, in request\n    self._send_request(method, url, body, headers, encode_chunked)\n  File \"/usr/lib64/python3.8/http/client.py\", line 1302, in _send_request\n    self.endheaders(body, encode_chunked=encode_chunked)\n  File \"/usr/lib64/python3.8/http/client.py\", line 1251, in endheaders\n    self._send_output(message_body, encode_chunked=encode_chunked)\n  File \"/usr/lib64/python3.8/http/client.py\", line 1011, in _send_output\n    self.send(msg)\n  File \"/usr/lib64/python3.8/http/client.py\", line 951, in send\n    self.connect()\n  File \"/usr/lib64/python3.8/http/client.py\", line 1418, in connect\n    super().connect()\n  File \"/usr/lib64/python3.8/http/client.py\", line 922, in connect\n    self.sock = self._create_connection(\n  File \"/usr/lib64/python3.8/socket.py\", line 787, in create_connection\n    for res in getaddrinfo(host, port, 0, SOCK_STREAM):\n  File \"/usr/lib64/python3.8/socket.py\", line 918, in getaddrinfo\n    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):\nsocket.gaierror: [Errno -2] Name or service not known\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/home/runner/.ansible/tmp/ansible-tmp-1678724536.0583837-55-264658496205760/AnsiballZ_bigip_command.py\", line 107, in <module>\n    _ansiballz_main()\n  File \"/home/runner/.ansible/tmp/ansible-tmp-1678724536.0583837-55-264658496205760/AnsiballZ_bigip_command.py\", line 99, in _ansiballz_main\n    invoke_module(zipped_mod, temp_path, ANSIBALLZ_PARAMS)\n  File \"/home/runner/.ansible/tmp/ansible-tmp-1678724536.0583837-55-264658496205760/AnsiballZ_bigip_command.py\", line 47, in invoke_module\n    runpy.run_module(mod_name='ansible_collections.f5networks.f5_modules.plugins.modules.bigip_command', init_globals=dict(_module_fqn='ansible_collections.f5networks.f5_modules.plugins.modules.bigip_command', _modlib_path=modlib_path),\n  File \"/usr/lib64/python3.8/runpy.py\", line 207, in run_module\n    return _run_module_code(code, init_globals, run_name, mod_spec)\n  File \"/usr/lib64/python3.8/runpy.py\", line 97, in _run_module_code\n    _run_code(code, mod_globals, init_globals,\n  File \"/usr/lib64/python3.8/runpy.py\", line 87, in _run_code\n    exec(code, run_globals)\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/modules/bigip_command.py\", line 745, in <module>\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/modules/bigip_command.py\", line 738, in main\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/modules/bigip_command.py\", line 668, in exec_module\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/modules/bigip_command.py\", line 619, in exec_module\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/module_utils/icontrol.py\", line 551, in tmos_version\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/module_utils/bigip.py\", line 31, in api\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/module_utils/bigip.py\", line 52, in connect_via_token_auth\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/module_utils/icontrol.py\", line 239, in post\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/module_utils/icontrol.py\", line 194, in send\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible/module_utils/urls.py\", line 1486, in open\n  File \"/usr/lib64/python3.8/urllib/request.py\", line 222, in urlopen\n    return opener.open(url, data, timeout)\n  File \"/usr/lib64/python3.8/urllib/request.py\", line 525, in open\n    response = self._open(req, data)\n  File \"/usr/lib64/python3.8/urllib/request.py\", line 542, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n  File \"/usr/lib64/python3.8/urllib/request.py\", line 502, in _call_chain\n    result = func(*args)\n  File \"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible/module_utils/urls.py\", line 588, in https_open\n  File \"/usr/lib64/python3.8/urllib/request.py\", line 1357, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [Errno -2] Name or service not known>\n",
+                        "module_stdout": "",
+                        "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error",
+                        "rc": 1
+                    },
+                    "resolved_action": "f5networks.f5_modules.bigip_command",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T16:22:15.955183",
+                    "task": "2.1. Gathering all the balanced services created for the [f5bigip02.dev.cgr-lab.lan] F5-BIGIP device from the [/environments/dev/hosts] inventory via REST\n",
+                    "task_action": "f5networks.f5_modules.bigip_command",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml:2",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-00000000013b",
+                    "uuid": "f60066be-a204-4e25-8097-6658138b8f5e"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "4s",
+                    "__host": "f5bigip03.dev.cgr-lab.lan",
+                    "__number": 14,
+                    "__result": "Ok",
+                    "__task": "2.1. Gathering all the balanced services created for the [f5bigip03.dev.cgr-lab.lan] F5-BIGIP device from the [/environments/dev/hosts] inventory via REST\n",
+                    "__task_action": "f5networks.f5_modules.bigip_command",
+                    "duration": 3.502707,
+                    "end": "2023-03-13T16:22:19.476720",
+                    "event_loop": null,
+                    "host": "f5bigip03.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip03.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_delegated_vars": {
+                            "ansible_connection": "local",
+                            "ansible_host": "localhost",
+                            "ansible_port": null,
+                            "ansible_user": null
+                        },
+                        "_ansible_no_log": null,
+                        "changed": false,
+                        "executed_commands": [
+                            "tmsh -c \\\"list ltm virtual creation-time description \\\" |  grep -A 1 \\'2022-11\\' | grep \\'ANSAB001/001\\' -c"
+                        ],
+                        "invocation": {
+                            "module_args": {
+                                "chdir": null,
+                                "commands": "list ltm virtual creation-time description | grep -A 1 '2022-11' | grep 'ANSAB001/001' -c",
+                                "interval": 1,
+                                "match": "all",
+                                "provider": {
+                                    "auth_provider": null,
+                                    "no_f5_teem": null,
+                                    "password": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+                                    "server": "f5bigip03.dev.cgr-lab.lan",
+                                    "server_port": 443,
+                                    "ssh_keyfile": null,
+                                    "timeout": null,
+                                    "transport": "rest",
+                                    "user": "admin",
+                                    "validate_certs": false
+                                },
+                                "retries": 10,
+                                "wait_for": null,
+                                "warn": true
+                            }
+                        },
+                        "stdout": [
+                            "3"
+                        ],
+                        "stdout_lines": [
+                            [
+                                "3"
+                            ]
+                        ]
+                    },
+                    "resolved_action": "f5networks.f5_modules.bigip_command",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T16:22:15.974013",
+                    "task": "2.1. Gathering all the balanced services created for the [f5bigip03.dev.cgr-lab.lan] F5-BIGIP device from the [/environments/dev/hosts] inventory via REST\n",
+                    "task_action": "f5networks.f5_modules.bigip_command",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml:2",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-00000000013b",
+                    "uuid": "8c0a5235-345f-4b5c-bd97-cb355ed05b36"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip01.dev.cgr-lab.lan",
+                    "__number": 15,
+                    "__result": "Ok",
+                    "__task": "2.2. Generating results message to be included in final summary list",
+                    "__task_action": "ansible.builtin.set_fact",
+                    "duration": 0.031389,
+                    "end": "2023-03-13T16:22:19.514733",
+                    "event_loop": null,
+                    "host": "f5bigip01.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip01.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "current_exec_results": [
+                                "For the automation ID [ANSAB001/001], the total balanced services created on [2022-11] is [['3']]"
+                            ]
+                        },
+                        "changed": false
+                    },
+                    "resolved_action": "ansible.builtin.set_fact",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T16:22:19.483344",
+                    "task": "2.2. Generating results message to be included in final summary list",
+                    "task_action": "ansible.builtin.set_fact",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml:17",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-00000000013c",
+                    "uuid": "58832961-7cfd-4cff-82d5-22b32b3ab73e"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip02.dev.cgr-lab.lan",
+                    "__number": 16,
+                    "__result": "Ok",
+                    "__task": "2.2. Generating results message to be included in final summary list",
+                    "__task_action": "ansible.builtin.set_fact",
+                    "duration": 0.028576,
+                    "end": "2023-03-13T16:22:19.521747",
+                    "event_loop": null,
+                    "host": "f5bigip02.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip02.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "current_exec_results": [
+                                "For the automation ID [ANSAB001/001], the total balanced services created on [2022-11] is []"
+                            ]
+                        },
+                        "changed": false
+                    },
+                    "resolved_action": "ansible.builtin.set_fact",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T16:22:19.493171",
+                    "task": "2.2. Generating results message to be included in final summary list",
+                    "task_action": "ansible.builtin.set_fact",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml:17",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-00000000013c",
+                    "uuid": "320cc4e5-70ae-412b-b31c-21e226f2f68d"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip03.dev.cgr-lab.lan",
+                    "__number": 17,
+                    "__result": "Ok",
+                    "__task": "2.2. Generating results message to be included in final summary list",
+                    "__task_action": "ansible.builtin.set_fact",
+                    "duration": 0.027785,
+                    "end": "2023-03-13T16:22:19.535946",
+                    "event_loop": null,
+                    "host": "f5bigip03.dev.cgr-lab.lan",
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip03.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "ansible_facts": {
+                            "current_exec_results": [
+                                "For the automation ID [ANSAB001/001], the total balanced services created on [2022-11] is [['3']]"
+                            ]
+                        },
+                        "changed": false
+                    },
+                    "resolved_action": "ansible.builtin.set_fact",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T16:22:19.508161",
+                    "task": "2.2. Generating results message to be included in final summary list",
+                    "task_action": "ansible.builtin.set_fact",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml:17",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-00000000013c",
+                    "uuid": "51e79817-0663-41e5-9edc-37a07867ab6d"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip01.dev.cgr-lab.lan",
+                    "__number": 18,
+                    "__result": "Failed",
+                    "__task": "2.2. Saving current results to ansible fact, so we can show the overall result later on task 3.1\n",
+                    "__task_action": "ansible.builtin.set_fact",
+                    "duration": 0.034521,
+                    "end": "2023-03-13T16:22:19.577352",
+                    "event_loop": null,
+                    "host": "f5bigip01.dev.cgr-lab.lan",
+                    "ignore_errors": null,
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip01.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": false,
+                        "msg": "The task includes an option with an undefined variable. The error was: 'final_summary' is undefined\n\nThe error appears to be in '/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml': line 24, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: >\n  ^ here\n"
+                    },
+                    "resolved_action": "ansible.builtin.set_fact",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T16:22:19.542831",
+                    "task": "2.2. Saving current results to ansible fact, so we can show the overall result later on task 3.1\n",
+                    "task_action": "ansible.builtin.set_fact",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml:24",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-00000000013d",
+                    "uuid": "ad9b4968-8101-4b36-a513-f00cdb160811"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip02.dev.cgr-lab.lan",
+                    "__number": 19,
+                    "__result": "Failed",
+                    "__task": "2.2. Saving current results to ansible fact, so we can show the overall result later on task 3.1\n",
+                    "__task_action": "ansible.builtin.set_fact",
+                    "duration": 0.026377,
+                    "end": "2023-03-13T16:22:19.581037",
+                    "event_loop": null,
+                    "host": "f5bigip02.dev.cgr-lab.lan",
+                    "ignore_errors": null,
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip02.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": false,
+                        "msg": "The task includes an option with an undefined variable. The error was: 'final_summary' is undefined\n\nThe error appears to be in '/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml': line 24, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: >\n  ^ here\n"
+                    },
+                    "resolved_action": "ansible.builtin.set_fact",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T16:22:19.554660",
+                    "task": "2.2. Saving current results to ansible fact, so we can show the overall result later on task 3.1\n",
+                    "task_action": "ansible.builtin.set_fact",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml:24",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-00000000013d",
+                    "uuid": "8ca5df32-d465-45c0-af49-4103aefae592"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip03.dev.cgr-lab.lan",
+                    "__number": 20,
+                    "__result": "Failed",
+                    "__task": "2.2. Saving current results to ansible fact, so we can show the overall result later on task 3.1\n",
+                    "__task_action": "ansible.builtin.set_fact",
+                    "duration": 0.017309,
+                    "end": "2023-03-13T16:22:19.588219",
+                    "event_loop": null,
+                    "host": "f5bigip03.dev.cgr-lab.lan",
+                    "ignore_errors": null,
+                    "play": "PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0002-1ba9-7529-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "05f17fcb-7063-409e-9ef4-67fad459a5d7",
+                    "remote_addr": "f5bigip03.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": false,
+                        "msg": "The task includes an option with an undefined variable. The error was: 'final_summary' is undefined\n\nThe error appears to be in '/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml': line 24, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: >\n  ^ here\n"
+                    },
+                    "resolved_action": "ansible.builtin.set_fact",
+                    "role": "001_f5_automation_stats",
+                    "start": "2023-03-13T16:22:19.570910",
+                    "task": "2.2. Saving current results to ansible fact, so we can show the overall result later on task 3.1\n",
+                    "task_action": "ansible.builtin.set_fact",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml:24",
+                    "task_uuid": "0242ac11-0002-1ba9-7529-00000000013d",
+                    "uuid": "a63a117b-d252-473a-ae8c-5931f6ff49c0"
+                }
+            ],
+            "uuid": "0242ac11-0002-1ba9-7529-00000000000d"
+        }
+    ],
+    "settings_entries": {
+        "ansible-navigator": {
+            "ansible": {
+                "cmdline": "--limit f5bigip --extra-vars @debug/part_3_input.yml --vault-password-file /home/jbericat/.vault/.dev_vault_password",
+                "config": {
+                    "help": false
+                },
+                "doc": {
+                    "help": false,
+                    "plugin": {
+                        "type": "module"
+                    }
+                },
+                "inventory": {
+                    "entries": [
+                        "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/environments/dev"
+                    ],
+                    "help": false
+                },
+                "playbook": {
+                    "help": false,
+                    "path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml"
+                }
+            },
+            "ansible-builder": {
+                "help": false,
+                "workdir": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop"
+            },
+            "app": "run",
+            "collection-doc-cache-path": "/home/jbericat/.cache/ansible-navigator/collection_doc_cache.db",
+            "color": {
+                "enable": true,
+                "osc4": true
+            },
+            "editor": {
+                "command": "vi +{line_number} {filename}",
+                "console": true
+            },
+            "exec": {
+                "command": "/bin/bash",
+                "shell": true
+            },
+            "execution-environment": {
+                "container-engine": "docker",
+                "enabled": true,
+                "image": "quay.io/jordi_bericat/ansible-ee:2.13-latest",
+                "pull": {
+                    "policy": "tag"
+                }
+            },
+            "images": {
+                "details": [
+                    "everything"
+                ]
+            },
+            "logging": {
+                "append": true,
+                "file": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/logs/ansible-navigator.log",
+                "level": "warning"
+            },
+            "mode": "interactive",
+            "playbook-artifact": {
+                "enable": true,
+                "save-as": "logs/{playbook_name}-artifact-{time_stamp}.json"
+            },
+            "settings": {
+                "effective": false,
+                "sample": false,
+                "schema": "json",
+                "sources": false
+            },
+            "time-zone": "UTC"
+        }
+    },
+    "settings_sources": {
+        "ansible-navigator.ansible-builder.help": "Defaults",
+        "ansible-navigator.ansible-builder.workdir": "Defaults",
+        "ansible-navigator.ansible-lint.config": "Not set",
+        "ansible-navigator.ansible-lint.lintables": "Not set",
+        "ansible-navigator.ansible-runner.artifact-dir": "Not set",
+        "ansible-navigator.ansible-runner.rotate-artifacts-count": "Not set",
+        "ansible-navigator.ansible-runner.timeout": "Not set",
+        "ansible-navigator.ansible.cmdline": "Previous cli command",
+        "ansible-navigator.ansible.config.help": "Defaults",
+        "ansible-navigator.ansible.config.path": "Not set",
+        "ansible-navigator.ansible.doc.help": "Defaults",
+        "ansible-navigator.ansible.doc.plugin.name": "Not set",
+        "ansible-navigator.ansible.doc.plugin.type": "Defaults",
+        "ansible-navigator.ansible.inventory.entries": "Previous cli command",
+        "ansible-navigator.ansible.inventory.help": "Defaults",
+        "ansible-navigator.ansible.playbook.help": "Defaults",
+        "ansible-navigator.ansible.playbook.path": "Previous cli command",
+        "ansible-navigator.app": "Command line",
+        "ansible-navigator.collection-doc-cache-path": "Defaults",
+        "ansible-navigator.color.enable": "Defaults",
+        "ansible-navigator.color.osc4": "Defaults",
+        "ansible-navigator.editor.command": "Defaults",
+        "ansible-navigator.editor.console": "Defaults",
+        "ansible-navigator.exec.command": "Defaults",
+        "ansible-navigator.exec.shell": "Defaults",
+        "ansible-navigator.execution-environment.container-engine": "Automatically determined",
+        "ansible-navigator.execution-environment.container-options": "Not set",
+        "ansible-navigator.execution-environment.enabled": "Defaults",
+        "ansible-navigator.execution-environment.environment-variables.pass": "Not set",
+        "ansible-navigator.execution-environment.environment-variables.set": "Not set",
+        "ansible-navigator.execution-environment.image": "Previous cli command",
+        "ansible-navigator.execution-environment.pull.arguments": "Not set",
+        "ansible-navigator.execution-environment.pull.policy": "Defaults",
+        "ansible-navigator.execution-environment.volume-mounts": "Not set",
+        "ansible-navigator.images.details": "Defaults",
+        "ansible-navigator.inventory-columns": "Not set",
+        "ansible-navigator.logging.append": "Defaults",
+        "ansible-navigator.logging.file": "Previous cli command",
+        "ansible-navigator.logging.level": "Defaults",
+        "ansible-navigator.mode": "Defaults",
+        "ansible-navigator.playbook-artifact.enable": "Defaults",
+        "ansible-navigator.playbook-artifact.replay": "Not set",
+        "ansible-navigator.playbook-artifact.save-as": "Previous cli command",
+        "ansible-navigator.settings.effective": "Defaults",
+        "ansible-navigator.settings.sample": "Defaults",
+        "ansible-navigator.settings.schema": "Defaults",
+        "ansible-navigator.settings.sources": "Defaults",
+        "ansible-navigator.time-zone": "Defaults",
+        "settings_file_path": "None",
+        "settings_file_source": "None"
+    },
+    "status": "failed",
+    "status_color": 9,
+    "stdout": [
+        "",
+        "PLAY [PLAYBOOK - \"workshop_lab_part_3.yml\" (Advanced topics)] ******************",
+        "",
+        "TASK [DYNAMIC ROLE (include)] **************************************************",
+        "",
+        "TASK [001_f5_automation_stats : 1.1. - Parsing CSV input data and saving it in a YAML dict] ***",
+        "\u001b[0;32mok: [f5bigip01.dev.cgr-lab.lan]\u001b[0m",
+        "\u001b[0;32mok: [f5bigip02.dev.cgr-lab.lan]\u001b[0m",
+        "\u001b[0;32mok: [f5bigip03.dev.cgr-lab.lan]\u001b[0m",
+        "",
+        "TASK [001_f5_automation_stats : 1.2. - Asserting if input data was correctly specified on the AAP Survey] ***",
+        "\u001b[0;32mok: [f5bigip01.dev.cgr-lab.lan] => {\u001b[0m",
+        "\u001b[0;32m    \"changed\": false,\u001b[0m",
+        "\u001b[0;32m    \"msg\": \"Los datos de entrada para la ejecución [1\\nde 3] son los siguientes:\\n\\nAutomation ID -> [ANSAB001/001]\\nFechas -> [['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']]\"\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "\u001b[0;32mok: [f5bigip02.dev.cgr-lab.lan] => {\u001b[0m",
+        "\u001b[0;32m    \"changed\": false,\u001b[0m",
+        "\u001b[0;32m    \"msg\": \"Los datos de entrada para la ejecución [1\\nde 3] son los siguientes:\\n\\nAutomation ID -> [ANSAB001/001]\\nFechas -> [['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']]\"\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "\u001b[0;32mok: [f5bigip03.dev.cgr-lab.lan] => {\u001b[0m",
+        "\u001b[0;32m    \"changed\": false,\u001b[0m",
+        "\u001b[0;32m    \"msg\": \"Los datos de entrada para la ejecución [1\\nde 3] son los siguientes:\\n\\nAutomation ID -> [ANSAB001/001]\\nFechas -> [['2022-11', '2022-12', '2023-01', '2023-02', '2023-03']]\"\u001b[0m",
+        "\u001b[0;32m}\u001b[0m",
+        "",
+        "TASK [001_f5_automation_stats : 2. Gathering automation stats from the [{{ inventory_hostname }}] F5-BIGIP Device, automation ID [{{ automation_id }}] and date [{{ date_stats }}]] ***",
+        "\u001b[0;36mincluded: /home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml for f5bigip01.dev.cgr-lab.lan, f5bigip02.dev.cgr-lab.lan, f5bigip03.dev.cgr-lab.lan => (item=2022-11)\u001b[0m",
+        "\u001b[0;36mincluded: /home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml for f5bigip01.dev.cgr-lab.lan, f5bigip02.dev.cgr-lab.lan, f5bigip03.dev.cgr-lab.lan => (item=2022-12)\u001b[0m",
+        "\u001b[0;36mincluded: /home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml for f5bigip01.dev.cgr-lab.lan, f5bigip02.dev.cgr-lab.lan, f5bigip03.dev.cgr-lab.lan => (item=2023-01)\u001b[0m",
+        "\u001b[0;36mincluded: /home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml for f5bigip01.dev.cgr-lab.lan, f5bigip02.dev.cgr-lab.lan, f5bigip03.dev.cgr-lab.lan => (item=2023-02)\u001b[0m",
+        "\u001b[0;36mincluded: /home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml for f5bigip01.dev.cgr-lab.lan, f5bigip02.dev.cgr-lab.lan, f5bigip03.dev.cgr-lab.lan => (item=2023-03)\u001b[0m",
+        "",
+        "TASK [001_f5_automation_stats : 2.1. Gathering all the balanced services created for the [f5bigip01.dev.cgr-lab.lan] F5-BIGIP device from the [/environments/dev/hosts] inventory via REST] ***",
+        "\u001b[0;31mAn exception occurred during task execution. To see the full traceback, use -vvv. The error was: urllib.error.URLError: <urlopen error [Errno -2] Name or service not known>\u001b[0m",
+        "\u001b[0;31mfatal: [f5bigip02.dev.cgr-lab.lan -> localhost]: FAILED! => {\"changed\": false, \"module_stderr\": \"Traceback (most recent call last):\\n  File \\\"/usr/lib64/python3.8/urllib/request.py\\\", line 1354, in do_open\\n    h.request(req.get_method(), req.selector, req.data, headers,\\n  File \\\"/usr/lib64/python3.8/http/client.py\\\", line 1256, in request\\n    self._send_request(method, url, body, headers, encode_chunked)\\n  File \\\"/usr/lib64/python3.8/http/client.py\\\", line 1302, in _send_request\\n    self.endheaders(body, encode_chunked=encode_chunked)\\n  File \\\"/usr/lib64/python3.8/http/client.py\\\", line 1251, in endheaders\\n    self._send_output(message_body, encode_chunked=encode_chunked)\\n  File \\\"/usr/lib64/python3.8/http/client.py\\\", line 1011, in _send_output\\n    self.send(msg)\\n  File \\\"/usr/lib64/python3.8/http/client.py\\\", line 951, in send\\n    self.connect()\\n  File \\\"/usr/lib64/python3.8/http/client.py\\\", line 1418, in connect\\n    super().connect()\\n  File \\\"/usr/lib64/python3.8/http/client.py\\\", line 922, in connect\\n    self.sock = self._create_connection(\\n  File \\\"/usr/lib64/python3.8/socket.py\\\", line 787, in create_connection\\n    for res in getaddrinfo(host, port, 0, SOCK_STREAM):\\n  File \\\"/usr/lib64/python3.8/socket.py\\\", line 918, in getaddrinfo\\n    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):\\nsocket.gaierror: [Errno -2] Name or service not known\\n\\nDuring handling of the above exception, another exception occurred:\\n\\nTraceback (most recent call last):\\n  File \\\"/home/runner/.ansible/tmp/ansible-tmp-1678724536.0583837-55-264658496205760/AnsiballZ_bigip_command.py\\\", line 107, in <module>\\n    _ansiballz_main()\\n  File \\\"/home/runner/.ansible/tmp/ansible-tmp-1678724536.0583837-55-264658496205760/AnsiballZ_bigip_command.py\\\", line 99, in _ansiballz_main\\n    invoke_module(zipped_mod, temp_path, ANSIBALLZ_PARAMS)\\n  File \\\"/home/runner/.ansible/tmp/ansible-tmp-1678724536.0583837-55-264658496205760/AnsiballZ_bigip_command.py\\\", line 47, in invoke_module\\n    runpy.run_module(mod_name='ansible_collections.f5networks.f5_modules.plugins.modules.bigip_command', init_globals=dict(_module_fqn='ansible_collections.f5networks.f5_modules.plugins.modules.bigip_command', _modlib_path=modlib_path),\\n  File \\\"/usr/lib64/python3.8/runpy.py\\\", line 207, in run_module\\n    return _run_module_code(code, init_globals, run_name, mod_spec)\\n  File \\\"/usr/lib64/python3.8/runpy.py\\\", line 97, in _run_module_code\\n    _run_code(code, mod_globals, init_globals,\\n  File \\\"/usr/lib64/python3.8/runpy.py\\\", line 87, in _run_code\\n    exec(code, run_globals)\\n  File \\\"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/modules/bigip_command.py\\\", line 745, in <module>\\n  File \\\"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/modules/bigip_command.py\\\", line 738, in main\\n  File \\\"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/modules/bigip_command.py\\\", line 668, in exec_module\\n  File \\\"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/modules/bigip_command.py\\\", line 619, in exec_module\\n  File \\\"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/module_utils/icontrol.py\\\", line 551, in tmos_version\\n  File \\\"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/module_utils/bigip.py\\\", line 31, in api\\n  File \\\"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/module_utils/bigip.py\\\", line 52, in connect_via_token_auth\\n  File \\\"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/module_utils/icontrol.py\\\", line 239, in post\\n  File \\\"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible_collections/f5networks/f5_modules/plugins/module_utils/icontrol.py\\\", line 194, in send\\n  File \\\"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible/module_utils/urls.py\\\", line 1486, in open\\n  File \\\"/usr/lib64/python3.8/urllib/request.py\\\", line 222, in urlopen\\n    return opener.open(url, data, timeout)\\n  File \\\"/usr/lib64/python3.8/urllib/request.py\\\", line 525, in open\\n    response = self._open(req, data)\\n  File \\\"/usr/lib64/python3.8/urllib/request.py\\\", line 542, in _open\\n    result = self._call_chain(self.handle_open, protocol, protocol +\\n  File \\\"/usr/lib64/python3.8/urllib/request.py\\\", line 502, in _call_chain\\n    result = func(*args)\\n  File \\\"/tmp/ansible_f5networks.f5_modules.bigip_command_payload_fzssiwg3/ansible_f5networks.f5_modules.bigip_command_payload.zip/ansible/module_utils/urls.py\\\", line 588, in https_open\\n  File \\\"/usr/lib64/python3.8/urllib/request.py\\\", line 1357, in do_open\\n    raise URLError(err)\\nurllib.error.URLError: <urlopen error [Errno -2] Name or service not known>\\n\", \"module_stdout\": \"\", \"msg\": \"MODULE FAILURE\\nSee stdout/stderr for the exact error\", \"rc\": 1}\u001b[0m",
+        "\u001b[0;36m...ignoring\u001b[0m",
+        "\u001b[0;32mok: [f5bigip01.dev.cgr-lab.lan -> localhost]\u001b[0m",
+        "\u001b[0;32mok: [f5bigip03.dev.cgr-lab.lan -> localhost]\u001b[0m",
+        "",
+        "TASK [001_f5_automation_stats : 2.2. Generating results message to be included in final summary list] ***",
+        "\u001b[0;32mok: [f5bigip01.dev.cgr-lab.lan]\u001b[0m",
+        "\u001b[0;32mok: [f5bigip02.dev.cgr-lab.lan]\u001b[0m",
+        "\u001b[0;32mok: [f5bigip03.dev.cgr-lab.lan]\u001b[0m",
+        "",
+        "TASK [001_f5_automation_stats : 2.2. Saving current results to ansible fact, so we can show the overall result later on task 3.1] ***",
+        "\u001b[0;31mfatal: [f5bigip01.dev.cgr-lab.lan]: FAILED! => {\"msg\": \"The task includes an option with an undefined variable. The error was: 'final_summary' is undefined\\n\\nThe error appears to be in '/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml': line 24, column 3, but may\\nbe elsewhere in the file depending on the exact syntax problem.\\n\\nThe offending line appears to be:\\n\\n\\n- name: >\\n  ^ here\\n\"}\u001b[0m",
+        "\u001b[0;31mfatal: [f5bigip02.dev.cgr-lab.lan]: FAILED! => {\"msg\": \"The task includes an option with an undefined variable. The error was: 'final_summary' is undefined\\n\\nThe error appears to be in '/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml': line 24, column 3, but may\\nbe elsewhere in the file depending on the exact syntax problem.\\n\\nThe offending line appears to be:\\n\\n\\n- name: >\\n  ^ here\\n\"}\u001b[0m",
+        "\u001b[0;31mfatal: [f5bigip03.dev.cgr-lab.lan]: FAILED! => {\"msg\": \"The task includes an option with an undefined variable. The error was: 'final_summary' is undefined\\n\\nThe error appears to be in '/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/roles/001_f5_automation_stats/tasks/2_gather_automation_stats.yml': line 24, column 3, but may\\nbe elsewhere in the file depending on the exact syntax problem.\\n\\nThe offending line appears to be:\\n\\n\\n- name: >\\n  ^ here\\n\"}\u001b[0m",
+        "",
+        "PLAY RECAP *********************************************************************",
+        "\u001b[0;31mf5bigip01.dev.cgr-lab.lan\u001b[0m  : \u001b[0;32mok=9   \u001b[0m changed=0    unreachable=0    \u001b[0;31mfailed=1   \u001b[0m skipped=0    rescued=0    ignored=0   ",
+        "\u001b[0;31mf5bigip02.dev.cgr-lab.lan\u001b[0m  : \u001b[0;32mok=9   \u001b[0m changed=0    unreachable=0    \u001b[0;31mfailed=1   \u001b[0m skipped=0    rescued=0    \u001b[1;35mignored=1   \u001b[0m",
+        "\u001b[0;31mf5bigip03.dev.cgr-lab.lan\u001b[0m  : \u001b[0;32mok=9   \u001b[0m changed=0    unreachable=0    \u001b[0;31mfailed=1   \u001b[0m skipped=0    rescued=0    ignored=0   "
+    ],
+    "version": "2.0.0"
+}

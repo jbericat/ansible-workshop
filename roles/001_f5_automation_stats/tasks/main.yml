@@ -1,0 +1,24 @@
+- name: 1. Parse Input Data
+  ansible.builtin.import_tasks: 1_parse_input_data.yml
+
+- name: If input data parsing was OK, then...
+  when: not current_input_data.failed
+  block:
+
+    - name: >
+        2. Gathering automation stats from the
+        [{{ inventory_hostname }}] F5-BIGIP Device, automation ID
+        [{{ current_execution.automation_id }}] and dates
+        [{{ current_execution.dates }}]
+      ansible.builtin.include_tasks: 2_gather_automation_stats.yml
+      vars:
+        automation_id: "{{ current_execution.automation_id }}"
+        date_stats: "{{ current_date }}"
+      loop: "{{ current_execution.dates }}"
+      loop_control:
+        loop_var: current_date
+
+    - name: >
+        3. Show current exec results
+      ansible.builtin.debug:
+        var: current_exec_results

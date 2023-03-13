@@ -1,0 +1,267 @@
+{
+    "plays": [
+        {
+            "___progress": "100%",
+            "__changed": 0,
+            "__failed": 3,
+            "__ignored": 0,
+            "__in progress": 0,
+            "__ok": 0,
+            "__percent_complete": 100,
+            "__play_name": "PLAYBOOK - \"workshop_lab_part_2.yml\" (F5-BIGIP Automation via REST on multiple environments using Ansible inventory files)",
+            "__progress": "Complete",
+            "__skipped": 0,
+            "__task_count": 3,
+            "__unreachable": 0,
+            "name": "PLAYBOOK - \"workshop_lab_part_2.yml\" (F5-BIGIP Automation via REST on multiple environments using Ansible inventory files)",
+            "pattern": "all",
+            "play": "PLAYBOOK - \"workshop_lab_part_2.yml\" (F5-BIGIP Automation via REST on multiple environments using Ansible inventory files)",
+            "play_pattern": "all",
+            "play_uuid": "0242ac11-0003-04df-268a-00000000000d",
+            "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+            "playbook_uuid": "7a6b2dde-5dd8-45dd-bc4e-32c7ba0bf66e",
+            "tasks": [
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip01.dev.cgr-lab.lan",
+                    "__number": 0,
+                    "__result": "Failed",
+                    "__task": "2. Dynamic role (include)",
+                    "__task_action": "ansible.builtin.include_role",
+                    "duration": 0.028756,
+                    "end": "2023-03-13T14:05:51.455425",
+                    "event_loop": null,
+                    "host": "f5bigip01.dev.cgr-lab.lan",
+                    "ignore_errors": null,
+                    "play": "PLAYBOOK - \"workshop_lab_part_2.yml\" (F5-BIGIP Automation via REST on multiple environments using Ansible inventory files)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0003-04df-268a-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7a6b2dde-5dd8-45dd-bc4e-32c7ba0bf66e",
+                    "remote_addr": "f5bigip01.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "msg": "Invalid data passed to 'loop', it requires a list, got this instead: input_csv_data. Hint: If you passed a list/dict of just one element, try adding wantlist=True to your lookup invocation or use q/query instead of lookup."
+                    },
+                    "resolved_action": null,
+                    "start": "2023-03-13T14:05:51.426669",
+                    "task": "2. Dynamic role (include)",
+                    "task_action": "ansible.builtin.include_role",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml:26",
+                    "task_uuid": "0242ac11-0003-04df-268a-000000000015",
+                    "uuid": "eded0617-ca30-41f7-83d7-b5f240461e6a"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip02.dev.cgr-lab.lan",
+                    "__number": 1,
+                    "__result": "Failed",
+                    "__task": "2. Dynamic role (include)",
+                    "__task_action": "ansible.builtin.include_role",
+                    "duration": 0.033347,
+                    "end": "2023-03-13T14:05:51.481388",
+                    "event_loop": null,
+                    "host": "f5bigip02.dev.cgr-lab.lan",
+                    "ignore_errors": null,
+                    "play": "PLAYBOOK - \"workshop_lab_part_2.yml\" (F5-BIGIP Automation via REST on multiple environments using Ansible inventory files)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0003-04df-268a-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7a6b2dde-5dd8-45dd-bc4e-32c7ba0bf66e",
+                    "remote_addr": "f5bigip02.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "msg": "Invalid data passed to 'loop', it requires a list, got this instead: input_csv_data. Hint: If you passed a list/dict of just one element, try adding wantlist=True to your lookup invocation or use q/query instead of lookup."
+                    },
+                    "resolved_action": null,
+                    "start": "2023-03-13T14:05:51.448041",
+                    "task": "2. Dynamic role (include)",
+                    "task_action": "ansible.builtin.include_role",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml:26",
+                    "task_uuid": "0242ac11-0003-04df-268a-000000000015",
+                    "uuid": "424c46c4-b777-48f6-aa66-17d79daedc08"
+                },
+                {
+                    "__changed": false,
+                    "__duration": "0s",
+                    "__host": "f5bigip03.dev.cgr-lab.lan",
+                    "__number": 2,
+                    "__result": "Failed",
+                    "__task": "2. Dynamic role (include)",
+                    "__task_action": "ansible.builtin.include_role",
+                    "duration": 0.016899,
+                    "end": "2023-03-13T14:05:51.489790",
+                    "event_loop": null,
+                    "host": "f5bigip03.dev.cgr-lab.lan",
+                    "ignore_errors": null,
+                    "play": "PLAYBOOK - \"workshop_lab_part_2.yml\" (F5-BIGIP Automation via REST on multiple environments using Ansible inventory files)",
+                    "play_pattern": "all",
+                    "play_uuid": "0242ac11-0003-04df-268a-00000000000d",
+                    "playbook": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml",
+                    "playbook_uuid": "7a6b2dde-5dd8-45dd-bc4e-32c7ba0bf66e",
+                    "remote_addr": "f5bigip03.dev.cgr-lab.lan",
+                    "res": {
+                        "_ansible_no_log": null,
+                        "msg": "Invalid data passed to 'loop', it requires a list, got this instead: input_csv_data. Hint: If you passed a list/dict of just one element, try adding wantlist=True to your lookup invocation or use q/query instead of lookup."
+                    },
+                    "resolved_action": null,
+                    "start": "2023-03-13T14:05:51.472891",
+                    "task": "2. Dynamic role (include)",
+                    "task_action": "ansible.builtin.include_role",
+                    "task_args": "",
+                    "task_path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml:26",
+                    "task_uuid": "0242ac11-0003-04df-268a-000000000015",
+                    "uuid": "6ab839c6-47b8-458f-be4f-51cf0f4aa310"
+                }
+            ],
+            "uuid": "0242ac11-0003-04df-268a-00000000000d"
+        }
+    ],
+    "settings_entries": {
+        "ansible-navigator": {
+            "ansible": {
+                "cmdline": "--limit f5bigip --extra-vars @debug/part_3_input.yml",
+                "config": {
+                    "help": false
+                },
+                "doc": {
+                    "help": false,
+                    "plugin": {
+                        "type": "module"
+                    }
+                },
+                "inventory": {
+                    "entries": [
+                        "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/environments/dev"
+                    ],
+                    "help": false
+                },
+                "playbook": {
+                    "help": false,
+                    "path": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/workshop_lab_part_3.yml"
+                }
+            },
+            "ansible-builder": {
+                "help": false,
+                "workdir": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop"
+            },
+            "app": "run",
+            "collection-doc-cache-path": "/home/jbericat/.cache/ansible-navigator/collection_doc_cache.db",
+            "color": {
+                "enable": true,
+                "osc4": true
+            },
+            "editor": {
+                "command": "vi +{line_number} {filename}",
+                "console": true
+            },
+            "exec": {
+                "command": "/bin/bash",
+                "shell": true
+            },
+            "execution-environment": {
+                "container-engine": "docker",
+                "enabled": true,
+                "image": "quay.io/jordi_bericat/ansible-ee:2.13-latest",
+                "pull": {
+                    "policy": "tag"
+                }
+            },
+            "images": {
+                "details": [
+                    "everything"
+                ]
+            },
+            "logging": {
+                "append": true,
+                "file": "/home/jbericat/MyStuff/Repos/GITHUB/ialab-ansible-workshop/logs/ansible-navigator.log",
+                "level": "warning"
+            },
+            "mode": "interactive",
+            "playbook-artifact": {
+                "enable": true,
+                "save-as": "logs/{playbook_name}-artifact-{time_stamp}.json"
+            },
+            "settings": {
+                "effective": false,
+                "sample": false,
+                "schema": "json",
+                "sources": false
+            },
+            "time-zone": "UTC"
+        }
+    },
+    "settings_sources": {
+        "ansible-navigator.ansible-builder.help": "Defaults",
+        "ansible-navigator.ansible-builder.workdir": "Defaults",
+        "ansible-navigator.ansible-lint.config": "Not set",
+        "ansible-navigator.ansible-lint.lintables": "Not set",
+        "ansible-navigator.ansible-runner.artifact-dir": "Not set",
+        "ansible-navigator.ansible-runner.rotate-artifacts-count": "Not set",
+        "ansible-navigator.ansible-runner.timeout": "Not set",
+        "ansible-navigator.ansible.cmdline": "Previous cli command",
+        "ansible-navigator.ansible.config.help": "Defaults",
+        "ansible-navigator.ansible.config.path": "Not set",
+        "ansible-navigator.ansible.doc.help": "Defaults",
+        "ansible-navigator.ansible.doc.plugin.name": "Not set",
+        "ansible-navigator.ansible.doc.plugin.type": "Defaults",
+        "ansible-navigator.ansible.inventory.entries": "Previous cli command",
+        "ansible-navigator.ansible.inventory.help": "Defaults",
+        "ansible-navigator.ansible.playbook.help": "Defaults",
+        "ansible-navigator.ansible.playbook.path": "Previous cli command",
+        "ansible-navigator.app": "Command line",
+        "ansible-navigator.collection-doc-cache-path": "Defaults",
+        "ansible-navigator.color.enable": "Defaults",
+        "ansible-navigator.color.osc4": "Defaults",
+        "ansible-navigator.editor.command": "Defaults",
+        "ansible-navigator.editor.console": "Defaults",
+        "ansible-navigator.exec.command": "Defaults",
+        "ansible-navigator.exec.shell": "Defaults",
+        "ansible-navigator.execution-environment.container-engine": "Automatically determined",
+        "ansible-navigator.execution-environment.container-options": "Not set",
+        "ansible-navigator.execution-environment.enabled": "Defaults",
+        "ansible-navigator.execution-environment.environment-variables.pass": "Not set",
+        "ansible-navigator.execution-environment.environment-variables.set": "Not set",
+        "ansible-navigator.execution-environment.image": "Previous cli command",
+        "ansible-navigator.execution-environment.pull.arguments": "Not set",
+        "ansible-navigator.execution-environment.pull.policy": "Defaults",
+        "ansible-navigator.execution-environment.volume-mounts": "Not set",
+        "ansible-navigator.images.details": "Defaults",
+        "ansible-navigator.inventory-columns": "Not set",
+        "ansible-navigator.logging.append": "Defaults",
+        "ansible-navigator.logging.file": "Previous cli command",
+        "ansible-navigator.logging.level": "Defaults",
+        "ansible-navigator.mode": "Defaults",
+        "ansible-navigator.playbook-artifact.enable": "Defaults",
+        "ansible-navigator.playbook-artifact.replay": "Not set",
+        "ansible-navigator.playbook-artifact.save-as": "Previous cli command",
+        "ansible-navigator.settings.effective": "Defaults",
+        "ansible-navigator.settings.sample": "Defaults",
+        "ansible-navigator.settings.schema": "Defaults",
+        "ansible-navigator.settings.sources": "Defaults",
+        "ansible-navigator.time-zone": "Defaults",
+        "settings_file_path": "None",
+        "settings_file_source": "None"
+    },
+    "status": "failed",
+    "status_color": 9,
+    "stdout": [
+        "",
+        "PLAY [PLAYBOOK - \"workshop_lab_part_2.yml\" (F5-BIGIP Automation via REST on multiple environments using Ansible inventory files)] ***",
+        "",
+        "TASK [2. Dynamic role (include)] ***********************************************",
+        "\u001b[0;31mfatal: [f5bigip01.dev.cgr-lab.lan]: FAILED! => {\"msg\": \"Invalid data passed to 'loop', it requires a list, got this instead: input_csv_data. Hint: If you passed a list/dict of just one element, try adding wantlist=True to your lookup invocation or use q/query instead of lookup.\"}\u001b[0m",
+        "\u001b[0;31mfatal: [f5bigip02.dev.cgr-lab.lan]: FAILED! => {\"msg\": \"Invalid data passed to 'loop', it requires a list, got this instead: input_csv_data. Hint: If you passed a list/dict of just one element, try adding wantlist=True to your lookup invocation or use q/query instead of lookup.\"}\u001b[0m",
+        "\u001b[0;31mfatal: [f5bigip03.dev.cgr-lab.lan]: FAILED! => {\"msg\": \"Invalid data passed to 'loop', it requires a list, got this instead: input_csv_data. Hint: If you passed a list/dict of just one element, try adding wantlist=True to your lookup invocation or use q/query instead of lookup.\"}\u001b[0m",
+        "",
+        "PLAY RECAP *********************************************************************",
+        "\u001b[0;31mf5bigip01.dev.cgr-lab.lan\u001b[0m  : ok=0    changed=0    unreachable=0    \u001b[0;31mfailed=1   \u001b[0m skipped=0    rescued=0    ignored=0   ",
+        "\u001b[0;31mf5bigip02.dev.cgr-lab.lan\u001b[0m  : ok=0    changed=0    unreachable=0    \u001b[0;31mfailed=1   \u001b[0m skipped=0    rescued=0    ignored=0   ",
+        "\u001b[0;31mf5bigip03.dev.cgr-lab.lan\u001b[0m  : ok=0    changed=0    unreachable=0    \u001b[0;31mfailed=1   \u001b[0m skipped=0    rescued=0    ignored=0   "
+    ],
+    "version": "2.0.0"
+}

@@ -6,6 +6,6 @@ ansible-navigator \
     --extra-vars @debug/part_3_input.yml \
     --vault-password-file ~/.vault/.dev_vault_password \
     --lf logs/ansible-navigator.log \
-    --pas logs/{playbook_name}-artifact-{time_stamp}.json
-
+    --pas logs/{playbook_name}-artifact-{time_stamp}.json \
+    --tags demo_include,demo_import
     # --forks 1 \

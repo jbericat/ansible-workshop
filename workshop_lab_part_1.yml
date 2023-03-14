@@ -18,7 +18,7 @@
       [{{ inventory_file|regex_replace(playbook_dir,'') }}] inventory via 
       SSH
     ansible.builtin.shell:
-      cmd: >
+      cmd: >-
         tmsh list ltm virtual creation-time description |
         grep -A 1 '{{ date_stats }}' |
         grep '{{ automation_id }}' -c
@@ -27,7 +27,7 @@
 
   - name: 3. SHOW RESULTS
     debug:
-      msg: >
+      msg: >-
         total balanced services created on [{{ date_stats }}] =
         [{{ results.stdout|default(none) }}]
 ...

@@ -5,27 +5,27 @@
   hosts: all
   vars_files:
     - "{{ playbook_dir + vault_file }}"
-  gather_facts: no
+  gather_facts: false
   tasks:
 
-  - name: >
-      1. Gathering all the balanced services created for the
-      [{{ inventory_hostname }}] F5-BIGIP device from the
-      [{{ inventory_file|regex_replace(playbook_dir,'') }}] inventory
-      via REST
-    f5networks.f5_modules.bigip_command:
-      provider: "{{ f5_provider }}"
-      commands: > 
-        list ltm virtual creation-time description |
-        grep -A 1 '{{ date_stats }}' |
-        grep '{{ automation_id }}' -c
-    register: results
-    delegate_to: localhost
-    ignore_errors: true
+    - name: >
+        1. Gathering all the balanced services created for the
+        [{{ inventory_hostname }}] F5-BIGIP device from the
+        [{{ inventory_file | regex_replace(playbook_dir, '') }}] inventory
+        via REST
+      f5networks.f5_modules.bigip_command:
+        provider: "{{ f5_provider }}"
+        commands: >-
+          list ltm virtual creation-time description |
+          grep -A 1 '{{ date_stats }}' |
+          grep '{{ automation_id }}' -c
+      register: results
+      delegate_to: localhost
+      ignore_errors: true
 
-  - name: 2. SHOW RESULTS
-    debug:
-      msg: >
-        total balanced services created on [{{ date_stats }}] =
-        [{{ results.stdout|default(none) }}]
+    - name: 2. SHOW RESULTS
+      ansible.builtin.debug:
+        msg: >-
+          total balanced services created on [{{ date_stats }}] =
+          [{{ results.stdout | default(none) }}]
 ...
